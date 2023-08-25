@@ -20,6 +20,8 @@ namespace Blog.Data.Context
         public DbSet<Image> Images { get; set; }
         public DbSet<Visitor> Visitors { get; set; }
         public DbSet<ArticleVisitor> ArticleVisitors { get; set; }
+        public DbSet<Product> Products { get; set; }
+        public DbSet<Comment> Comments { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

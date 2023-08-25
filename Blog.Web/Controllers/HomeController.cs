@@ -61,7 +61,7 @@ namespace Blog.Web.Controllers
             else
             {
                 await unitOfWork.GetRepository<ArticleVisitor>().AddAsync(addArticleVisitors);
-                article.ViewCount += 1;
+                article.Views += 1;
                 await unitOfWork.GetRepository<Article>().UpdateAsync(article);
                 await unitOfWork.SaveAsync();
             }

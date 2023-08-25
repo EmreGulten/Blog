@@ -1,38 +1,38 @@
 ﻿using Blog.Core.Entities;
+using System.Globalization;
+using System.Text.RegularExpressions;
+using System.Text;
 
 namespace Blog.Entity.Entities
 {
     public class Article : EntityBase
     {
+
         public Article()
         {
-
-        }
-        public Article(string title, string content,string metaTitle, string metaDescription,string tag,string author, Guid userId, string createdBy, Guid categoryId, Guid imageId)
-        {
-            Title = title;
-            Content = content;
-            MetaTitle = metaTitle;
-            MetaDescription = metaDescription;
-            Tag = tag;
-            Author = author;
-            UserId = userId;
-            CategoryId = categoryId;
-            ImageId = imageId;
-            CreatedBy = createdBy;
+            Tags = new List<string>();
+            Comments = new List<Comment>();
+            Keywords = new List<string>();
+            AlternateUrls = new List<string>();
+            RelatedPosts = new List<string>();
+            IsPublished = false;
+            IsFeatured = false;
+            MetaRobots = "index, follow";
         }
 
         public string Title { get; set; }
         public string Content { get; set; }
-        public int ViewCount { get; set; } = 0;
-
-        public string MetaTitle { get; set; }
-        public string MetaDescription { get; set; }
-        public string Tag { get; set; }
         public string Author { get; set; }
+        public DateTime PublishDate { get; set; }
+        public List<string> Tags { get; set; }
+        public int Views { get; set; }
 
+        public Guid? CommentId { get; set; }
+        public List<Comment> Comments { get; set; }
         public Guid CategoryId { get; set; }
         public Category Category { get; set; }
+        public bool IsPublished { get; set; }
+        public bool IsFeatured { get; set; }
 
         public Guid? ImageId { get; set; }
         public Image Image { get; set; }
@@ -41,5 +41,115 @@ namespace Blog.Entity.Entities
         public AppUser User { get; set; }
 
         public ICollection<ArticleVisitor> ArticleVisitors { get; set; }
+
+        public string Slug
+        {
+            get { return GenerateSlug(Title); }
+        }
+
+        public string MetaTitle
+        {
+            get { return GenerateMetaTitle(Title); }
+        }
+
+        public string MetaDescription
+        {
+            get { return GenerateMetaDescription(Content); }
+        }
+
+        public List<string> Keywords { get; set; }
+        public string CanonicalUrl { get; set; }
+        public string MetaRobots { get; set; }
+        public string OpenGraphImage { get; set; }
+        public string TwitterCardImage { get; set; }
+
+        public List<string> AlternateUrls { get; set; }
+        public List<string> RelatedPosts { get; set; }
+
+       
+        public void IncreaseViews()
+        {
+            Views++;
+        }
+
+        public void AddComment(string commenter, string text)
+        {
+            Comments.Add(new Comment { UserName = commenter, CommentText = text, CommentDate = DateTime.Now });
+        }
+
+        public void AddAlternateUrl(string url)
+        {
+            AlternateUrls.Add(url);
+        }
+
+        public void AddRelatedPost(string url)
+        {
+            RelatedPosts.Add(url);
+        }
+
+        public void AddKeyword(string keyword)
+        {
+            Keywords.Add(keyword);
+        }
+
+        private string GenerateSlug(string input)
+        {
+            // Küçük harfe çevirme ve gereksiz boşlukları kaldırma
+            input = input.ToLower().Trim();
+
+            // Unicode karakterleri Latin harflerine dönüştürme
+            input = RemoveDiacritics(input);
+
+            // Boşlukları tire ile değiştirme
+            input = Regex.Replace(input, @"\s+", "-");
+
+            // Sadece harf, rakam, tire ve alt çizgi karakterlerini kabul etme
+            input = Regex.Replace(input, @"[^a-z0-9\-_]", "");
+
+            // Ardışık tireleri temizleme
+            input = Regex.Replace(input, @"\-{2,}", "-");
+
+            // Max 100 karaktere sınırlama
+            if (input.Length > 100)
+            {
+                input = input.Substring(0, 100);
+            }
+
+            // Eğer son karakter tire ise kaldırma
+            input = input.TrimEnd('-');
+
+            return input;
+        }
+
+        // Unicode karakterleri Latin harflerine dönüştürme işlemi için yardımcı metod
+        private string RemoveDiacritics(string text)
+        {
+            string normalizedString = text.Normalize(NormalizationForm.FormD);
+            StringBuilder stringBuilder = new StringBuilder();
+
+            foreach (char c in normalizedString)
+            {
+                if (CharUnicodeInfo.GetUnicodeCategory(c) != UnicodeCategory.NonSpacingMark)
+                {
+                    stringBuilder.Append(c);
+                }
+            }
+
+            return stringBuilder.ToString().Normalize(NormalizationForm.FormC);
+        }
+
+        private string GenerateMetaTitle(string input)
+        {
+            const int maxLength = 70;
+            return input.Length <= maxLength ? input : input.Substring(0, maxLength);
+        }
+
+        private string GenerateMetaDescription(string input)
+        {
+            const int maxLength = 160;
+            return input.Length <= maxLength ? input : input.Substring(0, maxLength);
+        }
     }
+
 }
+

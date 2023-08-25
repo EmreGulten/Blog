@@ -61,8 +61,7 @@ namespace Blog.Service.Services.Concrete
             Image image = new(imageUpload.FullName, articleAddDto.Photo.ContentType, userEmail);
             await unitOfWork.GetRepository<Image>().AddAsync(image);
 
-            var article = new Article(articleAddDto.Title, articleAddDto.Content,"","","","", userId, userEmail, articleAddDto.CategoryId, image.Id);
-
+            var article = mapper.Map<Article>(articleAddDto);
 
             await unitOfWork.GetRepository<Article>().AddAsync(article);
             await unitOfWork.SaveAsync();
