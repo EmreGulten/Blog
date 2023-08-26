@@ -10,11 +10,11 @@ namespace Blog.Entity.Entities
 
         public Article()
         {
-            Tags = new List<string>();
+            Tags = new List<Tag>();
             Comments = new List<Comment>();
-            Keywords = new List<string>();
-            AlternateUrls = new List<string>();
-            RelatedPosts = new List<string>();
+            Keywords = new List<Keyword>();
+            AlternateUrls = new List<AlternateUrl>();
+            RelatedPosts = new List<RelatedPost>();
             IsPublished = false;
             IsFeatured = false;
             MetaRobots = "index, follow";
@@ -24,7 +24,8 @@ namespace Blog.Entity.Entities
         public string Content { get; set; }
         public string Author { get; set; }
         public DateTime PublishDate { get; set; }
-        public List<string> Tags { get; set; }
+        public int TagId { get; set; }
+        public List<Tag> Tags { get; set; }
         public int Views { get; set; }
 
         public Guid? CommentId { get; set; }
@@ -57,14 +58,14 @@ namespace Blog.Entity.Entities
             get { return GenerateMetaDescription(Content); }
         }
 
-        public List<string> Keywords { get; set; }
-        public string CanonicalUrl { get; set; }
-        public string MetaRobots { get; set; }
-        public string OpenGraphImage { get; set; }
-        public string TwitterCardImage { get; set; }
+        public List<Keyword> Keywords { get; set; }
+        public string? CanonicalUrl { get; set; }
+        public string? MetaRobots { get; set; }
+        public string? OpenGraphImage { get; set; }
+        public string? TwitterCardImage { get; set; }
 
-        public List<string> AlternateUrls { get; set; }
-        public List<string> RelatedPosts { get; set; }
+        public List<AlternateUrl> AlternateUrls { get; set; }
+        public List<RelatedPost> RelatedPosts { get; set; }
 
        
         public void IncreaseViews()
@@ -77,17 +78,17 @@ namespace Blog.Entity.Entities
             Comments.Add(new Comment { UserName = commenter, CommentText = text, CommentDate = DateTime.Now });
         }
 
-        public void AddAlternateUrl(string url)
+        public void AddAlternateUrl(AlternateUrl url)
         {
             AlternateUrls.Add(url);
         }
 
-        public void AddRelatedPost(string url)
+        public void AddRelatedPost(RelatedPost url)
         {
             RelatedPosts.Add(url);
         }
 
-        public void AddKeyword(string keyword)
+        public void AddKeyword(Keyword keyword)
         {
             Keywords.Add(keyword);
         }
@@ -150,6 +151,43 @@ namespace Blog.Entity.Entities
             return input.Length <= maxLength ? input : input.Substring(0, maxLength);
         }
     }
+
+    public class Tag
+    {
+        public int Id { get; set; }
+        public string Tags { get; set; }
+
+        public Guid ArticleId { get; set; }
+        public Article Article { get; set; }
+    }
+
+    public class Keyword
+    {
+        public int Id { get; set; }
+        public string Keywords { get; set; }
+
+        public Guid ArticleId { get; set; }
+        public Article Article { get; set; }
+    }
+
+    public class AlternateUrl
+    {
+        public int Id { get; set; }
+        public string AlternateUrls { get; set; }
+
+        public Guid ArticleId { get; set; }
+        public Article Article { get; set; }
+    }
+
+    public class RelatedPost
+    {
+        public int Id { get; set; }
+        public string RelatedPosts { get; set; }
+
+        public Guid ArticleId { get; set; }
+        public Article Article { get; set; }
+    }
+
 
 }
 

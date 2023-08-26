@@ -8,15 +8,17 @@ namespace Blog.Data.Mappings
     {
         public void Configure(EntityTypeBuilder<Comment> builder)
         {
-            builder.HasData(new Comment
-            {
-                UserName = "admin",
-                Email = "admin",
-                CommentText = "admin",
-                CommentDate = DateTime.Now,
-                CommentStatus = true,
-                ArticleId = Guid.Parse("C461FB49-94CC-4862-886D-5018BEB425A4")
-            });
+            //builder.HasData(new Comment
+            //{
+            //    UserName = "admin",
+            //    Email = "admin",
+            //    CommentText = "admin",
+            //    CommentDate = DateTime.Now,
+            //    CommentStatus = true,
+            //    ArticleId = Guid.Parse("C461FB49-94CC-4862-886D-5018BEB425A4")
+            //});
+
+            builder.HasKey(x => new {x.Id , x.ArticleId});
         }
     }
 }

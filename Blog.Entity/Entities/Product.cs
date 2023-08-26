@@ -10,17 +10,17 @@ namespace Blog.Entity.Entities
         public Product()
         {
             Category = new List<Category>();
-            Tags = new List<string>();
+            Tags = new List<TagProduct>();
             StockQuantity = 0;
             IsFeatured = false;
-            RelatedProducts = new List<string>();
+            RelatedProducts = new List<RelatedProduct>();
         }
         public string Name { get; set; }
         public string Description { get; set; }
         public decimal Price { get; set; }
         public Guid CategoryId { get; set; }
         public List<Category> Category { get; set; }
-        public List<string> Tags { get; set; }
+        public List<TagProduct> Tags { get; set; }
         public int StockQuantity { get; set; }
         public bool IsFeatured { get; set; }
 
@@ -39,15 +39,15 @@ namespace Blog.Entity.Entities
             get { return GenerateMetaDescription(Description); }
         }
 
-        public string CanonicalUrl { get; set; }
-        public string OpenGraphImage { get; set; }
-        public string TwitterCardImage { get; set; }
+        public string? CanonicalUrl { get; set; }
+        public string? OpenGraphImage { get; set; }
+        public string? TwitterCardImage { get; set; }
 
-        public List<string> RelatedProducts { get; set; }
+        public List<RelatedProduct> RelatedProducts { get; set; }
 
-        public void AddRelatedProduct(string productId)
+        public void AddRelatedProduct(RelatedProduct product)
         {
-            RelatedProducts.Add(productId);
+            RelatedProducts.Add(product);
         }
 
         private string GenerateSlug(string input)
@@ -92,5 +92,17 @@ namespace Blog.Entity.Entities
             const int maxLength = 160;
             return input.Length <= maxLength ? input : input.Substring(0, maxLength);
         }
+    }
+
+    public class TagProduct
+    {
+        public int Id { get; set; }
+        public string Tags { get; set; }
+    }
+
+    public class RelatedProduct
+    {
+        public int Id { get; set; }
+        public string RelatedProducts { get; set; }
     }
 }
