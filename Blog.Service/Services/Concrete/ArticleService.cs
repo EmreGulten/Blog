@@ -48,7 +48,8 @@ namespace Blog.Service.Services.Concrete
                 CurrentPage = currentPage,
                 PageSize = pageSize,
                 TotalCount = articles.Count,
-                IsAscending = isAscending
+                IsAscending = isAscending,
+                
             };
         }
         public async Task CreateArticleAsync(ArticleAddDto articleAddDto)

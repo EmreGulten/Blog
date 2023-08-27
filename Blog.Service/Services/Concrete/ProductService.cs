@@ -14,16 +14,15 @@ namespace Blog.Service.Services.Concrete
         private readonly IUnitOfWork unitOfWork;
         private readonly IMapper mapper;
         private readonly IHttpContextAccessor httpContextAccessor;
-        private readonly ClaimsPrincipal _user;
+        private  ClaimsPrincipal _user;
 
-        public ProductService(IUnitOfWork unitOfWork, IMapper mapper, IHttpContextAccessor httpContextAccessor, ClaimsPrincipal user)
+        public ProductService(IUnitOfWork unitOfWork, IMapper mapper, IHttpContextAccessor httpContextAccessor)
         {
             this.unitOfWork = unitOfWork;
             this.mapper = mapper;
             this.httpContextAccessor = httpContextAccessor;
-            _user = httpContextAccessor.HttpContext.User;
         }
-
+        private ClaimsPrincipal CurrentUser => _user ??= httpContextAccessor.HttpContext?.User;
         public async Task CreateProductAsync(ProductAddDto productAdd)
         {
             var product = mapper.Map<Product>(productAdd);
@@ -41,6 +40,12 @@ namespace Blog.Service.Services.Concrete
         {
             var product = await unitOfWork.GetRepository<Product>().GetAllAsync(x => !x.IsDeleted);
             return mapper.Map<List<ProductDto>>(product);
+        }
+
+        public async Task<Product> GetProductyByGuid(Guid id)
+        {
+            var product = await unitOfWork.GetRepository<Product>().GetByGuidAsync(id);
+            return product;
         }
 
         public async Task<string> SafeDeleteProductAsync(Guid productId)

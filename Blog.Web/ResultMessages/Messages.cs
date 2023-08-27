@@ -40,6 +40,47 @@
                 return $"{categoryName} başlıklı kategori başarıyla geri alınmıştır.";
             }
         }
+
+        public static class Product
+        {
+            public static string Add(string productName)
+            {
+                return $"{productName} isimli ürün başarıyla eklenmiştir.";
+            }
+            public static string Update(string productName)
+            {
+                return $"{productName} isimli ürün başarıyla güncellenmiştir.";
+            }
+            public static string Delete(string productName)
+            {
+                return $"{productName} isimli ürün başarıyla silinmiştir.";
+            }
+            public static string UndoDelete(string productName)
+            {
+                return $"{productName} isimli ürün başarıyla geri alınmıştır.";
+            }
+        }
+
+        public static class Comment
+        {
+            public static string Add(string userName)
+            {
+                return $"{userName} isimli kullanıcının yorumu başarıyla eklenmiştir.";
+            }
+            public static string Update(string userName)
+            {
+                return $"{userName} isimli kullanıcının yorumu başarıyla güncellenmiştir.";
+            }
+            public static string Delete(string userName)
+            {
+                return $"{userName} isimli kullanıcının yorumu başarıyla silinmiştir.";
+            }
+            public static string UndoDelete(string userName)
+            {
+                return $"{userName} isimli kullanıcının yorumu başarıyla geri alınmıştır.";
+            }
+        }
+
         public static class User
         {
             public static string Add(string userName)
@@ -54,6 +95,15 @@
             {
                 return $"{userName} email adresli kullanıcı başarıyla silinmiştir.";
             }
+        }
+
+        public static class Mail
+        {
+            public static string Send(string mail)
+            {
+                return $"{mail} email  başarıyla gönderilmiştir.";
+            }
+           
         }
     }
 }

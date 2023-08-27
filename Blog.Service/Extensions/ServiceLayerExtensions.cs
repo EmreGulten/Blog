@@ -21,8 +21,11 @@ namespace Blog.Service.Extensions
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IImageHelper, ImageHelper>();
             services.AddScoped<IDashbordService, DashboardService>();
+           
 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddScoped<IProductService, ProductService>();
+            services.AddScoped<IMailService, MailService>();
 
             services.AddAutoMapper(assembly);
 

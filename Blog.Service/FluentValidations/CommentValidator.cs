@@ -1,16 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Blog.Entity.Entities;
+using FluentValidation;
 
 namespace Blog.Service.FluentValidations
 {
-    public class CommentValidator
+    public class CommentValidator : AbstractValidator<Comment>
     {
         public CommentValidator()
         {
-
+            RuleFor(comment => comment.CommentText).NotEmpty().WithMessage("Comment is required.");
         }
     }
 }

@@ -43,6 +43,12 @@ namespace Blog.Service.Services.Concrete
             return mapper.Map<List<CommentsDto>>(comment);
         }
 
+        public async Task<Comment> GetProductyByGuid(Guid id)
+        {
+            var comment = await unitOfWork.GetRepository<Comment>().GetByGuidAsync(id);
+            return comment;
+        }
+
         public async Task<string> SafeDeleteCommentAsync(Guid commentId)
         {
             var userId = _user.GetLoggedInUserId();

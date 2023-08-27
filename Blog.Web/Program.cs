@@ -1,3 +1,4 @@
+using Blog.Core.Utilities.Extensions;
 using Blog.Data.Context;
 using Blog.Data.Extensions;
 using Blog.Entity.Entities;
@@ -23,6 +24,9 @@ builder.Services.AddControllersWithViews(opt =>
         TimeOut = 3000,
     })
     .AddRazorRuntimeCompilation();
+
+builder.Services.Configure<SmtpSettings>(builder.Configuration.GetSection("SmtpSettings"));
+builder.Services.ConfigureWritable<SmtpSettings>(builder.Configuration.GetSection("SmtpSettings"));
 
 builder.Services.AddIdentity<AppUser, AppRole>(opt =>
 {

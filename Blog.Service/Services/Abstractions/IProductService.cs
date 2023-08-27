@@ -1,4 +1,5 @@
 ﻿using Blog.Entity.DTOs.Products;
+using Blog.Entity.Entities;
 
 namespace Blog.Service.Services.Abstractions
 {
@@ -6,6 +7,7 @@ namespace Blog.Service.Services.Abstractions
     {
         Task<List<ProductDto>> GetAllProductNonDeleted();
         Task<List<ProductDto>> GetAllProductDeleted();
+        Task<Product> GetProductyByGuid(Guid id);
         Task CreateProductAsync(ProductAddDto productAdd);
         Task<string> UpdateProductAsync(ProductUpdateDto productUpdate);
         Task<string> SafeDeleteProductAsync(Guid productId);

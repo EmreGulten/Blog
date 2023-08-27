@@ -1,0 +1,90 @@
+﻿@model ArticleListDto
+
+
+<section class="pager-sec overlay-dark">
+    <div class="container">
+        <div class="pager-sec-details">
+            <h2>Latest Blog</h2>
+            <ul class="breadcrumb">
+                <li><a href="#" title="">Home</a></li>
+                <li><span>Latest Blog</span></li>
+            </ul>
+        </div><!--pager-sec-details end-->
+    </div>
+</section><!--pager-sec end-->
+
+<section class="page-content">
+    <div class="container">
+        <div class="blog-items-sec">
+            <div class="row">
+
+                @{
+                    foreach (var item in Model.Articles)
+                    {
+                        <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                            <div class="blog-post">
+                                <div class="blog-thumbnail">
+                                    <img src="@item.Image.FileName" alt="">
+                                    <span class="category-name">@item.Category.Name</span>
+                                    <a href="blog-single.html" title="" class="ext-link"></a>
+                                </div>
+                                <div class="blog-info">
+                                    <h2><a href="blog-single.html" title="">@item.Title</a></h2>
+                                    <p>@item.Content</p>
+                                    <div class="posted-by-row">
+                                        <img src="@item.Image.Users" alt="">
+                                        <h4>@item.User.FirstName @item.User.LastName     <span>@item.CreatedDate.ToString("dd/MM/yyyy")</span></h4>
+                                        <a href="#" title=""><i class="fa fa-share-alt"></i></a>
+                                    </div><!--posted-by-row end-->
+                                </div>
+                            </div><!--blog-post end-->
+                        </div>
+                    }
+                }
+
+
+
+            </div>
+        </div><!--blog-items-sec end-->
+        <div class="serity-pagination">
+            <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                    @if (Model.ShowPrevious)
+                    {
+                        <li class="page-item">
+                            <a class="page-link" asp-route-currentPage="@(Model.CurrentPage - 1)" asp-route-pageSize="@Model.PageSize"> Önceki </a>
+                        </li>
+                    }
+                    @for (int i = 1; i < Model.TotalPages; i++)
+                    {
+                        <li class="page-item">
+                            <a class="page-link" asp-route-currentPage="@i" asp-route-pageSize="@Model.PageSize"> @i </a>
+                        </li>
+                    }
+                    @if (Model.ShowNext)
+                    {
+                        <li class="page-item">
+                            <a class="page-link" asp-route-currentPage="@(Model.CurrentPage + 1)" asp-route-pageSize="@Model.PageSize"> Sonraki </a>
+                        </li>
+                    }
+                    
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section><!--page-content end-->
+
+<section class="partner-section">
+    <div class="container">
+        <ul class="pt-carousel">
+            <li><img src="https://via.placeholder.com/108x100" alt=""></li>
+            <li><img src="https://via.placeholder.com/108x100" alt=""></li>
+            <li><img src="https://via.placeholder.com/108x100" alt=""></li>
+            <li><img src="https://via.placeholder.com/108x100" alt=""></li>
+            <li><img src="https://via.placeholder.com/108x100" alt=""></li>
+            <li><img src="https://via.placeholder.com/108x100" alt=""></li>
+            <li><img src="https://via.placeholder.com/108x100" alt=""></li>
+            <li><img src="https://via.placeholder.com/108x100" alt=""></li>
+        </ul><!--pt-carousel end-->
+    </div>
+</section><!--partner-section end-->

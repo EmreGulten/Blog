@@ -1,49 +1,268 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Blog.Web</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/Blog.Web.styles.css" asp-append-version="true" />
+	<meta charset="UTF-8">
+	<title>Serity CCTV Template</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="" />
+	<meta name="keywords" content="" />
+	<link rel="icon" href="~/Theme/assets/images/favicon.png">
+	<link rel="stylesheet" type="text/css" href="~/Theme/assets/css/animate.css">
+	<link rel="stylesheet" type="text/css" href="~/Theme/assets/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="~/Theme/assets/css/all.min.css">
+	<link rel="stylesheet" type="text/css" href="~/Theme/assets/js/plugin/slick.css">
+	<link rel="stylesheet" type="text/css" href="~/Theme/assets/js/plugin/slick-theme.css">
+	<link rel="stylesheet" type="text/css" href="~/Theme/assets/css/blueimp-gallery.min.css">
+	<link rel="stylesheet" type="text/css" href="~/Theme/assets/css/style.css">
+	<link rel="stylesheet" type="text/css" href="~/Theme/assets/css/responsive.css">
+	<link rel="stylesheet" type="text/css" href="~/Theme/assets/css/color2.css">
 </head>
-<body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Blog.Web</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2023 - Blog.Web - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @await RenderSectionAsync("Scripts", required: false)
+
+<body>
+
+
+	<div class="wrapper">
+
+		<header class="style2">
+			<div class="container">
+				<div class="top_header">
+					<ul class="contact-info">
+						<li>
+							<i class="fa fa-envelope"></i>
+							<span>support@serity.com</span>
+						</li>
+						<li>
+							<i class="fa fa-map-marker-alt"></i>
+							<span>Melbourne VIC 3000, Australia</span>
+						</li>
+					</ul>
+					<!--  Social Links -->
+					<ul class="social-links">
+						<li>
+							<a href="#" title=""><i class="fab fa-facebook-f"></i></a>
+						</li>
+						<li>
+							<a href="#" title=""><i class="fab fa-linkedin-in"></i></a>
+						</li>
+						<li>
+							<a href="#" title=""><i class="fab fa-twitter"></i></a>
+						</li>
+						<li>
+							<a href="#" title=""><i class="fab fa-pinterest-p"></i></a>
+						</li>
+						<li>
+							<a href="#" title=""><i class="fab fa-instagram"></i></a>
+						</li>
+					</ul>
+					<div class="clearfix"></div>
+				</div><!--top_header end-->
+
+
+				<div class="bottom_header">
+					<div class="header-content">
+						<div class="logo">
+							<a href="index.html" title="">
+								<img src="~/Theme/assets/images/logo2.png" alt="">
+							</a>
+						</div><!--logo end-->
+						<a href="#" title="" class="menu-btn"><i class="fa fa-bars"></i></a>
+						<nav>
+							<ul>
+								<li>
+									<a asp-area="" asp-controller="Home" asp-action="Index">Homepage</a>
+									
+								</li>
+								<li>
+									<a asp-area="" asp-controller="Home" asp-action="About">About</a>
+									
+								</li>
+							
+								<li>
+									<a href="#" title="">Blog</a>
+									<ul>
+										<li>
+											<a asp-area="" asp-controller="Home" asp-action="BlogOne">Blog Style One</a>
+											</li>
+										<li>
+											<a asp-area="" asp-controller="Home" asp-action="BlogTwo">Blog Style Two</a>
+											</li>
+									</ul>
+								</li>
+								<li>
+									<a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a>
+									</li>
+							</ul>
+						</nav><!--navigation end-->
+						<a href="contact.html" title="" class="quote-btn">Get A Quote</a>
+						<div class="cart-dv">
+							<a href="shop.html" title="" class="cart-btn">
+								<img src="~/Theme/assets/images/cart2.png" alt="">
+							</a>
+						</div><!--cart-dv end-->
+						<div class="search-frm">
+							<a href="#" title="" class="search-btn">
+								<i class="fa fa-search"></i>
+							</a>
+						</div><!--search-frm end-->
+						<div class="clearfix"></div>
+					</div><!--header-content end-->
+				</div><!--bottom_header end-->
+			</div>
+		</header>
+
+		<div class="mobile-menu">
+			<ul>
+				<li>
+					<a class="active" href="#" title="">Home</a>
+					<ul>
+						<li><a href="index.html" title="">01	Homepage</a></li>
+						<li><a class="active" href="index2.html" title="">02	Homepage</a></li>
+						<li><a href="index3.html" title="">03	Homepage</a></li>
+					</ul>
+				</li>
+				<li><a href="about.html" title="">About</a></li>
+				<li><a href="services.html" title="">Services</a></li>
+				<li>
+					<a href="#" title="">Pages</a>
+					<ul>
+						<li><a href="shop.html" title="">Shop</a></li>
+						<li><a href="shop-details.html" title="">Shop Details</a></li>
+						<li><a href="gallery.html" title="">Gallery</a></li>
+						<li><a href="reference.html" title="">Reference</a></li>
+						<li><a href="project-details.html" title="">Project Details</a></li>
+						<li><a href="prices.html" title="">Prices</a></li>
+						<li><a href="team.html" title="">Team</a></li>
+						<li><a href="team-details.html" title="">Team Details</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="#" title="">Blog</a>
+					<ul>
+						<li><a href="blog.html" title="">Blog Style One</a></li>
+						<li><a href="blog2.html" title="">Blog Style Two</a></li>
+						<li><a href="blog-single.html" title="">Blog Details</a></li>
+					</ul>
+				</li>
+				<li><a href="contact.html" title="">Contact</a></li>
+			</ul>
+		</div><!--mobile-menu end-->
+
+		<div class="search-popup">
+			<form>
+				<input type="text" name="search" placeholder="Enter Your Keyword....">
+				<button type="submit"><i class="fa fa-search"></i></button>
+			</form>
+			<a href="#" title="" class="close-search"><i class="fa fa-window-close"></i></a>
+		</div><!--search-popup end-->
+
+		<section class="banner-section white-box style2">
+			<div class="banner-slider">
+				<div class="banner-slide slick-slide overlay-dark" style="background-image: url(https://via.placeholder.com/1920x965);">
+					<div class="container">
+						<div class="banner-content">
+							<h1>We Secure Your Home Excet Your Thought</h1>
+							<p>2000+ people have put their trust in CCTV, How about You?</p>
+							<a href="#" title="" class="lnk-default">Start Now</a>
+						</div><!--banner-content end-->
+						<div class="clearfix"></div>
+					</div>
+				</div><!--banner-slide end-->
+				<div class="banner-slide slick-slide overlay-dark" style="background-image: url(https://via.placeholder.com/1920x965);">
+					<div class="container">
+						<div class="banner-content">
+							<h1>Safty and Security at your Fingertips</h1>
+							<p>2000+ people have put their trust in CCTV, How about You?</p>
+							<a href="#" title="" class="lnk-default">Start Now</a>
+						</div><!--banner-content end-->
+						<div class="clearfix"></div>
+					</div>
+				</div><!--banner-slide end-->
+				<div class="banner-slide slick-slide overlay-dark" style="background-image: url(https://via.placeholder.com/1920x965);">
+					<div class="container">
+						<div class="banner-content">
+							<h1>A Safe & Secure Home For You and Your Family</h1>
+							<p>2000+ people have put their trust in CCTV, How about You?</p>
+							<a href="#" title="" class="lnk-default">Start Now</a>
+						</div><!--banner-content end-->
+						<div class="clearfix"></div>
+					</div>
+				</div><!--banner-slide end-->
+			</div><!--banner-slider end-->
+		</section><!--banner-section end-->
+
+		
+
+
+		@RenderBody()
+
+		<footer>
+			<div class="main-footer">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-4 col-md-6 col-sm-6">
+							<div class="widget widget-about">
+								<img src="~/Theme/assets/images/logo2.png" alt="">
+								<p>Security as a topic has continued to rise in popularity in the recent couple of years, and it comes as a no surprise.</p>
+								<p>Security and privacy are two sides of the same coin. You can’t have privacy without security and vice versa.</p>
+							</div><!--widget-about end-->
+						</div>
+						<div class="col-lg-4 col-md-6 col-sm-6">
+							<div class="widget widget-services">
+								<h3 class="widget-title">Services</h3>
+								<ul>
+									<li><i class="fa fa-map-marker-alt"></i> <span>Melbourne Main Street VIC 3000, Australia</span></li>
+									<li><i class="fa fa-envelope"></i> <span>support@serity.com</span></li>
+									<li><i class="fa fa-phone-volume"></i> <span>+9200 (2) 345 6789</span></li>
+								</ul>
+							</div><!--widget-services end-->
+						</div>
+						<div class="col-lg-4">
+							<div class="widget widget-social">
+								<h3 class="widget-title">Follow Us</h3>
+								<ul class="socio-links">
+									<li><a href="#" title=""><i class="fab fa-facebook-f"></i></a></li>
+									<li><a href="#" title=""><i class="fab fa-linkedin-in"></i></a></li>
+									<li><a href="#" title=""><i class="fab fa-twitter"></i></a></li>
+									<li><a href="#" title=""><i class="fab fa-instagram"></i></a></li>
+								</ul>
+							</div><!--widget-social end-->
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="bottom-strip">
+				<div class="container">
+					<div class="copyright-text">
+						<p>Copyright © 2020, Serity. All Right Reserved</p>
+						<a href="#" title="" class="scrollUp"><i class="fa fa-level-up-alt"></i></a>
+					</div>
+				</div>
+			</div>
+		</footer><!--footer end-->
+
+
+	</div><!--wrapper end-->
+
+
+
+	<script src="~/Theme/assets/js/jquery.min.js"></script>
+	<script src="~/Theme/assets/js/popper.js"></script>
+	<script src="~/Theme/assets/js/bootstrap.min.js"></script>
+	<script src="~/Theme/assets/js/plugin/slick.min.js"></script>
+	<script src="~/Theme/assets/js/plugin/waypoint.js"></script>
+	<script src="~/Theme/assets/js/plugin/jquery.counterup.min.js"></script>
+	<script src="~/Theme/assets/js/plugin/blueimp-gallery.min.js"></script>
+	<script src="~/Theme/assets/js/jquery.validate.min.js"></script>
+	<script src="~/Theme/assets/js/validator.js"></script>
+	<script src="~/Theme/assets/js/plugin/html5lightbox.js"></script>
+	<script src="~/Theme/assets/js/script.js"></script>
+
+	<!-- Maps -->
+	<script src="~/Theme/assets/js/map2.js"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"></script>
+
 </body>
+
 </html>

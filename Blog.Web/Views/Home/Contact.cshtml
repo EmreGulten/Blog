@@ -1,0 +1,96 @@
+﻿@model EmailSendDto
+
+<section class="page-content">
+	<div class="container">
+		<div class="contact-contt-info">
+			<div class="row">
+				<div class="col-lg-4 col-md-6 col-sm-12 col-12">
+					<div class="cct-info">
+						<img src="assets/images/logo.png" alt="">
+						<h3>Serity Group Headquaters</h3>
+						<p>Melbourne Main Street VIC 26-BB 3000, Australia</p>
+					</div><!--cct-info end-->
+				</div>
+				<div class="col-lg-4 col-md-6 col-sm-12 col-12">
+					<div class="cct-jb overlay-2">
+						<h2>You Need <br /> Job?</h2>
+						<a href="#" title="" class="lnk-default">Contact Us</a>
+					</div><!--cct-jb end-->
+				</div>
+				<div class="col-lg-4 col-md-6 col-sm-12 col-12">
+					<div class="primary-contact">
+						<h3>Primary Contact information</h3>
+						<ul class="cot-links">
+							<li>
+								<i class="fa fa-envelope"></i>
+								<span>support@serity.com</span>
+							</li>
+							<li>
+								<i class="fa fa-phone-volume"></i>
+								<span>+9200 (2) 345 6789</span>
+							</li>
+						</ul>
+						<ul class="socio-links">
+							<li><a href="#" title=""><i class="fab fa-facebook-f"></i></a></li>
+							<li><a href="#" title=""><i class="fab fa-linkedin-in"></i></a></li>
+							<li><a href="#" title=""><i class="fab fa-twitter"></i></a></li>
+							<li><a href="#" title=""><i class="fab fa-pinterest-p"></i></a></li>
+							<li><a href="#" title=""><i class="fab fa-instagram"></i></a></li>
+						</ul>
+					</div><!--primary-contact end-->
+				</div>
+			</div>
+		</div><!--contact-contt-info end-->
+		<div class="contact-pg">
+			<div class="sec-title">
+				<span>Contact With us</span>
+				<h2>Get in Touch Now</h2>
+			</div><!--sec-title end-->
+			<div class="contact-form">
+				<form asp-controller="Home" asp-action="Contact" method="post">
+					<div class="form-group no-pt">
+						<div class="missing-message">
+							Populate Missing Fields
+						</div>
+						<div class="success-message">
+							<i class="fa fa-check text-primary"></i> Thank you!. Your message is successfully sent...
+						</div>
+						<div class="error-message">Populate Missing Fields</div>
+					</div><!--form-group end-->
+					<div class="row">
+						<div class="col-lg-6">
+							<div class="form-field">
+								<input type="text" class="form-control" placeholder="İsminiz" asp-for="Name" />
+							</div><!--form-field end-->
+						</div>
+						<div class="col-lg-6">
+							<div class="form-field">
+								<input type="text" class="form-control" placeholder="E-Posta Adresiniz" asp-for="Email" />
+							</div><!--form-field end-->
+						</div>
+						<div class="col-lg-6">
+							<div class="form-field">
+								<input type="text" class="form-control" placeholder="Tel.No" asp-for="Phone" />
+							</div><!--form-field end-->
+						</div>
+						<div class="col-lg-6">
+							<div class="form-field">
+								<input type="text" class="form-control" placeholder="Konu / Başlık" asp-for="Subject" />
+							</div><!--form-field end-->
+						</div>
+						<div class="col-lg-12">
+							<div class="form-field">
+								<textarea class="form-control" placeholder="Mesajınız" style="width: 100%; height: 150px;" asp-for="Message"></textarea>
+							</div><!--form-field end-->
+						</div>
+						<div class="col-lg-12">
+							<div class="form-submit">
+								<button type="submit" name="submit" class="lnk-default submit">Gönder</button>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div><!--contact-pg end-->
+	</div>
+</section><!--page-content end-->

@@ -1,132 +1,1008 @@
-﻿@model ArticleListDto
+﻿<div class="search-popup">
+	<form>
+		<input type="text" name="search" placeholder="Enter Your Keyword....">
+		<button type="submit"><i class="fa fa-search"></i></button>
+	</form>
+	<a href="#" title="" class="close-search"><i class="fa fa-window-close"></i></a>
+</div><!--search-popup end-->
 
-<section class="blog-posts">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8">
-                <div class="all-blog-posts">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            @foreach (var item in Model.Articles)
-                            {
-                                <input type="hidden" id="keyword" value="@Model.CurrentPage" />
-                                <div class="blog-post">
-                                    <div class="blog-thumb">
-                                        <img src="~/stand-blog/assets/images/blog-post-01.jpg" alt="">
-                                    </div>
-                                    <div class="down-content">
-                                        <a asp-controller="Home" asp-action="Detail" asp-route-id="@item.Id"><h4>@item.Title</h4></a>
-                                        <ul class="post-info">
-                                            <li>@item.User.FirstName @item.User.LastName</li>
-                                            <li>@item.CreatedDate.ToString("dd/MM/yyyy")</li>
-                                            <li><i class="fa-solid fa-eye"></i> @item.Views</li>
-                                        </ul>
-                                        <p>
-                                            @(item.Content.Length > 280 ? item.Content.Substring(0, 280) : item.Content) ...
-                                        </p>
-                                        <div class="post-options">
-                                            <div class="row">
-                                                <div class="col-6">
-                                                    <ul class="post-tags">
-                                                        <li><i class="fa fa-tags"></i></li>
-                                                        <li><a href="#">@item.Category.Name</a></li>
-                                                    </ul>
-                                                </div>
-                                                <div class="col-6">
-                                                    <ul class="post-share">
-                                                        <li><i class="fa fa-link"></i></li>
-                                                        <li><a asp-controller="Home" asp-action="Detail" asp-route-id="@item.Id">[Devamını Oku]</a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            }
-                        </div>
-                        <div class="col-lg-12">
-                            @*<div class="main-button">
-                            <a href="blog.html">View All Posts</a>
-                            </div>*@
 
-                            <ul class="pagination justify-content-center mb-4 mt-4 btn-block">
 
-                                @if (Model.ShowPrevious)
-                                {
-                                    <li class="page-item">
-                                        <a class="page-link" asp-route-currentPage="@(Model.CurrentPage - 1)" asp-route-pageSize="@Model.PageSize"> Önceki </a>
-                                    </li>
-                                }
-                                @for (int i = 1; i < Model.TotalPages; i++)
-                                {
-                                    <li class="page-item @(i == Model.CurrentPage ? "active" : "")">
+<section class="abt-block">
+	<div class="container">
+		<div class="about-section">
+			<div class="row">
+				<div class="col-lg-6">
+					<div class="about-img">
+						<img src="https://via.placeholder.com/479x678" alt="">
+						<a href="https://www.youtube.com/watch?v=Gp-WUXakD_Y" title="" class="play-btn html5lightbox"><i class="fa fa-play"></i></a>
+						<div class="abt-thumb">
+							<img src="https://via.placeholder.com/166x166" alt="">
+						</div><!--abt-thumb end-->
+					</div><!--about-img end-->
+				</div>
+				<div class="col-lg-6">
+					<div class="about-text">
+						<span>About Us</span>
+						<h2>We Provide Service <br /> with 20 Years Experience</h2>
+						<p>Unto moved life, form fowl give fourth under his place signs which can’t be open they’re make from i were it moveth morning. Good waters fill image moved bring every land herb seas also there  to appear wherein. Their moving grass. It moving very let doesn’t.</p>
+						<ul class="abt-list">
+							<li>
+								<span><b>01.</b> Schedule Your Tasks</span>
+							</li>
+							<li>
+								<span><b>02.</b> Manage By Control Panel</span>
+							</li>
+							<li>
+								<span><b>03.</b> Smarter Wireless Applications</span>
+							</li>
+						</ul>
+						<div class="sig-text">
+							<div class="txt">
+								<span>For Emergency Fixing or Appointment</span>
+								<h2>+888 56 78 9012</h2>
+							</div>
+							<div class="sig">
+								<img src="https://via.placeholder.com/229x80" alt="">
+							</div>
+							<div class="clearfix"></div>
+						</div>
+						<a href="#" title="" class="lnk-default">More About</a>
+					</div><!--about-text end-->
+				</div>
+			</div>
+		</div><!--about-section end-->
+	</div>
+</section><!--block end-->
 
-                                        <a class="page-link" asp-route-currentPage="@i" asp-route-pageSize="@Model.PageSize"> @i </a>
-                                    </li>
-                                }
-                                @if (Model.ShowNext)
-                                {
-                                    <li class="page-item">
-                                        <a class="page-link" asp-route-currentPage="@(Model.CurrentPage + 1)" asp-route-pageSize="@Model.PageSize"> Sonraki </a>
-                                    </li>
-                                }
+<section class="counter-section">
+	<div class="counter-sec">
+		<div class="row counter-row">
+			<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth">
+				<div class="counter-dv">
+					<div class="ico">
+						<img src="assets/images/icon1.png" alt="">
+					</div>
+					<div class="counter-info">
+						<div class="counter-item">
+							<h2 class="counter">250</h2>
+							<span>+</span>
+						</div>
+						<span>Resdential Area</span>
+					</div>
+				</div><!--counter-dv end-->
+			</div>
+			<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth">
+				<div class="counter-dv">
+					<div class="ico">
+						<img src="assets/images/icon2.png" alt="">
+					</div>
+					<div class="counter-info">
+						<div class="counter-item">
+							<h2 class="counter">50</h2>
+							<span>+</span>
+						</div>
+						<span>Malls & Buildings</span>
+					</div>
+				</div><!--counter-dv end-->
+			</div>
+			<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth">
+				<div class="counter-dv">
+					<div class="ico">
+						<img src="assets/images/icon3.png" alt="">
+					</div>
+					<div class="counter-info">
+						<div class="counter-item">
+							<h2 class="counter">135</h2>
+							<span>+</span>
+						</div>
+						<span>Commerical Space</span>
+					</div>
+				</div><!--counter-dv end-->
+			</div>
+			<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth">
+				<div class="counter-dv">
+					<div class="ico">
+						<img src="assets/images/icon4.png" alt="">
+					</div>
+					<div class="counter-info">
+						<div class="counter-item">
+							<h2 class="counter">10</h2>
+							<span>+</span>
+						</div>
+						<span>Years of Experience</span>
+					</div>
+				</div><!--counter-dv end-->
+			</div>
+		</div>
+	</div><!--counter-sec end-->
+</section><!--counter-section end-->
 
-                            </ul>
+<section class="video-system">
+	<div class="container">
+		<div class="sec-title">
+			<span>What WE Offer</span>
+			<h2>Video Surveillance Systems</h2>
+		</div><!-- sec-title end-->
+		<div class="video-posts-sec">
+			<div class="row vid-carousel">
+				<div class="col-lg-4 col-md-6 col-sm-6 col-12">
+					<div class="video-post">
+						<div class="video-post-thumbnail">
+							<img src="https://via.placeholder.com/350x500" alt="">
+							<div class="vid-post-info">
+								<h2>Home Automation System</h2>
+								<p>What if all the devices in your life could connect to the internet. clocks, speakers, lights, doorbells, cameras, windows, window blinds, hot water heaters.........</p>
+							</div>
+							<a href="services.html" title="" class="ext-link"></a>
+						</div><!--video-post-thumbnail end-->
+						<div class="video-post-info">
+							<a href="#" title="" class="rd-btn"><i class="fa fa-angle-double-right"></i></a>
+							<h2><a href="#" title="">Fingerprint Door Access</a></h2>
+						</div>
+					</div><!--video-post end-->
+				</div>
+				<div class="col-lg-4 col-md-6 col-sm-6 col-12">
+					<div class="video-post">
+						<div class="video-post-thumbnail">
+							<img src="https://via.placeholder.com/350x500" alt="">
+							<div class="vid-post-info">
+								<h2>Home Automation System</h2>
+								<p>What if all the devices in your life could connect to the internet. clocks, speakers, lights, doorbells, cameras, windows, window blinds, hot water heaters.........</p>
+							</div>
+							<a href="services.html" title="" class="ext-link"></a>
+						</div><!--video-post-thumbnail end-->
+						<div class="video-post-info">
+							<a href="#" title="" class="rd-btn"><i class="fa fa-angle-double-right"></i></a>
+							<h2><a href="#" title="">Home Automation System</a></h2>
+						</div>
+					</div><!--video-post end-->
+				</div>
+				<div class="col-lg-4 col-md-6 col-sm-6 col-12">
+					<div class="video-post">
+						<div class="video-post-thumbnail">
+							<img src="https://via.placeholder.com/370x500" alt="">
+							<div class="vid-post-info">
+								<h2>Home Automation System</h2>
+								<p>What if all the devices in your life could connect to the internet. clocks, speakers, lights, doorbells, cameras, windows, window blinds, hot water heaters.........</p>
+							</div>
+							<a href="services.html" title="" class="ext-link"></a>
+						</div><!--video-post-thumbnail end-->
+						<div class="video-post-info">
+							<a href="#" title="" class="rd-btn"><i class="fa fa-angle-double-right"></i></a>
+							<h2><a href="#" title="">Antenna Tagging System</a></h2>
+						</div>
+					</div><!--video-post end-->
+				</div>
+				<div class="col-lg-4 col-md-6 col-sm-6 col-12">
+					<div class="video-post">
+						<div class="video-post-thumbnail">
+							<img src="https://via.placeholder.com/350x500" alt="">
+							<div class="vid-post-info">
+								<h2>Home Automation System</h2>
+								<p>What if all the devices in your life could connect to the internet. clocks, speakers, lights, doorbells, cameras, windows, window blinds, hot water heaters.........</p>
+							</div>
+							<a href="services.html" title="" class="ext-link"></a>
+						</div><!--video-post-thumbnail end-->
+						<div class="video-post-info">
+							<a href="#" title="" class="rd-btn"><i class="fa fa-angle-double-right"></i></a>
+							<h2><a href="#" title="">Fingerprint Door Access</a></h2>
+						</div>
+					</div><!--video-post end-->
+				</div>
+				<div class="col-lg-4 col-md-6 col-sm-6 col-12">
+					<div class="video-post">
+						<div class="video-post-thumbnail">
+							<img src="https://via.placeholder.com/350x500" alt="">
+							<div class="vid-post-info">
+								<h2>Home Automation System</h2>
+								<p>What if all the devices in your life could connect to the internet. clocks, speakers, lights, doorbells, cameras, windows, window blinds, hot water heaters.........</p>
+							</div>
+							<a href="services.html" title="" class="ext-link"></a>
+						</div><!--video-post-thumbnail end-->
+						<div class="video-post-info">
+							<a href="#" title="" class="rd-btn"><i class="fa fa-angle-double-right"></i></a>
+							<h2><a href="#" title="">Home Automation System</a></h2>
+						</div>
+					</div><!--video-post end-->
+				</div>
+				<div class="col-lg-4 col-md-6 col-sm-6 col-12">
+					<div class="video-post">
+						<div class="video-post-thumbnail">
+							<img src="https://via.placeholder.com/370x500" alt="">
+							<div class="vid-post-info">
+								<h2>Home Automation System</h2>
+								<p>What if all the devices in your life could connect to the internet. clocks, speakers, lights, doorbells, cameras, windows, window blinds, hot water heaters.........</p>
+							</div>
+							<a href="services.html" title="" class="ext-link"></a>
+						</div><!--video-post-thumbnail end-->
+						<div class="video-post-info">
+							<a href="#" title="" class="rd-btn"><i class="fa fa-angle-double-right"></i></a>
+							<h2><a href="#" title="">Antenna Tagging System</a></h2>
+						</div>
+					</div><!--video-post end-->
+				</div>
+			</div>
+		</div><!--video-posts-sec end-->
+	</div>
+</section><!--video-system end-->
 
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="sidebar">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="sidebar-item search">
-                                <form id="search_form" asp-controller="Home" asp-action="Search" method="GET">
-                                    <input type="text" name="keyword" class="searchText" placeholder="Arama yapınız..." autocomplete="on">
-                                </form>
-                            </div>
-                        </div>
-                        <div class="col-lg-12">
-                            <div class="sidebar-item recent-posts">
-                                <div class="sidebar-heading">
-                                    <h2>Recent Posts</h2>
-                                </div>
-                                <div class="content">
-                                    <ul>
-                                        <li>
-                                            <a href="post-details.html">
-                                                <h5>Vestibulum id turpis porttitor sapien facilisis scelerisque</h5>
-                                                <span>May 31, 2020</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="post-details.html">
-                                                <h5>Suspendisse et metus nec libero ultrices varius eget in risus</h5>
-                                                <span>May 28, 2020</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="post-details.html">
-                                                <h5>Swag hella echo park leggings, shaman cornhole ethical coloring</h5>
-                                                <span>May 14, 2020</span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-12">
-                            <div class="sidebar-item categories">
-                                <div class="sidebar-heading">
-                                    <h2>KATEGORİLER</h2>
-                                </div>
-                                @await Component.InvokeAsync("HomeCategories")
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+<section class="case-study-sec half-overlay">
+	<div class="container">
+		<div class="sec-title-style2">
+			<div class="sec-title">
+				<span>Our Recent Work</span>
+				<h2>Our Case’s Study</h2>
+			</div>
+			<a href="#" title="" class="lnk-default">View All Project</a>
+			<div class="clearfix"></div>
+		</div><!--case-sec-title end-->
+		<div class="case-study-section">
+			<div class="case_slider">
+				<div class="case_slide">
+					<div class="row">
+						<div class="col-lg-5">
+							<div class="case-study-carouz">
+								<div class="case-study-slide">
+									<h4>Commerical</h4>
+									<h2>Bussiness Building Secour Cam</h2>
+									<span>Cayler Offices</span>
+									<p>A simple and proven methodology that companies use to measure customer happiness as it relates to company brand, product or service.</p>
+									<a href="#" title="" class="lnk-default">Read More</a>
+								</div><!--case-study-slide end-->
+							</div><!--case-study-carouz end-->
+						</div>
+						<div class="col-lg-7">
+							<div class="gallery-row">
+								<div class="gallery-thumb">
+									<div class="gallery-th">
+										<img src="https://via.placeholder.com/110x110" alt="">
+									</div>
+									<div class="gallery-th">
+										<img src="https://via.placeholder.com/110x110" alt="">
+									</div>
+									<div class="gallery-th">
+										<img src="https://via.placeholder.com/110x110" alt="">
+									</div>
+									<div class="gallery-th">
+										<img src="https://via.placeholder.com/110x110" alt="">
+									</div>
+									<div class="gallery-th">
+										<img src="https://via.placeholder.com/110x110" alt="">
+									</div>
+									<div class="gallery-th">
+										<img src="https://via.placeholder.com/110x110" alt="">
+									</div>
+									<div class="gallery-th">
+										<img src="https://via.placeholder.com/110x110" alt="">
+									</div>
+									<div class="gallery-th">
+										<img src="https://via.placeholder.com/110x110" alt="">
+									</div>
+								</div>
+								<div class="gallery-images-slide" id="custom-gallery">
+									<div class="gallery-image">
+										<img src="https://via.placeholder.com/600x380" alt="">
+										<a href="https://via.placeholder.com/600x380" title="" class="lightbox full-img">
+											<i class="fa fa-expand"></i>
+										</a>
+									</div>
+									<div class="gallery-image">
+										<img src="https://via.placeholder.com/600x400" alt="">
+										<a href="https://via.placeholder.com/600x400" title="" class="lightbox full-img">
+											<i class="fa fa-expand"></i>
+										</a>
+									</div>
+									<div class="gallery-image">
+										<img src="https://via.placeholder.com/600x400" alt="">
+										<a href="https://via.placeholder.com/600x400" title="" class="lightbox full-img">
+											<i class="fa fa-expand"></i>
+										</a>
+									</div>
+									<div class="gallery-image">
+										<img src="https://via.placeholder.com/600x435" alt="">
+										<a href="https://via.placeholder.com/600x435" title="" class="lightbox full-img">
+											<i class="fa fa-expand"></i>
+										</a>
+									</div>
+									<div class="gallery-image">
+										<img src="https://via.placeholder.com/600x380" alt="">
+										<a href="https://via.placeholder.com/600x380" title="" class="lightbox full-img">
+											<i class="fa fa-expand"></i>
+										</a>
+									</div>
+									<div class="gallery-image">
+										<img src="https://via.placeholder.com/600x400" alt="">
+										<a href="https://via.placeholder.com/600x400" title="" class="lightbox full-img">
+											<i class="fa fa-expand"></i>
+										</a>
+									</div>
+									<div class="gallery-image">
+										<img src="https://via.placeholder.com/600x400" alt="">
+										<a href="https://via.placeholder.com/600x400" title="" class="lightbox full-img">
+											<i class="fa fa-expand"></i>
+										</a>
+									</div>
+									<div class="gallery-image">
+										<img src="https://via.placeholder.com/600x435" alt="">
+										<a href="https://via.placeholder.com/600x435" title="" class="lightbox full-img">
+											<i class="fa fa-expand"></i>
+										</a>
+									</div>
+								</div>
+							</div><!--gallery-row end-->
+							<div class="clearfix"></div>
+						</div>
+					</div>
+				</div>
+				<div class="case_slide">
+					<div class="row">
+						<div class="col-lg-5">
+							<div class="case-study-carouz">
+								<div class="case-study-slide">
+									<h4>Commerical</h4>
+									<h2>We Secure Your Home Excet Your Thought</h2>
+									<span>Cayler Offices</span>
+									<p>A simple and proven methodology that companies use to measure customer happiness as it relates to company brand, product or service.</p>
+									<a href="#" title="" class="lnk-default">Read More</a>
+								</div><!--case-study-slide end-->
+							</div><!--case-study-carouz end-->
+						</div>
+						<div class="col-lg-7">
+							<div class="gallery-row">
+								<div class="gallery-thumb">
+									<div class="gallery-th">
+										<img src="https://via.placeholder.com/110x110" alt="">
+									</div>
+									<div class="gallery-th">
+										<img src="https://via.placeholder.com/110x110" alt="">
+									</div>
+									<div class="gallery-th">
+										<img src="https://via.placeholder.com/110x110" alt="">
+									</div>
+									<div class="gallery-th">
+										<img src="https://via.placeholder.com/110x110" alt="">
+									</div>
+									<div class="gallery-th">
+										<img src="https://via.placeholder.com/110x110" alt="">
+									</div>
+									<div class="gallery-th">
+										<img src="https://via.placeholder.com/110x110" alt="">
+									</div>
+									<div class="gallery-th">
+										<img src="https://via.placeholder.com/110x110" alt="">
+									</div>
+									<div class="gallery-th">
+										<img src="https://via.placeholder.com/110x110" alt="">
+									</div>
+								</div>
+								<div class="gallery-images-slide">
+									<div class="gallery-image">
+										<img src="https://via.placeholder.com/600x380" alt="">
+										<a href="https://via.placeholder.com/600x380" title="" class="lightbox full-img">
+											<i class="fa fa-expand"></i>
+										</a>
+									</div>
+									<div class="gallery-image">
+										<img src="https://via.placeholder.com/600x400" alt="">
+										<a href="https://via.placeholder.com/600x400" title="" class="lightbox full-img">
+											<i class="fa fa-expand"></i>
+										</a>
+									</div>
+									<div class="gallery-image">
+										<img src="https://via.placeholder.com/600x400" alt="">
+										<a href="https://via.placeholder.com/600x400" title="" class="lightbox full-img">
+											<i class="fa fa-expand"></i>
+										</a>
+									</div>
+									<div class="gallery-image">
+										<img src="https://via.placeholder.com/600x435" alt="">
+										<a href="https://via.placeholder.com/600x435" title="" class="lightbox full-img">
+											<i class="fa fa-expand"></i>
+										</a>
+									</div>
+									<div class="gallery-image">
+										<img src="https://via.placeholder.com/600x380" alt="">
+										<a href="https://via.placeholder.com/600x380" title="" class="lightbox full-img">
+											<i class="fa fa-expand"></i>
+										</a>
+									</div>
+									<div class="gallery-image">
+										<img src="https://via.placeholder.com/600x400" alt="">
+										<a href="https://via.placeholder.com/600x400" title="" class="lightbox full-img">
+											<i class="fa fa-expand"></i>
+										</a>
+									</div>
+									<div class="gallery-image">
+										<img src="https://via.placeholder.com/600x400" alt="">
+										<a href="https://via.placeholder.com/600x400" title="" class="lightbox full-img">
+											<i class="fa fa-expand"></i>
+										</a>
+									</div>
+									<div class="gallery-image">
+										<img src="https://via.placeholder.com/600x435" alt="">
+										<a href="https://via.placeholder.com/600x435" title="" class="lightbox full-img">
+											<i class="fa fa-expand"></i>
+										</a>
+									</div>
+								</div>
+							</div><!--gallery-row end-->
+							<div class="clearfix"></div>
+						</div>
+					</div>
+				</div>
+				<div class="case_slide">
+					<div class="row">
+						<div class="col-lg-5">
+							<div class="case-study-carouz">
+								<div class="case-study-slide">
+									<h4>Commerical</h4>
+									<h2>Safty and Security at your Fingertips</h2>
+									<span>Cayler Offices</span>
+									<p>A simple and proven methodology that companies use to measure customer happiness as it relates to company brand, product or service.</p>
+									<a href="#" title="" class="lnk-default">Read More</a>
+								</div><!--case-study-slide end-->
+							</div><!--case-study-carouz end-->
+						</div>
+						<div class="col-lg-7">
+							<div class="gallery-row">
+								<div class="gallery-thumb">
+									<div class="gallery-th">
+										<img src="https://via.placeholder.com/110x110" alt="">
+									</div>
+									<div class="gallery-th">
+										<img src="https://via.placeholder.com/110x110" alt="">
+									</div>
+									<div class="gallery-th">
+										<img src="https://via.placeholder.com/110x110" alt="">
+									</div>
+									<div class="gallery-th">
+										<img src="https://via.placeholder.com/110x110" alt="">
+									</div>
+									<div class="gallery-th">
+										<img src="https://via.placeholder.com/110x110" alt="">
+									</div>
+									<div class="gallery-th">
+										<img src="https://via.placeholder.com/110x110" alt="">
+									</div>
+									<div class="gallery-th">
+										<img src="https://via.placeholder.com/110x110" alt="">
+									</div>
+									<div class="gallery-th">
+										<img src="https://via.placeholder.com/110x110" alt="">
+									</div>
+								</div>
+								<div class="gallery-images-slide">
+									<div class="gallery-image">
+										<img src="https://via.placeholder.com/600x380" alt="">
+										<a href="https://via.placeholder.com/600x380" title="" class="lightbox full-img">
+											<i class="fa fa-expand"></i>
+										</a>
+									</div>
+									<div class="gallery-image">
+										<img src="https://via.placeholder.com/600x400" alt="">
+										<a href="https://via.placeholder.com/600x400" title="" class="lightbox full-img">
+											<i class="fa fa-expand"></i>
+										</a>
+									</div>
+									<div class="gallery-image">
+										<img src="https://via.placeholder.com/600x400" alt="">
+										<a href="https://via.placeholder.com/600x400" title="" class="lightbox full-img">
+											<i class="fa fa-expand"></i>
+										</a>
+									</div>
+									<div class="gallery-image">
+										<img src="https://via.placeholder.com/600x435" alt="">
+										<a href="https://via.placeholder.com/600x435" title="" class="lightbox full-img">
+											<i class="fa fa-expand"></i>
+										</a>
+									</div>
+									<div class="gallery-image">
+										<img src="https://via.placeholder.com/600x380" alt="">
+										<a href="https://via.placeholder.com/600x380" title="" class="lightbox full-img">
+											<i class="fa fa-expand"></i>
+										</a>
+									</div>
+									<div class="gallery-image">
+										<img src="https://via.placeholder.com/600x400" alt="">
+										<a href="https://via.placeholder.com/600x400" title="" class="lightbox full-img">
+											<i class="fa fa-expand"></i>
+										</a>
+									</div>
+									<div class="gallery-image">
+										<img src="https://via.placeholder.com/600x400" alt="">
+										<a href="https://via.placeholder.com/600x400" title="" class="lightbox full-img">
+											<i class="fa fa-expand"></i>
+										</a>
+									</div>
+									<div class="gallery-image">
+										<img src="https://via.placeholder.com/600x435" alt="">
+										<a href="https://via.placeholder.com/600x435" title="" class="lightbox full-img">
+											<i class="fa fa-expand"></i>
+										</a>
+									</div>
+								</div>
+							</div><!--gallery-row end-->
+							<div class="clearfix"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div><!--case-study-section end-->
+	</div>
+</section><!--case-study-sec end-->
+
+<section class="team-section">
+	<div class="container">
+		<div class="sec-title">
+			<span>Our Expert worker</span>
+			<h2>Our Special Expert Team</h2>
+		</div><!--sec-title end-->
+		<div class="team-row">
+			<div class="row">
+				<div class="col-lg-4 col-md-6 col-sm-6 col-12">
+					<div class="team-col">
+						<div class="team-img">
+							<img src="https://via.placeholder.com/319x378" alt="">
+							<a href="team-details.html" title="" class="ext-link"></a>
+							<ul class="social_links">
+								<li>
+									<a href="#" title=""><i class="fab fa-facebook-f"></i></a>
+								</li>
+								<li>
+									<a href="#" title=""><i class="fab fa-skype"></i></a>
+								</li>
+								<li>
+									<a href="#" title=""><i class="fab fa-twitter"></i></a>
+								</li>
+								<li>
+									<a href="#" title=""><i class="fab fa-instagram"></i></a>
+								</li>
+							</ul><!--social_links end-->
+						</div>
+						<div class="team-details">
+							<div class="team-info">
+								<h3><a href="team-details.html" title="">James Williams</a></h3>
+								<span>Marketing Manager</span>
+							</div>
+						</div>
+					</div><!--team-col end-->
+				</div>
+				<div class="col-lg-4 col-md-6 col-sm-6 col-12">
+					<div class="team-col">
+						<div class="team-img">
+							<img src="https://via.placeholder.com/319x378" alt="">
+							<a href="team-details.html" title="" class="ext-link"></a>
+							<ul class="social_links">
+								<li>
+									<a href="#" title=""><i class="fab fa-facebook-f"></i></a>
+								</li>
+								<li>
+									<a href="#" title=""><i class="fab fa-skype"></i></a>
+								</li>
+								<li>
+									<a href="#" title=""><i class="fab fa-twitter"></i></a>
+								</li>
+								<li>
+									<a href="#" title=""><i class="fab fa-instagram"></i></a>
+								</li>
+							</ul><!--social_links end-->
+						</div>
+						<div class="team-details">
+							<div class="team-info">
+								<h3><a href="team-details.html" title="">Richard Mellissa</a></h3>
+								<span>Camera Fixer</span>
+							</div>
+						</div>
+					</div><!--team-col end-->
+				</div>
+				<div class="col-lg-4 col-md-6 col-sm-6 col-12">
+					<div class="team-col">
+						<div class="team-img">
+							<img src="https://via.placeholder.com/319x378" alt="">
+							<a href="team-details.html" title="" class="ext-link"></a>
+							<ul class="social_links">
+								<li>
+									<a href="#" title=""><i class="fab fa-facebook-f"></i></a>
+								</li>
+								<li>
+									<a href="#" title=""><i class="fab fa-skype"></i></a>
+								</li>
+								<li>
+									<a href="#" title=""><i class="fab fa-twitter"></i></a>
+								</li>
+								<li>
+									<a href="#" title=""><i class="fab fa-instagram"></i></a>
+								</li>
+							</ul><!--social_links end-->
+						</div>
+						<div class="team-details">
+							<div class="team-info">
+								<h3><a href="team-details.html" title="">Matthew Smith</a></h3>
+								<span>Sale Manager</span>
+							</div>
+						</div>
+					</div><!--team-col end-->
+				</div>
+			</div>
+		</div><!--team-row end-->
+	</div>
+</section><!--team-section end-->
+
+<section class="sbs-section">
+	<div class="container">
+		<div class="sbs-content">
+			<div class="sbs-max">
+				<span>Have any ideas in your mind?</span>
+				<h2>We Provide Leading Security Systems</h2>
+				<a href="#" title="" class="lnk-default">Request A Quote</a>
+			</div>
+		</div><!--sbs-content end-->
+	</div>
+</section><!--sbs-section end-->
+
+<section class="sys-system-section">
+	<div class="container">
+		<div class="sys-row">
+			<div class="sec-title white">
+				<span>Get a Free Risk</span>
+				<h2>Inquiry For Security System</h2>
+			</div><!--sec-title end-->
+			<form class="js-ajax-form">
+				<div class="row">
+					<div class="col-lg-6 col-md-push-6">
+						<div class="features-list">
+							<h3>Features :</h3>
+							<ul class="radi-values">
+								<li>
+									<label>
+										<input name="val" type="checkbox" value="Video Monitoring"> <span>Video Monitoring</span>
+										<small class="checkcircle"></small>
+									</label>
+								</li>
+								<li>
+									<label>
+										<input name="val" type="checkbox" value="Cloud Access"> <span>Cloud Access</span>
+										<small class="checkcircle"></small>
+									</label>
+								</li>
+								<li>
+									<label>
+										<input name="val" type="checkbox" value="Retail Video Analytics"> <span>Retail Video Analytics</span>
+										<small class="checkcircle"></small>
+									</label>
+								</li>
+								<li>
+									<label>
+										<input name="val" type="checkbox" value="GSM Battery Alarm"> <span>GSM Battery Alarm</span>
+										<small class="checkcircle"></small>
+									</label>
+								</li>
+								<li>
+									<label>
+										<input name="val" type="checkbox" value="GSM Battery Alarm"> <span>GSM Battery Alarm</span>
+										<small class="checkcircle"></small>
+									</label>
+								</li>
+								<li>
+									<label>
+										<input name="val" type="checkbox" value="IP Video"> <span>IP Video</span>
+										<small class="checkcircle"></small>
+									</label>
+								</li>
+								<li>
+									<label>
+										<input name="val" type="checkbox" value="Fingerprint Door Sensor"> <span>Fingerprint Door Sensor</span>
+										<small class="checkcircle"></small>
+									</label>
+								</li>
+								<li>
+									<label>
+										<input name="val" type="checkbox" value="Fingerprint Door Sensor"> <span>Fingerprint Door Sensor</span>
+										<small class="checkcircle"></small>
+									</label>
+								</li>
+								<li>
+									<label>
+										<input name="val" type="checkbox" value="Smart Phone Sceurity"> <span>Smart Phone Sceurity</span>
+										<small class="checkcircle"></small>
+									</label>
+								</li>
+								<li>
+									<label>
+										<input name="val" type="checkbox" value="Recard Movements"> <span>Recard Movements</span>
+										<small class="checkcircle"></small>
+									</label>
+								</li>
+							</ul>
+							<div class="clearfix"></div>
+						</div><!---features-list end-->
+						<div class="clearfix"></div>
+					</div>
+					<div class="col-lg-6">
+						<div class="contact-form">
+							<div class="form-group no-pt">
+								<div class="missing-message">
+									Populate Missing Fields
+								</div>
+								<div class="success-message">
+									<i class="fa fa-check text-primary"></i> Thank you!. Your message is successfully sent...
+								</div>
+								<div class="error-message">Populate Missing Fields</div>
+							</div><!--form-group end-->
+							<div class="row">
+								<div class="col-lg-6 col-md-6 col-sm-6 col-12">
+									<div class="form-field">
+										<input type="text" name="name" placeholder="Name" id="name">
+									</div><!--form-field end-->
+								</div>
+								<div class="col-lg-6 col-md-6 col-sm-6 col-12">
+									<div class="form-field">
+										<input type="email" name="email" placeholder="Email" id="email">
+									</div><!--form-field end-->
+								</div>
+								<div class="col-lg-6 col-md-6 col-sm-6 col-12">
+									<div class="form-field">
+										<input type="text" name="phone" placeholder="Phone">
+									</div><!--form-field end-->
+								</div>
+								<div class="col-lg-6 col-md-6 col-sm-6 col-12">
+									<div class="form-field">
+										<input type="text" name="address" placeholder="Address">
+									</div><!--form-field end-->
+								</div>
+								<div class="col-lg-6 col-md-6 col-sm-6 col-12">
+									<div class="form-field">
+										<input type="text" name="cameras" placeholder="No. of Camera">
+									</div><!--form-field end-->
+								</div>
+								<div class="col-lg-6 col-md-6 col-sm-6 col-12">
+									<div class="form-field">
+										<input type="text" name="size" placeholder="House and Land size">
+									</div><!--form-field end-->
+								</div>
+								<div class="col-lg-12">
+									<div class="form-field">
+										<textarea name="message" placeholder="Your Text Massage"></textarea>
+									</div><!--form-field end-->
+								</div>
+							</div>
+						</div><!--contact-form end-->
+					</div>
+				</div>
+				<div class="row sbmt">
+					<div class="form-submission">
+						<div class="form-submit">
+							<button type="submit" name="submit" class="lnk-default submit">Send Now</button>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</section><!--sys-system-section end-->
+
+<section class="testimonial-sec">
+	<div class="container">
+		<div class="sec-title">
+			<span>What people say about us</span>
+			<h2>People Review For Us</h2>
+		</div><!--sec-title end-->
+		<div class="testimonial-section">
+			<div class="row testi-carousel">
+				<div class="col-lg-6">
+					<div class="testimonial-slide">
+						<div class="auth-img">
+							<img src="https://via.placeholder.com/130x130" alt="">
+						</div>
+						<h3>Raisa Moni</h3>
+						<span>UX & Product Designer</span>
+						<ul class="rating">
+							<li><i class="fa fa-star"></i></li>
+							<li><i class="fa fa-star"></i></li>
+							<li><i class="fa fa-star"></i></li>
+							<li><i class="fa fa-star"></i></li>
+							<li><i class="fa fa-star"></i></li>
+						</ul>
+						<p>We’re on a mission to start a conversation with your customers in this fast connected world. Let’s discover, build and grow your digital business. </p>
+					</div><!--testimonial-slide end-->
+				</div>
+				<div class="col-lg-6">
+					<div class="testimonial-slide">
+						<div class="auth-img">
+							<img src="https://via.placeholder.com/130x130" alt="">
+						</div>
+						<h3>Charles Sarah</h3>
+						<span>UX & Product Develper</span>
+						<ul class="rating">
+							<li><i class="fa fa-star"></i></li>
+							<li><i class="fa fa-star"></i></li>
+							<li><i class="fa fa-star"></i></li>
+							<li><i class="fa fa-star"></i></li>
+							<li><i class="fa fa-star"></i></li>
+						</ul>
+						<p>We’re on a mission to start a conversation with your customers in this fast connected world. Let’s discover, build and grow your digital business. </p>
+					</div><!--testimonial-slide end-->
+				</div>
+				<div class="col-lg-6">
+					<div class="testimonial-slide">
+						<div class="auth-img">
+							<img src="https://via.placeholder.com/130x130" alt="">
+						</div>
+						<h3>Raisa Moni</h3>
+						<span>UX & Product Designer</span>
+						<ul class="rating">
+							<li><i class="fa fa-star"></i></li>
+							<li><i class="fa fa-star"></i></li>
+							<li><i class="fa fa-star"></i></li>
+							<li><i class="fa fa-star"></i></li>
+							<li><i class="fa fa-star"></i></li>
+						</ul>
+						<p>We’re on a mission to start a conversation with your customers in this fast connected world. Let’s discover, build and grow your digital business. </p>
+					</div><!--testimonial-slide end-->
+				</div>
+				<div class="col-lg-6">
+					<div class="testimonial-slide">
+						<div class="auth-img">
+							<img src="https://via.placeholder.com/130x130" alt="">
+						</div>
+						<h3>Charles Sarah</h3>
+						<span>UX & Product Develper</span>
+						<ul class="rating">
+							<li><i class="fa fa-star"></i></li>
+							<li><i class="fa fa-star"></i></li>
+							<li><i class="fa fa-star"></i></li>
+							<li><i class="fa fa-star"></i></li>
+							<li><i class="fa fa-star"></i></li>
+						</ul>
+						<p>We’re on a mission to start a conversation with your customers in this fast connected world. Let’s discover, build and grow your digital business. </p>
+					</div><!--testimonial-slide end-->
+				</div>
+			</div>
+		</div><!--testimonial-section end-->
+	</div>
+</section><!--testimonial-sec end-->
+
+<section class="blog-section">
+	<div class="container">
+		<div class="sec-title-style2">
+			<div class="sec-title">
+				<span>Our News & Artical</span>
+				<h2>Our Latest Media</h2>
+			</div>
+			<a href="#" title="" class="lnk-default">All News</a>
+			<div class="clearfix"></div>
+		</div><!--sec-title-style2 end-->
+		<div class="blog-items-sec">
+			<div class="row blog-carousel">
+				<div class="col-lg-4">
+					<div class="blog-post">
+						<div class="blog-thumbnail">
+							<img src="https://via.placeholder.com/370x250" alt="">
+							<span class="category-name">CCTV</span>
+							<a href="blog-single.html" title="" class="ext-link"></a>
+						</div>
+						<div class="blog-info">
+							<h2><a href="blog-single.html" title="">Install CCTV Camera for your Home</a></h2>
+							<p>The basic premise of search reputation way management in to use the greate work</p>
+							<div class="posted-by-row">
+								<img src="https://via.placeholder.com/40x40" alt="">
+								<h4>Villal Pando,     <span>November 21, 2019</span></h4>
+								<a href="#" title=""><i class="fa fa-share-alt"></i></a>
+							</div><!--posted-by-row end-->
+						</div>
+					</div><!--blog-post end-->
+				</div>
+				<div class="col-lg-4">
+					<div class="blog-post">
+						<div class="blog-thumbnail">
+							<img src="https://via.placeholder.com/370x250" alt="">
+							<span class="category-name">CCTV</span>
+							<a href="blog-single.html" title="" class="ext-link"></a>
+						</div>
+						<div class="blog-info">
+							<h2><a href="blog-single.html" title="">Set The Security view for your Demand</a></h2>
+							<p>The basic premise of search reputation way management in to use the greate work</p>
+							<div class="posted-by-row">
+								<img src="https://via.placeholder.com/40x40" alt="">
+								<h4>Villal Pando,     <span>November 21, 2019</span></h4>
+								<a href="#" title=""><i class="fa fa-share-alt"></i></a>
+							</div><!--posted-by-row end-->
+						</div>
+					</div><!--blog-post end-->
+				</div>
+				<div class="col-lg-4">
+					<div class="blog-post">
+						<div class="blog-thumbnail">
+							<img src="https://via.placeholder.com/370x250" alt="">
+							<span class="category-name">sTV</span>
+							<a href="blog-single.html" title="" class="ext-link"></a>
+						</div>
+						<div class="blog-info">
+							<h2><a href="blog-single.html" title="">Check The Device to bilt Good View</a></h2>
+							<p>The basic premise of search reputation way management in to use the greate work</p>
+							<div class="posted-by-row">
+								<img src="https://via.placeholder.com/40x40" alt="">
+								<h4>Villal Pando,     <span>November 21, 2019</span></h4>
+								<a href="#" title=""><i class="fa fa-share-alt"></i></a>
+							</div><!--posted-by-row end-->
+						</div>
+					</div><!--blog-post end-->
+				</div>
+				<div class="col-lg-4">
+					<div class="blog-post">
+						<div class="blog-thumbnail">
+							<img src="https://via.placeholder.com/370x250" alt="">
+							<span class="category-name">CCTV</span>
+							<a href="blog-single.html" title="" class="ext-link"></a>
+						</div>
+						<div class="blog-info">
+							<h2><a href="blog-single.html" title="">Install CCTV Camera for your Home</a></h2>
+							<p>The basic premise of search reputation way management in to use the greate work</p>
+							<div class="posted-by-row">
+								<img src="https://via.placeholder.com/40x40" alt="">
+								<h4>Villal Pando,     <span>November 21, 2019</span></h4>
+								<a href="#" title=""><i class="fa fa-share-alt"></i></a>
+							</div><!--posted-by-row end-->
+						</div>
+					</div><!--blog-post end-->
+				</div>
+				<div class="col-lg-4">
+					<div class="blog-post">
+						<div class="blog-thumbnail">
+							<img src="https://via.placeholder.com/370x250" alt="">
+							<span class="category-name">CCTV</span>
+							<a href="blog-single.html" title="" class="ext-link"></a>
+						</div>
+						<div class="blog-info">
+							<h2><a href="blog-single.html" title="">Set The Security view for your Demand</a></h2>
+							<p>The basic premise of search reputation way management in to use the greate work</p>
+							<div class="posted-by-row">
+								<img src="https://via.placeholder.com/40x40" alt="">
+								<h4>Villal Pando,     <span>November 21, 2019</span></h4>
+								<a href="#" title=""><i class="fa fa-share-alt"></i></a>
+							</div><!--posted-by-row end-->
+						</div>
+					</div><!--blog-post end-->
+				</div>
+				<div class="col-lg-4">
+					<div class="blog-post">
+						<div class="blog-thumbnail">
+							<img src="https://via.placeholder.com/370x250" alt="">
+							<span class="category-name">sTV</span>
+							<a href="blog-single.html" title="" class="ext-link"></a>
+						</div>
+						<div class="blog-info">
+							<h2><a href="blog-single.html" title="">Check The Device to bilt Good View</a></h2>
+							<p>The basic premise of search reputation way management in to use the greate work</p>
+							<div class="posted-by-row">
+								<img src="https://via.placeholder.com/40x40" alt="">
+								<h4>Villal Pando,     <span>November 21, 2019</span></h4>
+								<a href="#" title=""><i class="fa fa-share-alt"></i></a>
+							</div><!--posted-by-row end-->
+						</div>
+					</div><!--blog-post end-->
+				</div>
+			</div>
+		</div><!--blog-items-sec end-->
+	</div>
+</section><!--blog-section end-->
+
+<section class="partner-section">
+	<div class="container">
+		<ul class="pt-carousel">
+			<li><img src="https://via.placeholder.com/108x100" alt=""></li>
+			<li><img src="https://via.placeholder.com/108x100" alt=""></li>
+			<li><img src="https://via.placeholder.com/108x100" alt=""></li>
+			<li><img src="https://via.placeholder.com/108x100" alt=""></li>
+			<li><img src="https://via.placeholder.com/108x100" alt=""></li>
+			<li><img src="https://via.placeholder.com/108x100" alt=""></li>
+			<li><img src="https://via.placeholder.com/108x100" alt=""></li>
+			<li><img src="https://via.placeholder.com/108x100" alt=""></li>
+		</ul><!--pt-carousel end-->
+	</div>
+</section><!--partner-section end-->
+
+<section id="map-container" class="fullwidth-home-map">
+	<div id="map"></div>
 </section>

@@ -1,0 +1,169 @@
+﻿@model ArticleListDto
+
+<section class="pager-sec overlay-dark">
+    <div class="container">
+        <div class="pager-sec-details">
+            <h2>Latest Blog</h2>
+            <ul class="breadcrumb">
+                <li><a href="#" title="">Home</a></li>
+                <li><span>Latest Blog</span></li>
+            </ul>
+        </div><!--pager-sec-details end-->
+    </div>
+</section><!--pager-sec end-->
+
+<section class="page-content">
+    <div class="container">
+        <div class="blog-style2">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="blog-items-sec">
+
+                        @{
+                            foreach (var item in Model.Articles)
+                            {
+                                <div class="blog-post">
+                                    <div class="blog-thumbnail">
+                                        <img src="@item.Image.FileName" alt="">
+                                        <span class="category-name">@item.Category.Name</span>
+                                        <a href="blog-single.html" title="" class="ext-link"></a>
+                                    </div>
+                                    <div class="blog-info">
+                                        <h2><a href="blog-single.html" title="">@item.Title</a></h2>
+                                        <p>@item.Content</p>
+                                        <div class="posted-by-row">
+                                            <img src="@item.Image.Users" alt="">
+                                            <h4><a href="#" title="">@item.User.FirstName @item.User.LastName</a>     <span>@item.CreatedDate.ToString("dd/MM/yyyy")</span> <span>@item.Comments.Count</span></h4>
+                                            <a href="#" title=""><i class="fa fa-share-alt"></i></a>
+                                        </div><!--posted-by-row end-->
+                                    </div>
+                                </div>
+
+                                <!--blog-post end-->
+                            }
+                        }
+
+
+
+                    </div><!--blog-items-sec end-->
+                    <div class="serity-pagination">
+                        <nav aria-label="Page navigation example">
+                            <ul class="pagination">
+                                @if (Model.ShowPrevious)
+                                {
+                                    <li class="page-item">
+                                        <a class="page-link" asp-route-currentPage="@(Model.CurrentPage - 1)" asp-route-pageSize="@Model.PageSize"> Önceki </a>
+                                    </li>
+                                }
+                                @for (int i = 1; i < Model.TotalPages; i++)
+                                {
+                                    <li class="page-item">
+                                        <a class="page-link" asp-route-currentPage="@i" asp-route-pageSize="@Model.PageSize"> @i </a>
+                                    </li>
+                                }
+                                @if (Model.ShowNext)
+                                {
+                                    <li class="page-item">
+                                        <a class="page-link" asp-route-currentPage="@(Model.CurrentPage + 1)" asp-route-pageSize="@Model.PageSize"> Sonraki </a>
+                                    </li>
+                                }
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="sidebar blog-sidebar">
+                        <div class="widget widget-search">
+                            <form>
+                                <input type="text" name="search" placeholder="Search ....">
+                                <button type="submit"><i class="fa fa-search"></i></button>
+                            </form>
+                        </div><!--widget-search end-->
+                        <div class="widget widget-categories">
+                            <h3 class="widget-title">Categories</h3>
+                            <ul>
+
+
+
+                                <li>
+                                    <a href="#" title=""><i class="fa fa-video"></i>Alarm System <span>1</span></a>
+                                </li>
+                                <li>
+                                    <a href="#" title=""><i class="fa fa-camera-retro"></i>Closed Circuit <span>3</span></a>
+                                </li>
+                                <li>
+                                    <a href="#" title=""><i class="fa fa-camera"></i>Closed Circuit	<span>2</span></a>
+                                </li>
+                                <li>
+                                    <a href="#" title=""><i class="fa fa-video"></i>Night Vision <span>3</span></a>
+                                </li>
+                                <li>
+                                    <a href="#" title=""><i class="fa fa-camera-retro"></i>Surveillance <span>2</span></a>
+                                </li>
+                                <li>
+                                    <a href="#" title=""><i class="fa fa-camera"></i>Video Recording <span>1</span></a>
+                                </li>
+                                <li>
+                                    <a href="#" title=""><i class="fa fa-video"></i>Wireless <span>5</span></a>
+                                </li>
+                            </ul>
+                            <div class="clearfix"></div>
+                        </div><!--widget-categories end-->
+                        <div class="widget widget-tags">
+                            <h3 class="widget-title">Popular Tags</h3>
+                            <ul>
+
+                                @foreach (var item in Model.Articles)
+                                {
+                                    foreach (var t in item.Tags)
+                                    {
+                                        <li><a href="#" title="">@t.Tags</a></li>
+                                    }
+                                }
+                            </ul>
+                        </div><!--widget-tags end-->
+                           <!--<div class="widget widget-meta"> // ismail bakarsın
+                            <h3 class="widget-title">Meta</h3>
+                            <ul>
+                                <li>
+                                    <a href="#" title="">Login</a>
+                                </li>
+                                <li>
+                                    <a href="#" title="">Registration</a>
+                                </li>
+                                <li>
+                                    <a href="#" title="">Entries</a>
+                                </li>
+                                <li>
+                                    <a href="#" title="">Comments</a>
+                                </li>
+                                <li>
+                                    <a href="#" title="">WordPress.org</a>
+                                </li>
+                            </ul>
+                            <div class="clearfix"></div>
+                        </div>--> <!--widget-categories end-->
+                    
+
+                    </div><!--sidebar end-->
+                </div>
+            </div>
+        </div><!--blog-style2 end-->
+
+    </div>
+</section><!--page-content end-->
+
+<section class="partner-section">
+    <div class="container">
+        <ul class="pt-carousel">
+            <li><img src="https://via.placeholder.com/108x100" alt=""></li>
+            <li><img src="https://via.placeholder.com/108x100" alt=""></li>
+            <li><img src="https://via.placeholder.com/108x100" alt=""></li>
+            <li><img src="https://via.placeholder.com/108x100" alt=""></li>
+            <li><img src="https://via.placeholder.com/108x100" alt=""></li>
+            <li><img src="https://via.placeholder.com/108x100" alt=""></li>
+            <li><img src="https://via.placeholder.com/108x100" alt=""></li>
+            <li><img src="https://via.placeholder.com/108x100" alt=""></li>
+        </ul><!--pt-carousel end-->
+    </div>
+</section><!--partner-section end-->
