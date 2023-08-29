@@ -31,16 +31,16 @@
 					<ul class="contact-info">
 						<li>
 							<i class="fa fa-envelope"></i>
-							<span>support@serity.com</span>
+							<span>info@sancaktarguvenlik.com</span>
 						</li>
 						<li>
 							<i class="fa fa-map-marker-alt"></i>
-							<span>Melbourne VIC 3000, Australia</span>
+							<span>Yenibosna Merkez, Aydoğdu Çıkmazı Sk., Sakarya Apt. No:3/B Bahçelievler/İstanbul</span>
 						</li>
 					</ul>
 					<!--  Social Links -->
 					<ul class="social-links">
-						<li>
+					@*	<li>
 							<a href="#" title=""><i class="fab fa-facebook-f"></i></a>
 						</li>
 						<li>
@@ -48,12 +48,12 @@
 						</li>
 						<li>
 							<a href="#" title=""><i class="fab fa-twitter"></i></a>
+						</li>*@
+						<li>
+							<a><i class="fa fa-phone"></i> 0535 982 07 74</a>
 						</li>
 						<li>
-							<a href="#" title=""><i class="fab fa-pinterest-p"></i></a>
-						</li>
-						<li>
-							<a href="#" title=""><i class="fab fa-instagram"></i></a>
+							<a href="https://www.instagram.com/sancaktarguv.sist/" title="" target="_blank"><i class="fab fa-instagram"></i></a>
 						</li>
 					</ul>
 					<div class="clearfix"></div>
@@ -63,19 +63,19 @@
 				<div class="bottom_header">
 					<div class="header-content">
 						<div class="logo">
-							<a href="index.html" title="">
-								<img src="~/Theme/assets/images/logo2.png" alt="">
+							<a asp-area="" asp-controller="Home" asp-action="Index">
+								<img src="~/Theme/HomePage2/Logo.png" alt="">
 							</a>
 						</div><!--logo end-->
 						<a href="#" title="" class="menu-btn"><i class="fa fa-bars"></i></a>
 						<nav>
 							<ul>
 								<li>
-									<a asp-area="" asp-controller="Home" asp-action="Index">Homepage</a>
+									<a asp-area="" asp-controller="Home" asp-action="Index">Ana Sayfa</a>
 									
 								</li>
 								<li>
-									<a asp-area="" asp-controller="Home" asp-action="About">About</a>
+									<a asp-area="" asp-controller="Home" asp-action="About">Hakkımızda</a>
 									
 								</li>
 							
@@ -83,7 +83,7 @@
 									<a href="#" title="">Blog</a>
 									<ul>
 										<li>
-											<a asp-area="" asp-controller="Home" asp-action="BlogOne">Blog Style One</a>
+											<a asp-area="" asp-controller="Home" asp-action="BlogOne">Blog</a>
 											</li>
 										<li>
 											<a asp-area="" asp-controller="Home" asp-action="BlogTwo">Blog Style Two</a>
@@ -91,7 +91,7 @@
 									</ul>
 								</li>
 								<li>
-									<a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a>
+									<a asp-area="" asp-controller="Home" asp-action="Contact">İletişim</a>
 									</li>
 							</ul>
 						</nav><!--navigation end-->
@@ -157,45 +157,62 @@
 			<a href="#" title="" class="close-search"><i class="fa fa-window-close"></i></a>
 		</div><!--search-popup end-->
 
-		<section class="banner-section white-box style2">
+		@*<section class="banner-section white-box style2">
 			<div class="banner-slider">
-				<div class="banner-slide slick-slide overlay-dark" style="background-image: url(https://via.placeholder.com/1920x965);">
+				<div class="banner-slide slick-slide overlay-dark" style="background-image: url('/Theme/HomePage2/Slider1.jpg');">
 					<div class="container">
 						<div class="banner-content">
-							<h1>We Secure Your Home Excet Your Thought</h1>
-							<p>2000+ people have put their trust in CCTV, How about You?</p>
-							<a href="#" title="" class="lnk-default">Start Now</a>
+							<h1>Evinizi ve İşyerinizin Güvenliği İçin Doğru Adres</h1>
+							<p>Sancaktar İle Güvendesiniz.</p>
+							<a href="#" title="" class="lnk-default">Hemen Teklif Al</a>
 						</div><!--banner-content end-->
 						<div class="clearfix"></div>
 					</div>
 				</div><!--banner-slide end-->
-				<div class="banner-slide slick-slide overlay-dark" style="background-image: url(https://via.placeholder.com/1920x965);">
+				<div class="banner-slide slick-slide overlay-dark" style="background-image: url('/Theme/HomePage2/Slider2.jpg');">
 					<div class="container">
 						<div class="banner-content">
-							<h1>Safty and Security at your Fingertips</h1>
-							<p>2000+ people have put their trust in CCTV, How about You?</p>
-							<a href="#" title="" class="lnk-default">Start Now</a>
+							<h1>Sancaktar Güvenlik İle Yeni Nesil Güvenlik Çözümleri</h1>
+							<p>Akıllı Güvenlik Sistemleri İçin Bizimle İletişime Geçin</p>
+							<a href="#" title="" class="lnk-default">Hemen Teklif Al</a>
 						</div><!--banner-content end-->
 						<div class="clearfix"></div>
 					</div>
 				</div><!--banner-slide end-->
-				<div class="banner-slide slick-slide overlay-dark" style="background-image: url(https://via.placeholder.com/1920x965);">
+				<div class="banner-slide slick-slide overlay-dark" style="background-image: url('/Theme/HomePage2/Slider3.jpg');">
 					<div class="container">
 						<div class="banner-content">
-							<h1>A Safe & Secure Home For You and Your Family</h1>
-							<p>2000+ people have put their trust in CCTV, How about You?</p>
-							<a href="#" title="" class="lnk-default">Start Now</a>
+							<h1>Sancaktar Güvenlik İle Gözünüz Arkada Kalmasın</h1>
+							<p>Evinizi Sizin Yerinize Koruyoruz</p>
+							<a href="#" title="" class="lnk-default">Hemen Teklif Al</a>
 						</div><!--banner-content end-->
 						<div class="clearfix"></div>
 					</div>
 				</div><!--banner-slide end-->
 			</div><!--banner-slider end-->
-		</section><!--banner-section end-->
+		</section><!--banner-section end-->*@
 
-		
+		<div>
+
+		</div>
 
 
 		@RenderBody()
+
+		<section class="partner-section">
+			<div class="container">
+				<ul class="pt-carousel">
+					<li><img src="~/Theme//HomePage2/Portföy Firmaları/Müşteriler 1.png" alt=""></li>
+					<li><img src="~/Theme//HomePage2/Portföy Firmaları/Müşteriler 2.png" alt=""></li>
+					<li><img src="~/Theme//HomePage2/Portföy Firmaları/Müşteriler 3.png" alt=""></li>
+					<li><img src="~/Theme//HomePage2/Portföy Firmaları/Müşteriler 4.png" alt=""></li>
+					<li><img src="~/Theme//HomePage2/Portföy Firmaları/Müşteriler 5.png" alt=""></li>
+					<li><img src="~/Theme//HomePage2/Portföy Firmaları/Müşteriler 6.png" alt=""></li>
+					<li><img src="~/Theme//HomePage2/Portföy Firmaları/Müşteriler 7.png" alt=""></li>
+					<li><img src="~/Theme//HomePage2/Portföy Firmaları/Müşteriler 8.png" alt=""></li>
+				</ul><!--pt-carousel end-->
+			</div>
+		</section><!--partner-section end-->
 
 		<footer>
 			<div class="main-footer">
@@ -203,29 +220,31 @@
 					<div class="row">
 						<div class="col-lg-4 col-md-6 col-sm-6">
 							<div class="widget widget-about">
-								<img src="~/Theme/assets/images/logo2.png" alt="">
-								<p>Security as a topic has continued to rise in popularity in the recent couple of years, and it comes as a no surprise.</p>
-								<p>Security and privacy are two sides of the same coin. You can’t have privacy without security and vice versa.</p>
+								<img src="~/Theme/HomePage2/Logo.png" alt="">
+								<p>Sancaktar Güvenlik, İstanbul ve çevresinde uzun yıllardır kaliteli Güvenlik Çözümleri sunan köklü bir firmadır. Müşteri memnuniyetini ön planda tutan, Sancaktar Güvenlik geniş hizmet ve ürün yelpazesiyle müşterilerinin her türlü ihtiyacını karşılamaktadır.</p>
 							</div><!--widget-about end-->
 						</div>
 						<div class="col-lg-4 col-md-6 col-sm-6">
 							<div class="widget widget-services">
-								<h3 class="widget-title">Services</h3>
+								<h3 class="widget-title" style="color:cornflowerblue">İletişim</h3>
 								<ul>
-									<li><i class="fa fa-map-marker-alt"></i> <span>Melbourne Main Street VIC 3000, Australia</span></li>
-									<li><i class="fa fa-envelope"></i> <span>support@serity.com</span></li>
-									<li><i class="fa fa-phone-volume"></i> <span>+9200 (2) 345 6789</span></li>
+									<li>
+										<i class="fa fa-map-marker-alt"></i> <span>
+											Yenibosna Merkez, Aydoğdu Çıkmazı Sk., Sakarya Apt. No:3/B Bahçelievler/İstanbul
+										</span>
+									</li>
+									<li><i class="fa fa-envelope"></i> <span>info@sancaktarguvenlik.com</span></li>
+									<li><i class="fa fa-phone-volume"></i> <span>0535 982 07 74</span></li>
 								</ul>
 							</div><!--widget-services end-->
 						</div>
 						<div class="col-lg-4">
 							<div class="widget widget-social">
-								<h3 class="widget-title">Follow Us</h3>
+								<h3 class="widget-title" style="color:cornflowerblue">Bize Ulaşın</h3>
 								<ul class="socio-links">
-									<li><a href="#" title=""><i class="fab fa-facebook-f"></i></a></li>
-									<li><a href="#" title=""><i class="fab fa-linkedin-in"></i></a></li>
-									<li><a href="#" title=""><i class="fab fa-twitter"></i></a></li>
-									<li><a href="#" title=""><i class="fab fa-instagram"></i></a></li>
+									
+									<li><a href="https://wa.me/05359820774" title="" target="_blank"><i class="fab fa-whatsapp"></i></a></li>
+									<li><a href="https://www.instagram.com/sancaktarguv.sist/" title="" target="_blank"><i class="fab fa-instagram"></i></a></li>
 								</ul>
 							</div><!--widget-social end-->
 						</div>
@@ -235,7 +254,7 @@
 			<div class="bottom-strip">
 				<div class="container">
 					<div class="copyright-text">
-						<p>Copyright © 2020, Serity. All Right Reserved</p>
+						<p>Copyright © 2023, Serity. All Right Reserved</p>
 						<a href="#" title="" class="scrollUp"><i class="fa fa-level-up-alt"></i></a>
 					</div>
 				</div>

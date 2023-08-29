@@ -1,12 +1,16 @@
 ﻿@model ArticleListDto
 
-<section class="pager-sec overlay-dark">
+<style>
+    .truncated-content {
+        word-wrap: break-word;
+    }
+</style>
+
+<section class="pager-sec-blog overlay-dark">
     <div class="container">
         <div class="pager-sec-details">
-            <h2>Latest Blog</h2>
             <ul class="breadcrumb">
-                <li><a href="#" title="">Home</a></li>
-                <li><span>Latest Blog</span></li>
+                
             </ul>
         </div><!--pager-sec-details end-->
     </div>
@@ -22,15 +26,17 @@
                         @{
                             foreach (var item in Model.Articles)
                             {
+                                
+                                
                                 <div class="blog-post">
                                     <div class="blog-thumbnail">
-                                        <img src="@item.Image.FileName" alt="">
+                                        <img src="~/images/@item.Image.FileName" alt="">
                                         <span class="category-name">@item.Category.Name</span>
-                                        <a href="blog-single.html" title="" class="ext-link"></a>
+                                        <a asp-controller="Home" asp-action="BlogSingle" asp-route-articleId="@item.Id"></a>
                                     </div>
                                     <div class="blog-info">
-                                        <h2><a href="blog-single.html" title="">@item.Title</a></h2>
-                                        <p>@item.Content</p>
+                                        <h2><a asp-controller="Home" asp-action="BlogSingle" asp-route-articleId="@item.Id">@item.Title</a></h2>
+                                        <p class="truncated-content">@item.Content</p>
                                         <div class="posted-by-row">
                                             <img src="@item.Image.Users" alt="">
                                             <h4><a href="#" title="">@item.User.FirstName @item.User.LastName</a>     <span>@item.CreatedDate.ToString("dd/MM/yyyy")</span> <span>@item.Comments.Count</span></h4>
@@ -74,43 +80,42 @@
                 <div class="col-lg-4">
                     <div class="sidebar blog-sidebar">
                         <div class="widget widget-search">
-                            <form>
-                                <input type="text" name="search" placeholder="Search ....">
+                            <form id="search_form" asp-controller="Home" asp-action="Search" method="GET">
+                                <input type="text" name="keyword" class="searchText" placeholder="Arama yapınız..." autocomplete="on">
                                 <button type="submit"><i class="fa fa-search"></i></button>
                             </form>
                         </div><!--widget-search end-->
                         <div class="widget widget-categories">
-                            <h3 class="widget-title">Categories</h3>
+                            <h3 class="widget-title">Kategoriler</h3>
                             <ul>
+                                @{
+                                    if (Model.Categories != null)
+                                    {
+                                        foreach (var item in Model.Categories)
+                                        {
+                                            <li>
+                                                <a asp-controller="Home" asp-action="BlogTwo" asp-route-categoryId="@item.Id"><i class="fa fa-video"></i>@item.Name</a>
+                                            </li>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        foreach (var item in Model.Articles)
+                                        {
+                                            <li>
+                                                <a asp-controller="Home" asp-action="BlogTwo" asp-route-categoryId="@item.CategoryId"><i class="fa fa-video"></i>@item.Category.Name</a>
+                                            </li>
+                                        }
+                                    }
+
+                                }
 
 
-
-                                <li>
-                                    <a href="#" title=""><i class="fa fa-video"></i>Alarm System <span>1</span></a>
-                                </li>
-                                <li>
-                                    <a href="#" title=""><i class="fa fa-camera-retro"></i>Closed Circuit <span>3</span></a>
-                                </li>
-                                <li>
-                                    <a href="#" title=""><i class="fa fa-camera"></i>Closed Circuit	<span>2</span></a>
-                                </li>
-                                <li>
-                                    <a href="#" title=""><i class="fa fa-video"></i>Night Vision <span>3</span></a>
-                                </li>
-                                <li>
-                                    <a href="#" title=""><i class="fa fa-camera-retro"></i>Surveillance <span>2</span></a>
-                                </li>
-                                <li>
-                                    <a href="#" title=""><i class="fa fa-camera"></i>Video Recording <span>1</span></a>
-                                </li>
-                                <li>
-                                    <a href="#" title=""><i class="fa fa-video"></i>Wireless <span>5</span></a>
-                                </li>
                             </ul>
                             <div class="clearfix"></div>
                         </div><!--widget-categories end-->
                         <div class="widget widget-tags">
-                            <h3 class="widget-title">Popular Tags</h3>
+                            <h3 class="widget-title">Popüler Taglar</h3>
                             <ul>
 
                                 @foreach (var item in Model.Articles)
@@ -122,7 +127,7 @@
                                 }
                             </ul>
                         </div><!--widget-tags end-->
-                           <!--<div class="widget widget-meta"> // ismail bakarsın
+                        <!--<div class="widget widget-meta"> // ismail bakarsın
                             <h3 class="widget-title">Meta</h3>
                             <ul>
                                 <li>
@@ -142,8 +147,9 @@
                                 </li>
                             </ul>
                             <div class="clearfix"></div>
-                        </div>--> <!--widget-categories end-->
-                    
+                        </div>-->
+                        <!--widget-categories end-->
+
 
                     </div><!--sidebar end-->
                 </div>
@@ -153,17 +159,3 @@
     </div>
 </section><!--page-content end-->
 
-<section class="partner-section">
-    <div class="container">
-        <ul class="pt-carousel">
-            <li><img src="https://via.placeholder.com/108x100" alt=""></li>
-            <li><img src="https://via.placeholder.com/108x100" alt=""></li>
-            <li><img src="https://via.placeholder.com/108x100" alt=""></li>
-            <li><img src="https://via.placeholder.com/108x100" alt=""></li>
-            <li><img src="https://via.placeholder.com/108x100" alt=""></li>
-            <li><img src="https://via.placeholder.com/108x100" alt=""></li>
-            <li><img src="https://via.placeholder.com/108x100" alt=""></li>
-            <li><img src="https://via.placeholder.com/108x100" alt=""></li>
-        </ul><!--pt-carousel end-->
-    </div>
-</section><!--partner-section end-->

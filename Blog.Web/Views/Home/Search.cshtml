@@ -1,56 +1,54 @@
 ﻿@model ArticleListDto
 
-<section class="blog-posts">
+<section class="pager-sec overlay-dark">
     <div class="container">
-        <div class="row">
-            <div class="col-lg-8">
-                <div class="all-blog-posts">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            @foreach (var item in Model.Articles)
-                            {
+        <div class="pager-sec-details">
+            <h2>Latest Blog</h2>
+            <ul class="breadcrumb">
+                <li><a href="#" title="">Home</a></li>
+                <li><span>Latest Blog</span></li>
+            </ul>
+        </div><!--pager-sec-details end-->
+    </div>
+</section><!--pager-sec end-->
 
+<section class="page-content">
+    <div class="container">
+        <div class="blog-style2">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="blog-items-sec">
+
+                        @{
+                            foreach (var item in Model.Articles)
+                            {
                                 <div class="blog-post">
-                                    <div class="blog-thumb">
-                                        <img src="~/stand-blog/assets/images/blog-post-01.jpg" alt="">
+                                    <div class="blog-thumbnail">
+                                        <img src="@item.Image.FileName" alt="">
+                                        <span class="category-name">@item.Category.Name</span>
+                                        <a asp-controller="Home" asp-action="BlogSingle" asp-route-articleId="@item.Id"></a>
                                     </div>
-                                    <div class="down-content">
-                                        <a href="post-details.html"><h4>@item.Title</h4></a>
-                                        <ul class="post-info">
-                                            <li>@item.User.FirstName @item.User.LastName</li>
-                                            <li>@item.CreatedDate.ToString("dd/MM/yyyy")</li>
-                                            <li><i class="fa-solid fa-eye"></i> @item.Views</li>
-                                        </ul>
-                                        <p>
-                                            @(item.Content.Length > 280 ? item.Content.Substring(0, 280) : item.Content) ...
-                                        </p>
-                                        <div class="post-options">
-                                            <div class="row">
-                                                <div class="col-6">
-                                                    <ul class="post-tags">
-                                                        <li><i class="fa fa-tags"></i></li>
-                                                        <li><a href="#">@item.Category.Name</a></li>
-                                                    </ul>
-                                                </div>
-                                                <div class="col-6">
-                                                    <ul class="post-share">
-                                                        <li><i class="fa fa-link"></i></li>
-                                                        <li><a href="#">[Devamını Oku]</a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
+                                    <div class="blog-info">
+                                        <h2><a asp-controller="Home" asp-action="BlogSingle" asp-route-articleId="@item.Id">@item.Title</a></h2>
+                                        <p>@item.Content</p>
+                                        <div class="posted-by-row">
+                                            <img src="@item.Image.Users" alt="">
+                                            <h4><a href="#" title="">@item.User.FirstName @item.User.LastName</a>     <span>@item.CreatedDate.ToString("dd/MM/yyyy")</span> <span>@item.Comments.Count</span></h4>
+                                            <a href="#" title=""><i class="fa fa-share-alt"></i></a>
+                                        </div><!--posted-by-row end-->
                                     </div>
                                 </div>
+
+                                <!--blog-post end-->
                             }
-                        </div>
-                        <div class="col-lg-12">
-                            @*<div class="main-button">
-                            <a href="blog.html">View All Posts</a>
-                            </div>*@
+                        }
 
-                            <ul class="pagination justify-content-center mb-4 mt-4 btn-block">
 
+
+                    </div><!--blog-items-sec end-->
+                    <div class="serity-pagination">
+                        <nav aria-label="Page navigation example">
+                            <ul class="pagination">
                                 @if (Model.ShowPrevious)
                                 {
                                     <li class="page-item">
@@ -59,8 +57,7 @@
                                 }
                                 @for (int i = 1; i < Model.TotalPages; i++)
                                 {
-                                    <li class="page-item @(i == Model.CurrentPage ? "active" : "")">
-
+                                    <li class="page-item">
                                         <a class="page-link" asp-route-currentPage="@i" asp-route-pageSize="@Model.PageSize"> @i </a>
                                     </li>
                                 }
@@ -70,63 +67,103 @@
                                         <a class="page-link" asp-route-currentPage="@(Model.CurrentPage + 1)" asp-route-pageSize="@Model.PageSize"> Sonraki </a>
                                     </li>
                                 }
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="sidebar blog-sidebar">
+                        <div class="widget widget-search">
+                            <form id="search_form" asp-controller="Home" asp-action="Search" method="GET">
+                                <input type="text" name="keyword" class="searchText" placeholder="Arama yapınız..." autocomplete="on">
+                                <button type="submit"><i class="fa fa-search"></i></button>
+                            </form>
+                        </div><!--widget-search end-->
+                        <div class="widget widget-categories">
+                            <h3 class="widget-title">Categories</h3>
+                            <ul>
+                                @{
+                                    if (Model.Categories != null)
+                                    {
+                                        foreach (var item in Model.Categories)
+                                        {
+                                            <li>
+                                                <a asp-controller="Home" asp-action="BlogTwo" asp-route-categoryId="@item.Id"><i class="fa fa-video"></i>@item.Name</a>
+                                            </li>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        foreach (var item in Model.Articles)
+                                        {
+                                            <li>
+                                                <a asp-controller="Home" asp-action="BlogTwo" asp-route-categoryId="@item.CategoryId"><i class="fa fa-video"></i>@item.Category.Name</a>
+                                            </li>
+                                        }
+                                    }
+
+                                }
+
 
                             </ul>
+                            <div class="clearfix"></div>
+                        </div><!--widget-categories end-->
+                        <div class="widget widget-tags">
+                            <h3 class="widget-title">Popular Tags</h3>
+                            <ul>
 
-                        </div>
-                    </div>
+                                @foreach (var item in Model.Articles)
+                                {
+                                    foreach (var t in item.Tags)
+                                    {
+                                        <li><a href="#" title="">@t.Tags</a></li>
+                                    }
+                                }
+                            </ul>
+                        </div><!--widget-tags end-->
+                        <!--<div class="widget widget-meta"> // ismail bakarsın
+                            <h3 class="widget-title">Meta</h3>
+                            <ul>
+                                <li>
+                                    <a href="#" title="">Login</a>
+                                </li>
+                                <li>
+                                    <a href="#" title="">Registration</a>
+                                </li>
+                                <li>
+                                    <a href="#" title="">Entries</a>
+                                </li>
+                                <li>
+                                    <a href="#" title="">Comments</a>
+                                </li>
+                                <li>
+                                    <a href="#" title="">WordPress.org</a>
+                                </li>
+                            </ul>
+                            <div class="clearfix"></div>
+                        </div>-->
+                        <!--widget-categories end-->
+
+
+                    </div><!--sidebar end-->
                 </div>
             </div>
-            <div class="col-lg-4">
-                <div class="sidebar">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="sidebar-item search">
-                                <form id="search_form" asp-controller="Home" asp-action="Search" method="GET">
-                                    <input type="text" name="keyword" class="searchText" placeholder="Arama yapınız..." autocomplete="on">
-                                </form>
-                            </div>
-                        </div>
-                        <div class="col-lg-12">
-                            <div class="sidebar-item recent-posts">
-                                <div class="sidebar-heading">
-                                    <h2>Recent Posts</h2>
-                                </div>
-                                <div class="content">
-                                    <ul>
-                                        <li>
-                                            <a href="post-details.html">
-                                                <h5>Vestibulum id turpis porttitor sapien facilisis scelerisque</h5>
-                                                <span>May 31, 2020</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="post-details.html">
-                                                <h5>Suspendisse et metus nec libero ultrices varius eget in risus</h5>
-                                                <span>May 28, 2020</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="post-details.html">
-                                                <h5>Swag hella echo park leggings, shaman cornhole ethical coloring</h5>
-                                                <span>May 14, 2020</span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-12">
-                            <div class="sidebar-item categories">
-                                <div class="sidebar-heading">
-                                    <h2>KATEGORİLER</h2>
-                                </div>
-                                @await Component.InvokeAsync("HomeCategories")
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        </div><!--blog-style2 end-->
+
     </div>
-</section>
+</section><!--page-content end-->
+
+<section class="partner-section">
+    <div class="container">
+        <ul class="pt-carousel">
+            <li><img src="https://via.placeholder.com/108x100" alt=""></li>
+            <li><img src="https://via.placeholder.com/108x100" alt=""></li>
+            <li><img src="https://via.placeholder.com/108x100" alt=""></li>
+            <li><img src="https://via.placeholder.com/108x100" alt=""></li>
+            <li><img src="https://via.placeholder.com/108x100" alt=""></li>
+            <li><img src="https://via.placeholder.com/108x100" alt=""></li>
+            <li><img src="https://via.placeholder.com/108x100" alt=""></li>
+            <li><img src="https://via.placeholder.com/108x100" alt=""></li>
+        </ul><!--pt-carousel end-->
+    </div>
+</section><!--partner-section end-->

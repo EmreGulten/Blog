@@ -1,1008 +1,702 @@
-﻿<div class="search-popup">
-	<form>
-		<input type="text" name="search" placeholder="Enter Your Keyword....">
-		<button type="submit"><i class="fa fa-search"></i></button>
-	</form>
-	<a href="#" title="" class="close-search"><i class="fa fa-window-close"></i></a>
+﻿@model ArticleListDto
+
+<style>
+    .truncated-content {
+        word-wrap: break-word;
+    }
+</style>
+
+<div class="search-popup">
+    <form id="search_form" asp-controller="Home" asp-action="Search" method="GET">
+        <input type="text" name="keyword" class="searchText" placeholder="Arama yapınız..." autocomplete="on">
+        <button type="submit"><i class="fa fa-search"></i></button>
+    </form>
+    <a href="#" title="" class="close-search"><i class="fa fa-window-close"></i></a>
 </div><!--search-popup end-->
 
+<section class="banner-section white-box style2">
+    <div class="banner-slider">
+        <div class="banner-slide slick-slide overlay-dark" style="background-image: url('/Theme/HomePage2/Slider1.jpg');">
+            <div class="container">
+                <div class="banner-content">
+                    <h1>Evinizi ve İşyerinizin Güvenliği İçin Doğru Adres</h1>
+                    <p>Sancaktar İle Güvendesiniz.</p>
+                    <a href="#" title="" class="lnk-default">Hemen Teklif Al</a>
+                </div><!--banner-content end-->
+                <div class="clearfix"></div>
+            </div>
+        </div><!--banner-slide end-->
+        <div class="banner-slide slick-slide overlay-dark" style="background-image: url('/Theme/HomePage2/Slider2.jpg');">
+            <div class="container">
+                <div class="banner-content">
+                    <h1>Sancaktar Güvenlik İle Yeni Nesil Güvenlik Çözümleri</h1>
+                    <p>Akıllı Güvenlik Sistemleri İçin Bizimle İletişime Geçin</p>
+                    <a href="#" title="" class="lnk-default">Hemen Teklif Al</a>
+                </div><!--banner-content end-->
+                <div class="clearfix"></div>
+            </div>
+        </div><!--banner-slide end-->
+        <div class="banner-slide slick-slide overlay-dark" style="background-image: url('/Theme/HomePage2/Slider3.jpg');">
+            <div class="container">
+                <div class="banner-content">
+                    <h1>Sancaktar Güvenlik İle Gözünüz Arkada Kalmasın</h1>
+                    <p>Evinizi Sizin Yerinize Koruyoruz</p>
+                    <a href="#" title="" class="lnk-default">Hemen Teklif Al</a>
+                </div><!--banner-content end-->
+                <div class="clearfix"></div>
+            </div>
+        </div><!--banner-slide end-->
+    </div><!--banner-slider end-->
+</section><!--banner-section end-->
 
 
 <section class="abt-block">
-	<div class="container">
-		<div class="about-section">
-			<div class="row">
-				<div class="col-lg-6">
-					<div class="about-img">
-						<img src="https://via.placeholder.com/479x678" alt="">
-						<a href="https://www.youtube.com/watch?v=Gp-WUXakD_Y" title="" class="play-btn html5lightbox"><i class="fa fa-play"></i></a>
-						<div class="abt-thumb">
-							<img src="https://via.placeholder.com/166x166" alt="">
-						</div><!--abt-thumb end-->
-					</div><!--about-img end-->
-				</div>
-				<div class="col-lg-6">
-					<div class="about-text">
-						<span>About Us</span>
-						<h2>We Provide Service <br /> with 20 Years Experience</h2>
-						<p>Unto moved life, form fowl give fourth under his place signs which can’t be open they’re make from i were it moveth morning. Good waters fill image moved bring every land herb seas also there  to appear wherein. Their moving grass. It moving very let doesn’t.</p>
-						<ul class="abt-list">
-							<li>
-								<span><b>01.</b> Schedule Your Tasks</span>
-							</li>
-							<li>
-								<span><b>02.</b> Manage By Control Panel</span>
-							</li>
-							<li>
-								<span><b>03.</b> Smarter Wireless Applications</span>
-							</li>
-						</ul>
-						<div class="sig-text">
-							<div class="txt">
-								<span>For Emergency Fixing or Appointment</span>
-								<h2>+888 56 78 9012</h2>
-							</div>
-							<div class="sig">
-								<img src="https://via.placeholder.com/229x80" alt="">
-							</div>
-							<div class="clearfix"></div>
-						</div>
-						<a href="#" title="" class="lnk-default">More About</a>
-					</div><!--about-text end-->
-				</div>
-			</div>
-		</div><!--about-section end-->
-	</div>
+    <div class="container">
+        <div class="about-section">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="about-img">
+                        <img src="~/Theme/HomePage2/AboutUsBuyuk.jpg" alt="">
+                        <a href="https://www.youtube.com/watch?v=Gp-WUXakD_Y" title="" class="play-btn html5lightbox"><i class="fa fa-play"></i></a>
+                        <div class="abt-thumb">
+                            <img src="~/Theme/HomePage2/AboutUsKucukResim.jpg" alt="">
+                        </div><!--abt-thumb end-->
+                    </div><!--about-img end-->
+                </div>
+                <div class="col-lg-6">
+                    <div class="about-text">
+                        <span>Hakkımızda</span>
+                        <h2><strong>Sektördeki Tecrübemizle Güvenlik Sorunlarınızı Çözüyoruz</strong></h2>
+                        <p><strong>Sancaktar Güvenlik</strong>, <strong>İstanbul ve çevresinde</strong> uzun yıllardır kaliteli Güvenlik Çözümleri sunan köklü bir firmadır. Müşteri memnuniyetini ön planda tutan, Sancaktar Güvenlik geniş hizmet ve ürün yelpazesiyle müşterilerinin her türlü ihtiyacını karşılamaktadır. <strong>Kamera Sistemleri, Güvenlik Sistemleri, Alarm Sistemleri, Solar Sistemler, Akıllı Ev Sistemleri ve Kontrollü Geçiş Sistemleri</strong> gibi alanlarda uzmanlaşmış ekipleriyle sektörde öncü konumda yer almaktadır.</p>
+                        <ul class="abt-list">
+                            <li>
+                                <span><b>1.</b>  İş Disiplini</span>
+                            </li>
+                            <li>
+                                <span><b>2.</b> Hızlı Kurulum ve Kablosuz Sistem</span>
+                            </li>
+                            <li>
+                                <span><b>3.</b> Akıllı Güvenlik Çözümleri İle Uyumlu Teknoloji</span>
+                            </li>
+                        </ul>
+                        <div class="sig-text">
+                            <div class="txt">
+                                <span>Hemen Bizimle İletişime Geçin</span>
+                                <h2>0535 982 07 74</h2>
+                            </div>
+                            <div class="sig">
+                                <img src="~/Theme/HomePage2/AboutUsKucukkResim2Sagdaki.jpg" alt="">
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <a href="#" title="" class="lnk-default">Teklif Al</a>
+                    </div><!--about-text end-->
+                </div>
+            </div>
+        </div><!--about-section end-->
+    </div>
 </section><!--block end-->
 
 <section class="counter-section">
-	<div class="counter-sec">
-		<div class="row counter-row">
-			<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth">
-				<div class="counter-dv">
-					<div class="ico">
-						<img src="assets/images/icon1.png" alt="">
-					</div>
-					<div class="counter-info">
-						<div class="counter-item">
-							<h2 class="counter">250</h2>
-							<span>+</span>
-						</div>
-						<span>Resdential Area</span>
-					</div>
-				</div><!--counter-dv end-->
-			</div>
-			<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth">
-				<div class="counter-dv">
-					<div class="ico">
-						<img src="assets/images/icon2.png" alt="">
-					</div>
-					<div class="counter-info">
-						<div class="counter-item">
-							<h2 class="counter">50</h2>
-							<span>+</span>
-						</div>
-						<span>Malls & Buildings</span>
-					</div>
-				</div><!--counter-dv end-->
-			</div>
-			<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth">
-				<div class="counter-dv">
-					<div class="ico">
-						<img src="assets/images/icon3.png" alt="">
-					</div>
-					<div class="counter-info">
-						<div class="counter-item">
-							<h2 class="counter">135</h2>
-							<span>+</span>
-						</div>
-						<span>Commerical Space</span>
-					</div>
-				</div><!--counter-dv end-->
-			</div>
-			<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth">
-				<div class="counter-dv">
-					<div class="ico">
-						<img src="assets/images/icon4.png" alt="">
-					</div>
-					<div class="counter-info">
-						<div class="counter-item">
-							<h2 class="counter">10</h2>
-							<span>+</span>
-						</div>
-						<span>Years of Experience</span>
-					</div>
-				</div><!--counter-dv end-->
-			</div>
-		</div>
-	</div><!--counter-sec end-->
+    <div class="counter-sec">
+        <div class="row counter-row">
+            <div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth">
+                <div class="counter-dv">
+                    <div class="ico">
+                        <img src="~/Theme/assets/images/icon1.png" alt="">
+                    </div>
+                    <div class="counter-info">
+                        <div class="counter-item">
+                            <h2 class="counter">40</h2>
+                            <span>+</span>
+                        </div>
+                        <span>Ev ve Bina</span>
+                    </div>
+                </div><!--counter-dv end-->
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth">
+                <div class="counter-dv">
+                    <div class="ico">
+                        <img src="~/Theme/assets/images/icon2.png" alt="">
+                    </div>
+                    <div class="counter-info">
+                        <div class="counter-item">
+                            <h2 class="counter">65</h2>
+                            <span>+</span>
+                        </div>
+                        <span>İşyeri</span>
+                    </div>
+                </div><!--counter-dv end-->
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth">
+                <div class="counter-dv">
+                    <div class="ico">
+                        <img src="~/Theme/assets/images/icon3.png" alt="">
+                    </div>
+                    <div class="counter-info">
+                        <div class="counter-item">
+                            <h2 class="counter">15</h2>
+                            <span>+</span>
+                        </div>
+                        <span>Kamusal Alan</span>
+                    </div>
+                </div><!--counter-dv end-->
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth">
+                <div class="counter-dv">
+                    <div class="ico">
+                        <img src="~/Theme/assets/images/icon4.png" alt="">
+                    </div>
+                    <div class="counter-info">
+                        <div class="counter-item">
+                            <h2 class="counter">16</h2>
+                            <span>+</span>
+                        </div>
+                        <span>Yıllık Tecrübe</span>
+                    </div>
+                </div><!--counter-dv end-->
+            </div>
+        </div>
+    </div><!--counter-sec end-->
 </section><!--counter-section end-->
 
+
 <section class="video-system">
-	<div class="container">
-		<div class="sec-title">
-			<span>What WE Offer</span>
-			<h2>Video Surveillance Systems</h2>
-		</div><!-- sec-title end-->
-		<div class="video-posts-sec">
-			<div class="row vid-carousel">
-				<div class="col-lg-4 col-md-6 col-sm-6 col-12">
-					<div class="video-post">
-						<div class="video-post-thumbnail">
-							<img src="https://via.placeholder.com/350x500" alt="">
-							<div class="vid-post-info">
-								<h2>Home Automation System</h2>
-								<p>What if all the devices in your life could connect to the internet. clocks, speakers, lights, doorbells, cameras, windows, window blinds, hot water heaters.........</p>
-							</div>
-							<a href="services.html" title="" class="ext-link"></a>
-						</div><!--video-post-thumbnail end-->
-						<div class="video-post-info">
-							<a href="#" title="" class="rd-btn"><i class="fa fa-angle-double-right"></i></a>
-							<h2><a href="#" title="">Fingerprint Door Access</a></h2>
-						</div>
-					</div><!--video-post end-->
-				</div>
-				<div class="col-lg-4 col-md-6 col-sm-6 col-12">
-					<div class="video-post">
-						<div class="video-post-thumbnail">
-							<img src="https://via.placeholder.com/350x500" alt="">
-							<div class="vid-post-info">
-								<h2>Home Automation System</h2>
-								<p>What if all the devices in your life could connect to the internet. clocks, speakers, lights, doorbells, cameras, windows, window blinds, hot water heaters.........</p>
-							</div>
-							<a href="services.html" title="" class="ext-link"></a>
-						</div><!--video-post-thumbnail end-->
-						<div class="video-post-info">
-							<a href="#" title="" class="rd-btn"><i class="fa fa-angle-double-right"></i></a>
-							<h2><a href="#" title="">Home Automation System</a></h2>
-						</div>
-					</div><!--video-post end-->
-				</div>
-				<div class="col-lg-4 col-md-6 col-sm-6 col-12">
-					<div class="video-post">
-						<div class="video-post-thumbnail">
-							<img src="https://via.placeholder.com/370x500" alt="">
-							<div class="vid-post-info">
-								<h2>Home Automation System</h2>
-								<p>What if all the devices in your life could connect to the internet. clocks, speakers, lights, doorbells, cameras, windows, window blinds, hot water heaters.........</p>
-							</div>
-							<a href="services.html" title="" class="ext-link"></a>
-						</div><!--video-post-thumbnail end-->
-						<div class="video-post-info">
-							<a href="#" title="" class="rd-btn"><i class="fa fa-angle-double-right"></i></a>
-							<h2><a href="#" title="">Antenna Tagging System</a></h2>
-						</div>
-					</div><!--video-post end-->
-				</div>
-				<div class="col-lg-4 col-md-6 col-sm-6 col-12">
-					<div class="video-post">
-						<div class="video-post-thumbnail">
-							<img src="https://via.placeholder.com/350x500" alt="">
-							<div class="vid-post-info">
-								<h2>Home Automation System</h2>
-								<p>What if all the devices in your life could connect to the internet. clocks, speakers, lights, doorbells, cameras, windows, window blinds, hot water heaters.........</p>
-							</div>
-							<a href="services.html" title="" class="ext-link"></a>
-						</div><!--video-post-thumbnail end-->
-						<div class="video-post-info">
-							<a href="#" title="" class="rd-btn"><i class="fa fa-angle-double-right"></i></a>
-							<h2><a href="#" title="">Fingerprint Door Access</a></h2>
-						</div>
-					</div><!--video-post end-->
-				</div>
-				<div class="col-lg-4 col-md-6 col-sm-6 col-12">
-					<div class="video-post">
-						<div class="video-post-thumbnail">
-							<img src="https://via.placeholder.com/350x500" alt="">
-							<div class="vid-post-info">
-								<h2>Home Automation System</h2>
-								<p>What if all the devices in your life could connect to the internet. clocks, speakers, lights, doorbells, cameras, windows, window blinds, hot water heaters.........</p>
-							</div>
-							<a href="services.html" title="" class="ext-link"></a>
-						</div><!--video-post-thumbnail end-->
-						<div class="video-post-info">
-							<a href="#" title="" class="rd-btn"><i class="fa fa-angle-double-right"></i></a>
-							<h2><a href="#" title="">Home Automation System</a></h2>
-						</div>
-					</div><!--video-post end-->
-				</div>
-				<div class="col-lg-4 col-md-6 col-sm-6 col-12">
-					<div class="video-post">
-						<div class="video-post-thumbnail">
-							<img src="https://via.placeholder.com/370x500" alt="">
-							<div class="vid-post-info">
-								<h2>Home Automation System</h2>
-								<p>What if all the devices in your life could connect to the internet. clocks, speakers, lights, doorbells, cameras, windows, window blinds, hot water heaters.........</p>
-							</div>
-							<a href="services.html" title="" class="ext-link"></a>
-						</div><!--video-post-thumbnail end-->
-						<div class="video-post-info">
-							<a href="#" title="" class="rd-btn"><i class="fa fa-angle-double-right"></i></a>
-							<h2><a href="#" title="">Antenna Tagging System</a></h2>
-						</div>
-					</div><!--video-post end-->
-				</div>
-			</div>
-		</div><!--video-posts-sec end-->
-	</div>
+    <div class="container">
+        <div class="sec-title">
+            <span>Sancaktar Güvenlik</span>
+            <h2>
+                Hizmetlerimiz
+            </h2>
+        </div><!-- sec-title end-->
+        <div class="video-posts-sec">
+            <div class="row vid-carousel">
+                <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                    <div class="video-post">
+                        <div class="video-post-thumbnail">
+                            <img src="~/Theme//HomePage2/Servislerimiz/KameraSistemleri.jpg" alt="">
+                            <div class="vid-post-info">
+                                <h2>Kamera Sistemleri</h2>
+                                <p><strong>Kamera sistemleri</strong>, görsel ve sesli verileri kaydeden, depolayan ve izlemeyi mümkün kılan teknolojik altyapılardır. <strong>Sancaktar Güvenlik</strong>, yılların getirdiği deneyim ve uzman kadrosuyla <strong>İstanbul</strong> genelinde güvenlik ve görüntü izleme alanında çeşitli hizmetler sunmaktadır.</p>
+                            </div>
+                            <a href="services.html" title="" class="ext-link"></a>
+                        </div><!--video-post-thumbnail end-->
+                        <div class="video-post-info">
+                            <a href="#" title="" class="rd-btn"><i class="fa fa-angle-double-right"></i></a>
+                            <h2><a href="#" title="">Kamera Sistemleri</a></h2>
+                        </div>
+                    </div><!--video-post end-->
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                    <div class="video-post">
+                        <div class="video-post-thumbnail">
+                            <img src="~/Theme//HomePage2/Servislerimiz/AkıllıEvSistemleri.jpg" alt="">
+                            <div class="vid-post-info">
+                                <h2>Akıllı Ev Sistemleri</h2>
+                                <p><strong>Akıllı ev sistemleri</strong>, evinizdeki aydınlatma, güvenlik, enerji yönetimi, iklim kontrolü ve daha birçok alanı akıllı bir şekilde kontrol etme ve yönetme imkanı sunar. </p>
+                            </div>
+                            <a href="services.html" title="" class="ext-link"></a>
+                        </div><!--video-post-thumbnail end-->
+                        <div class="video-post-info">
+                            <a href="#" title="" class="rd-btn"><i class="fa fa-angle-double-right"></i></a>
+                            <h2><a href="#" title="">Akıllı Ev Sistemleri</a></h2>
+                        </div>
+                    </div><!--video-post end-->
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                    <div class="video-post">
+                        <div class="video-post-thumbnail">
+                            <img src="~/Theme//HomePage2/Servislerimiz/AlarmSistemleri.jpg" alt="">
+                            <div class="vid-post-info">
+                                <h2>Alarm Sistemleri</h2>
+                                <p><strong>Alarm sistemleri</strong>, evlerden iş yerlerine, sanayi tesislerinden kamu alanlarına kadar birçok farklı mekânda kullanılan etkili bir güvenlik çözümüdür.</p>
+                            </div>
+                            <a href="services.html" title="" class="ext-link"></a>
+                        </div><!--video-post-thumbnail end-->
+                        <div class="video-post-info">
+                            <a href="#" title="" class="rd-btn"><i class="fa fa-angle-double-right"></i></a>
+                            <h2><a href="#" title="">Alarm Sistemleri</a></h2>
+                        </div>
+                    </div><!--video-post end-->
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                    <div class="video-post">
+                        <div class="video-post-thumbnail">
+                            <img src="~/Theme//HomePage2/Servislerimiz/GeçişKontrolSistemleri.jpg" alt="">
+                            <div class="vid-post-info">
+                                <h2>Geçiş Kontrol Sistemleri</h2>
+                                <p><strong>Geçiş kontrol sistemleri</strong>, çalışanların, ziyaretçilerin veya diğer kişilerin belirli bölgelere erişimini denetlemenizi sağlar. <strong>Kart okuyucular, parmak izi tarayıcılar veya yüz tanıma teknolojisi </strong>gibi yöntemlerle erişim kontrolü sağlanabilir.</p>
+                            </div>
+                            <a href="services.html" title="" class="ext-link"></a>
+                        </div><!--video-post-thumbnail end-->
+                        <div class="video-post-info">
+                            <a href="#" title="" class="rd-btn"><i class="fa fa-angle-double-right"></i></a>
+                            <h2><a href="#" title="">Geçiş Kontrol Sistemleri</a></h2>
+                        </div>
+                    </div><!--video-post end-->
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                    <div class="video-post">
+                        <div class="video-post-thumbnail">
+                            <img src="~/Theme//HomePage2/Servislerimiz/SolarSistemler.jpg" alt="">
+                            <div class="vid-post-info">
+                                <h2>Solar Sistemler</h2>
+                                <p><strong>Solar sistemler</strong>, güneş ışığını elektrik enerjisine dönüştüren panellerden oluşur. Bu paneller, çatılara veya açık alanlara monte edilerek güneş ışığını yakalar ve enerji üretir.</p>
+                            </div>
+                            <a href="services.html" title="" class="ext-link"></a>
+                        </div><!--video-post-thumbnail end-->
+                        <div class="video-post-info">
+                            <a href="#" title="" class="rd-btn"><i class="fa fa-angle-double-right"></i></a>
+                            <h2><a href="#" title="">Solar sistemler</a></h2>
+                        </div>
+                    </div><!--video-post end-->
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                    <div class="video-post">
+                        <div class="video-post-thumbnail">
+                            <img src="~/Theme//HomePage2/Servislerimiz/GüvenlikSistemleri.jpg" alt="">
+                            <div class="vid-post-info">
+                                <h2>Güvenlik Sistemleri</h2>
+                                <p><strong>Güvenlik sistemleri</strong>, mülklerinizi ve sevdiklerinizi korumak, tehlikelere karşı uyarı almak ve hırsızlık, yangın gibi olaylara karşı tedbirli olmak amacıyla kullanılan teknolojik çözümlerdir.</p>
+                            </div>
+                            <a href="services.html" title="" class="ext-link"></a>
+                        </div><!--video-post-thumbnail end-->
+                        <div class="video-post-info">
+                            <a href="#" title="" class="rd-btn"><i class="fa fa-angle-double-right"></i></a>
+                            <h2><a href="#" title="">Güvenlik Sistemleri</a></h2>
+                        </div>
+                    </div><!--video-post end-->
+                </div>
+            </div>
+        </div><!--video-posts-sec end-->
+    </div>
 </section><!--video-system end-->
 
+
 <section class="case-study-sec half-overlay">
-	<div class="container">
-		<div class="sec-title-style2">
-			<div class="sec-title">
-				<span>Our Recent Work</span>
-				<h2>Our Case’s Study</h2>
-			</div>
-			<a href="#" title="" class="lnk-default">View All Project</a>
-			<div class="clearfix"></div>
-		</div><!--case-sec-title end-->
-		<div class="case-study-section">
-			<div class="case_slider">
-				<div class="case_slide">
-					<div class="row">
-						<div class="col-lg-5">
-							<div class="case-study-carouz">
-								<div class="case-study-slide">
-									<h4>Commerical</h4>
-									<h2>Bussiness Building Secour Cam</h2>
-									<span>Cayler Offices</span>
-									<p>A simple and proven methodology that companies use to measure customer happiness as it relates to company brand, product or service.</p>
-									<a href="#" title="" class="lnk-default">Read More</a>
-								</div><!--case-study-slide end-->
-							</div><!--case-study-carouz end-->
-						</div>
-						<div class="col-lg-7">
-							<div class="gallery-row">
-								<div class="gallery-thumb">
-									<div class="gallery-th">
-										<img src="https://via.placeholder.com/110x110" alt="">
-									</div>
-									<div class="gallery-th">
-										<img src="https://via.placeholder.com/110x110" alt="">
-									</div>
-									<div class="gallery-th">
-										<img src="https://via.placeholder.com/110x110" alt="">
-									</div>
-									<div class="gallery-th">
-										<img src="https://via.placeholder.com/110x110" alt="">
-									</div>
-									<div class="gallery-th">
-										<img src="https://via.placeholder.com/110x110" alt="">
-									</div>
-									<div class="gallery-th">
-										<img src="https://via.placeholder.com/110x110" alt="">
-									</div>
-									<div class="gallery-th">
-										<img src="https://via.placeholder.com/110x110" alt="">
-									</div>
-									<div class="gallery-th">
-										<img src="https://via.placeholder.com/110x110" alt="">
-									</div>
-								</div>
-								<div class="gallery-images-slide" id="custom-gallery">
-									<div class="gallery-image">
-										<img src="https://via.placeholder.com/600x380" alt="">
-										<a href="https://via.placeholder.com/600x380" title="" class="lightbox full-img">
-											<i class="fa fa-expand"></i>
-										</a>
-									</div>
-									<div class="gallery-image">
-										<img src="https://via.placeholder.com/600x400" alt="">
-										<a href="https://via.placeholder.com/600x400" title="" class="lightbox full-img">
-											<i class="fa fa-expand"></i>
-										</a>
-									</div>
-									<div class="gallery-image">
-										<img src="https://via.placeholder.com/600x400" alt="">
-										<a href="https://via.placeholder.com/600x400" title="" class="lightbox full-img">
-											<i class="fa fa-expand"></i>
-										</a>
-									</div>
-									<div class="gallery-image">
-										<img src="https://via.placeholder.com/600x435" alt="">
-										<a href="https://via.placeholder.com/600x435" title="" class="lightbox full-img">
-											<i class="fa fa-expand"></i>
-										</a>
-									</div>
-									<div class="gallery-image">
-										<img src="https://via.placeholder.com/600x380" alt="">
-										<a href="https://via.placeholder.com/600x380" title="" class="lightbox full-img">
-											<i class="fa fa-expand"></i>
-										</a>
-									</div>
-									<div class="gallery-image">
-										<img src="https://via.placeholder.com/600x400" alt="">
-										<a href="https://via.placeholder.com/600x400" title="" class="lightbox full-img">
-											<i class="fa fa-expand"></i>
-										</a>
-									</div>
-									<div class="gallery-image">
-										<img src="https://via.placeholder.com/600x400" alt="">
-										<a href="https://via.placeholder.com/600x400" title="" class="lightbox full-img">
-											<i class="fa fa-expand"></i>
-										</a>
-									</div>
-									<div class="gallery-image">
-										<img src="https://via.placeholder.com/600x435" alt="">
-										<a href="https://via.placeholder.com/600x435" title="" class="lightbox full-img">
-											<i class="fa fa-expand"></i>
-										</a>
-									</div>
-								</div>
-							</div><!--gallery-row end-->
-							<div class="clearfix"></div>
-						</div>
-					</div>
-				</div>
-				<div class="case_slide">
-					<div class="row">
-						<div class="col-lg-5">
-							<div class="case-study-carouz">
-								<div class="case-study-slide">
-									<h4>Commerical</h4>
-									<h2>We Secure Your Home Excet Your Thought</h2>
-									<span>Cayler Offices</span>
-									<p>A simple and proven methodology that companies use to measure customer happiness as it relates to company brand, product or service.</p>
-									<a href="#" title="" class="lnk-default">Read More</a>
-								</div><!--case-study-slide end-->
-							</div><!--case-study-carouz end-->
-						</div>
-						<div class="col-lg-7">
-							<div class="gallery-row">
-								<div class="gallery-thumb">
-									<div class="gallery-th">
-										<img src="https://via.placeholder.com/110x110" alt="">
-									</div>
-									<div class="gallery-th">
-										<img src="https://via.placeholder.com/110x110" alt="">
-									</div>
-									<div class="gallery-th">
-										<img src="https://via.placeholder.com/110x110" alt="">
-									</div>
-									<div class="gallery-th">
-										<img src="https://via.placeholder.com/110x110" alt="">
-									</div>
-									<div class="gallery-th">
-										<img src="https://via.placeholder.com/110x110" alt="">
-									</div>
-									<div class="gallery-th">
-										<img src="https://via.placeholder.com/110x110" alt="">
-									</div>
-									<div class="gallery-th">
-										<img src="https://via.placeholder.com/110x110" alt="">
-									</div>
-									<div class="gallery-th">
-										<img src="https://via.placeholder.com/110x110" alt="">
-									</div>
-								</div>
-								<div class="gallery-images-slide">
-									<div class="gallery-image">
-										<img src="https://via.placeholder.com/600x380" alt="">
-										<a href="https://via.placeholder.com/600x380" title="" class="lightbox full-img">
-											<i class="fa fa-expand"></i>
-										</a>
-									</div>
-									<div class="gallery-image">
-										<img src="https://via.placeholder.com/600x400" alt="">
-										<a href="https://via.placeholder.com/600x400" title="" class="lightbox full-img">
-											<i class="fa fa-expand"></i>
-										</a>
-									</div>
-									<div class="gallery-image">
-										<img src="https://via.placeholder.com/600x400" alt="">
-										<a href="https://via.placeholder.com/600x400" title="" class="lightbox full-img">
-											<i class="fa fa-expand"></i>
-										</a>
-									</div>
-									<div class="gallery-image">
-										<img src="https://via.placeholder.com/600x435" alt="">
-										<a href="https://via.placeholder.com/600x435" title="" class="lightbox full-img">
-											<i class="fa fa-expand"></i>
-										</a>
-									</div>
-									<div class="gallery-image">
-										<img src="https://via.placeholder.com/600x380" alt="">
-										<a href="https://via.placeholder.com/600x380" title="" class="lightbox full-img">
-											<i class="fa fa-expand"></i>
-										</a>
-									</div>
-									<div class="gallery-image">
-										<img src="https://via.placeholder.com/600x400" alt="">
-										<a href="https://via.placeholder.com/600x400" title="" class="lightbox full-img">
-											<i class="fa fa-expand"></i>
-										</a>
-									</div>
-									<div class="gallery-image">
-										<img src="https://via.placeholder.com/600x400" alt="">
-										<a href="https://via.placeholder.com/600x400" title="" class="lightbox full-img">
-											<i class="fa fa-expand"></i>
-										</a>
-									</div>
-									<div class="gallery-image">
-										<img src="https://via.placeholder.com/600x435" alt="">
-										<a href="https://via.placeholder.com/600x435" title="" class="lightbox full-img">
-											<i class="fa fa-expand"></i>
-										</a>
-									</div>
-								</div>
-							</div><!--gallery-row end-->
-							<div class="clearfix"></div>
-						</div>
-					</div>
-				</div>
-				<div class="case_slide">
-					<div class="row">
-						<div class="col-lg-5">
-							<div class="case-study-carouz">
-								<div class="case-study-slide">
-									<h4>Commerical</h4>
-									<h2>Safty and Security at your Fingertips</h2>
-									<span>Cayler Offices</span>
-									<p>A simple and proven methodology that companies use to measure customer happiness as it relates to company brand, product or service.</p>
-									<a href="#" title="" class="lnk-default">Read More</a>
-								</div><!--case-study-slide end-->
-							</div><!--case-study-carouz end-->
-						</div>
-						<div class="col-lg-7">
-							<div class="gallery-row">
-								<div class="gallery-thumb">
-									<div class="gallery-th">
-										<img src="https://via.placeholder.com/110x110" alt="">
-									</div>
-									<div class="gallery-th">
-										<img src="https://via.placeholder.com/110x110" alt="">
-									</div>
-									<div class="gallery-th">
-										<img src="https://via.placeholder.com/110x110" alt="">
-									</div>
-									<div class="gallery-th">
-										<img src="https://via.placeholder.com/110x110" alt="">
-									</div>
-									<div class="gallery-th">
-										<img src="https://via.placeholder.com/110x110" alt="">
-									</div>
-									<div class="gallery-th">
-										<img src="https://via.placeholder.com/110x110" alt="">
-									</div>
-									<div class="gallery-th">
-										<img src="https://via.placeholder.com/110x110" alt="">
-									</div>
-									<div class="gallery-th">
-										<img src="https://via.placeholder.com/110x110" alt="">
-									</div>
-								</div>
-								<div class="gallery-images-slide">
-									<div class="gallery-image">
-										<img src="https://via.placeholder.com/600x380" alt="">
-										<a href="https://via.placeholder.com/600x380" title="" class="lightbox full-img">
-											<i class="fa fa-expand"></i>
-										</a>
-									</div>
-									<div class="gallery-image">
-										<img src="https://via.placeholder.com/600x400" alt="">
-										<a href="https://via.placeholder.com/600x400" title="" class="lightbox full-img">
-											<i class="fa fa-expand"></i>
-										</a>
-									</div>
-									<div class="gallery-image">
-										<img src="https://via.placeholder.com/600x400" alt="">
-										<a href="https://via.placeholder.com/600x400" title="" class="lightbox full-img">
-											<i class="fa fa-expand"></i>
-										</a>
-									</div>
-									<div class="gallery-image">
-										<img src="https://via.placeholder.com/600x435" alt="">
-										<a href="https://via.placeholder.com/600x435" title="" class="lightbox full-img">
-											<i class="fa fa-expand"></i>
-										</a>
-									</div>
-									<div class="gallery-image">
-										<img src="https://via.placeholder.com/600x380" alt="">
-										<a href="https://via.placeholder.com/600x380" title="" class="lightbox full-img">
-											<i class="fa fa-expand"></i>
-										</a>
-									</div>
-									<div class="gallery-image">
-										<img src="https://via.placeholder.com/600x400" alt="">
-										<a href="https://via.placeholder.com/600x400" title="" class="lightbox full-img">
-											<i class="fa fa-expand"></i>
-										</a>
-									</div>
-									<div class="gallery-image">
-										<img src="https://via.placeholder.com/600x400" alt="">
-										<a href="https://via.placeholder.com/600x400" title="" class="lightbox full-img">
-											<i class="fa fa-expand"></i>
-										</a>
-									</div>
-									<div class="gallery-image">
-										<img src="https://via.placeholder.com/600x435" alt="">
-										<a href="https://via.placeholder.com/600x435" title="" class="lightbox full-img">
-											<i class="fa fa-expand"></i>
-										</a>
-									</div>
-								</div>
-							</div><!--gallery-row end-->
-							<div class="clearfix"></div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div><!--case-study-section end-->
-	</div>
+    <div class="container">
+        <div class="sec-title-style2">
+            <div class="sec-title">
+            </div>
+            <a href="#" title="" class="lnk-default">View All Project</a>
+            <div class="clearfix"></div>
+        </div><!--case-sec-title end-->
+        <div class="case-study-section">
+            <div class="case_slider">
+                <div class="case_slide">
+                    <div class="row">
+                        <div class="col-lg-5">
+                            <div class="case-study-carouz">
+                                <div class="case-study-slide">
+                                    <h2>İş Disiplini</h2>
+                                    <p>Müşteri güvenliği ve memnuniyeti firmamızın önceliğidir. Uygun sistem sunumu ve bütçe dostu teklifler ile müşterilerimiz bilgilendirilir. Teknik onay sonrası tedarik ve iletişimle montaj planı yapılır. Projeler  tamamlanınca, sistemin sağlığı denetlenir, İşlemlerimiz sonrasında da sistemler düzenli olarak kontrol edilir. Uzman ekibiyle her zaman teknik destek sağlanır.</p>
+                                    @*<a href="#" title="" class="lnk-default">Read More</a>*@
+                                </div><!--case-study-slide end-->
+                            </div><!--case-study-carouz end-->
+                        </div>
+                        <div class="col-lg-7">
+                            <div class="gallery-row">
+                                <div class="gallery-thumb">
+                                    <div class="gallery-th">
+                                        <img src="~/Theme//HomePage2/İşDisiplinimiz/İşDisipliniKücükResim1.Sayfa1.jpg" alt="">
+                                    </div>
+                                    <div class="gallery-th">
+                                        <img src="~/Theme//HomePage2/İşDisiplinimiz/İşDisipliniKücükResim2.Sayfa1.jpg" alt="">
+                                    </div>
+                                    <div class="gallery-th">
+                                        <img src="~/Theme//HomePage2/İşDisiplinimiz/İşDisipliniKücükResim3.Sayfa1.jpg" alt="">
+                                    </div>
+                                    <div class="gallery-th">
+                                        <img src="~/Theme//HomePage2/İşDisiplinimiz/İşDisipliniKücükResim4.Sayfa1.jpg" alt="">
+                                    </div>
+                                    <div class="gallery-th">
+                                        <img src="~/Theme//HomePage2/İşDisiplinimiz/İşDisipliniKücükResim1.Sayfa1.jpg" alt="">
+                                    </div>
+                                    <div class="gallery-th">
+                                        <img src="~/Theme//HomePage2/İşDisiplinimiz/İşDisipliniKücükResim1.Sayfa1.jpg" alt="">
+                                    </div>
+                                    <div class="gallery-th">
+                                        <img src="~/Theme//HomePage2/İşDisiplinimiz/İşDisipliniKücükResim1.Sayfa1.jpg" alt="">
+                                    </div>
+                                    <div class="gallery-th">
+                                        <img src="~/Theme//HomePage2/İşDisiplinimiz/İşDisipliniKücükResim1.Sayfa1.jpg" alt="">
+                                    </div>
+                                </div>
+                                <div class="gallery-images-slide" id="custom-gallery">
+                                    <div class="gallery-image">
+                                        <img src="~/Theme//HomePage2/İşDisiplinimiz/İşDisiplini1.jpg" alt="">
+                                        <a href="" title="" class="lightbox full-img">
+                                            <i class="fa fa-expand"></i>
+                                        </a>
+                                    </div>
+                                    <div class="gallery-image">
+                                        <img src="~/Theme//HomePage2/İşDisiplinimiz/İşDisiplini2.jpg" alt="">
+                                        <a href="https://via.placeholder.com/600x400" title="" class="lightbox full-img">
+                                            <i class="fa fa-expand"></i>
+                                        </a>
+                                    </div>
+                                    <div class="gallery-image">
+                                        <img src="~/Theme//HomePage2/İşDisiplinimiz/İşDisiplini3.jpg" alt="">
+                                        <a href="https://via.placeholder.com/600x400" title="" class="lightbox full-img">
+                                            <i class="fa fa-expand"></i>
+                                        </a>
+                                    </div>
+                                    <div class="gallery-image">
+                                        <img src="~/Theme//HomePage2/İşDisiplinimiz/İşDisiplini4.jpg" alt="">
+                                        <a href="https://via.placeholder.com/600x435" title="" class="lightbox full-img">
+                                            <i class="fa fa-expand"></i>
+                                        </a>
+                                    </div>
+                                    <div class="gallery-image">
+                                        <img src="https://via.placeholder.com/600x380" alt="">
+                                        <a href="https://via.placeholder.com/600x380" title="" class="lightbox full-img">
+                                            <i class="fa fa-expand"></i>
+                                        </a>
+                                    </div>
+                                    <div class="gallery-image">
+                                        <img src="https://via.placeholder.com/600x400" alt="">
+                                        <a href="https://via.placeholder.com/600x400" title="" class="lightbox full-img">
+                                            <i class="fa fa-expand"></i>
+                                        </a>
+                                    </div>
+                                    <div class="gallery-image">
+                                        <img src="https://via.placeholder.com/600x400" alt="">
+                                        <a href="https://via.placeholder.com/600x400" title="" class="lightbox full-img">
+                                            <i class="fa fa-expand"></i>
+                                        </a>
+                                    </div>
+                                    <div class="gallery-image">
+                                        <img src="https://via.placeholder.com/600x435" alt="">
+                                        <a href="https://via.placeholder.com/600x435" title="" class="lightbox full-img">
+                                            <i class="fa fa-expand"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div><!--gallery-row end-->
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="case_slide">
+                    <div class="row">
+                        <div class="col-lg-5">
+                            <div class="case-study-carouz">
+                                <div class="case-study-slide">
+                                    <h2>Hızlı Kurulum</h2>
+                                    <p>Sancaktar Güvenlik, projelerinde planlama ve montaj kısımlarında her zaman sağlam ve hızlı hareket eder. Müşterilerimizin güvenliği için ekipmanların montaj ve kurulumunu tam zamanında yapar, kurulum sonrasında kontrollerini sağlar.</p>
+                                    @*<a href="#" title="" class="lnk-default">Read More</a>*@
+                                </div><!--case-study-slide end-->
+                            </div><!--case-study-carouz end-->
+                        </div>
+                        <div class="col-lg-7">
+                            <div class="gallery-row">
+                                <div class="gallery-thumb">
+                                    <div class="gallery-th">
+                                        <img src="~/Theme//HomePage2/İşDisiplinimiz/İşDisipliniKücükResim2.Sayfa1.jpg" alt="">
+                                    </div>
+                                    <div class="gallery-th">
+                                        <img src="~/Theme//HomePage2/İşDisiplinimiz/İşDisipliniKücükResim2.Sayfa2.jpg" alt="">
+                                    </div>
+                                    <div class="gallery-th">
+                                        <img src="~/Theme//HomePage2/İşDisiplinimiz/İşDisipliniKücükResim2.Sayfa3.jpg" alt="">
+                                    </div>
+                                    <div class="gallery-th">
+                                        <img src="~/Theme//HomePage2/İşDisiplinimiz/İşDisipliniKücükResim2.Sayfa4.jpg" alt="">
+                                    </div>
+                                    <div class="gallery-th">
+                                        <img src="https://via.placeholder.com/110x110" alt="">
+                                    </div>
+                                    <div class="gallery-th">
+                                        <img src="https://via.placeholder.com/110x110" alt="">
+                                    </div>
+                                    <div class="gallery-th">
+                                        <img src="https://via.placeholder.com/110x110" alt="">
+                                    </div>
+                                    <div class="gallery-th">
+                                        <img src="https://via.placeholder.com/110x110" alt="">
+                                    </div>
+                                </div>
+                                <div class="gallery-images-slide">
+                                    <div class="gallery-image">
+                                        <img src="~/Theme//HomePage2/İşDisiplinimiz/İşDisiplini2.jpg" alt="">
+                                        <a href="" title="" class="lightbox full-img">
+                                            <i class="fa fa-expand"></i>
+                                        </a>
+                                    </div>
+                                    <div class="gallery-image">
+                                        <img src="~/Theme//HomePage2/İşDisiplinimiz/İşDisiplini2.jpg" alt="">
+                                        <a href="" title="" class="lightbox full-img">
+                                            <i class="fa fa-expand"></i>
+                                        </a>
+                                    </div>
+                                    <div class="gallery-image">
+                                        <img src="https://via.placeholder.com/600x400" alt="">
+                                        <a href="https://via.placeholder.com/600x400" title="" class="lightbox full-img">
+                                            <i class="fa fa-expand"></i>
+                                        </a>
+                                    </div>
+                                    <div class="gallery-image">
+                                        <img src="https://via.placeholder.com/600x435" alt="">
+                                        <a href="https://via.placeholder.com/600x435" title="" class="lightbox full-img">
+                                            <i class="fa fa-expand"></i>
+                                        </a>
+                                    </div>
+                                    <div class="gallery-image">
+                                        <img src="https://via.placeholder.com/600x380" alt="">
+                                        <a href="https://via.placeholder.com/600x380" title="" class="lightbox full-img">
+                                            <i class="fa fa-expand"></i>
+                                        </a>
+                                    </div>
+                                    <div class="gallery-image">
+                                        <img src="https://via.placeholder.com/600x400" alt="">
+                                        <a href="https://via.placeholder.com/600x400" title="" class="lightbox full-img">
+                                            <i class="fa fa-expand"></i>
+                                        </a>
+                                    </div>
+                                    <div class="gallery-image">
+                                        <img src="https://via.placeholder.com/600x400" alt="">
+                                        <a href="https://via.placeholder.com/600x400" title="" class="lightbox full-img">
+                                            <i class="fa fa-expand"></i>
+                                        </a>
+                                    </div>
+                                    <div class="gallery-image">
+                                        <img src="https://via.placeholder.com/600x435" alt="">
+                                        <a href="https://via.placeholder.com/600x435" title="" class="lightbox full-img">
+                                            <i class="fa fa-expand"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div><!--gallery-row end-->
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="case_slide">
+                    <div class="row">
+                        <div class="col-lg-5">
+                            <div class="case-study-carouz">
+                                <div class="case-study-slide">
+                                    <h2>Uygun Maliyet</h2>
+                                    <p>Sancaktar Güvenlik Müşteri bütçesine dost fiyatlandırma politikası ile uygun fiyata kaliteli ve özenli güvenlik çözümleri sunar.</p>
+                                    @*<a href="#" title="" class="lnk-default">Read More</a>*@
+                                </div><!--case-study-slide end-->
+                            </div><!--case-study-carouz end-->
+                        </div>
+                        <div class="col-lg-7">
+                            <div class="gallery-row">
+                                <div class="gallery-thumb">
+                                    <div class="gallery-th">
+                                        <img src="~/Theme//HomePage2/İşDisiplinimiz/İşDisipliniKücükResim3.Sayfa1.jpg" alt="">
+                                    </div>
+                                    <div class="gallery-th">
+                                        <img src="~/Theme//HomePage2/İşDisiplinimiz/İşDisipliniKücükResim3.Sayfa2.jpg" alt="">
+                                    </div>
+                                    <div class="gallery-th">
+                                        <img src="~/Theme//HomePage2/İşDisiplinimiz/İşDisipliniKücükResim3.Sayfa3.jpg" alt="">
+                                    </div>
+                                    <div class="gallery-th">
+                                        <img src="~/Theme//HomePage2/İşDisiplinimiz/İşDisipliniKücükResim3.Sayfa4.jpg" alt="">
+                                    </div>
+                                    <div class="gallery-th">
+                                        <img src="https://via.placeholder.com/110x110" alt="">
+                                    </div>
+                                    <div class="gallery-th">
+                                        <img src="https://via.placeholder.com/110x110" alt="">
+                                    </div>
+                                    <div class="gallery-th">
+                                        <img src="https://via.placeholder.com/110x110" alt="">
+                                    </div>
+                                    <div class="gallery-th">
+                                        <img src="https://via.placeholder.com/110x110" alt="">
+                                    </div>
+                                </div>
+                                <div class="gallery-images-slide">
+                                    <div class="gallery-image">
+                                        <img src="~/Theme//HomePage2/İşDisiplinimiz/İşDisiplini3.jpg" alt="">
+                                        <a href="" title="" class="lightbox full-img">
+                                            <i class="fa fa-expand"></i>
+                                        </a>
+                                    </div>
+                                    <div class="gallery-image">
+                                        <img src="~/Theme//HomePage2/İşDisiplinimiz/İşDisiplini3.jpg" alt="">
+                                        <a href="" title="" class="lightbox full-img">
+                                            <i class="fa fa-expand"></i>
+                                        </a>
+                                    </div>
+                                    <div class="gallery-image">
+                                        <img src="https://via.placeholder.com/600x400" alt="">
+                                        <a href="https://via.placeholder.com/600x400" title="" class="lightbox full-img">
+                                            <i class="fa fa-expand"></i>
+                                        </a>
+                                    </div>
+                                    <div class="gallery-image">
+                                        <img src="https://via.placeholder.com/600x435" alt="">
+                                        <a href="https://via.placeholder.com/600x435" title="" class="lightbox full-img">
+                                            <i class="fa fa-expand"></i>
+                                        </a>
+                                    </div>
+                                    <div class="gallery-image">
+                                        <img src="https://via.placeholder.com/600x380" alt="">
+                                        <a href="https://via.placeholder.com/600x380" title="" class="lightbox full-img">
+                                            <i class="fa fa-expand"></i>
+                                        </a>
+                                    </div>
+                                    <div class="gallery-image">
+                                        <img src="https://via.placeholder.com/600x400" alt="">
+                                        <a href="https://via.placeholder.com/600x400" title="" class="lightbox full-img">
+                                            <i class="fa fa-expand"></i>
+                                        </a>
+                                    </div>
+                                    <div class="gallery-image">
+                                        <img src="https://via.placeholder.com/600x400" alt="">
+                                        <a href="https://via.placeholder.com/600x400" title="" class="lightbox full-img">
+                                            <i class="fa fa-expand"></i>
+                                        </a>
+                                    </div>
+                                    <div class="gallery-image">
+                                        <img src="https://via.placeholder.com/600x435" alt="">
+                                        <a href="https://via.placeholder.com/600x435" title="" class="lightbox full-img">
+                                            <i class="fa fa-expand"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div><!--gallery-row end-->
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!--case-study-section end-->
+    </div>
 </section><!--case-study-sec end-->
 
-<section class="team-section">
-	<div class="container">
-		<div class="sec-title">
-			<span>Our Expert worker</span>
-			<h2>Our Special Expert Team</h2>
-		</div><!--sec-title end-->
-		<div class="team-row">
-			<div class="row">
-				<div class="col-lg-4 col-md-6 col-sm-6 col-12">
-					<div class="team-col">
-						<div class="team-img">
-							<img src="https://via.placeholder.com/319x378" alt="">
-							<a href="team-details.html" title="" class="ext-link"></a>
-							<ul class="social_links">
-								<li>
-									<a href="#" title=""><i class="fab fa-facebook-f"></i></a>
-								</li>
-								<li>
-									<a href="#" title=""><i class="fab fa-skype"></i></a>
-								</li>
-								<li>
-									<a href="#" title=""><i class="fab fa-twitter"></i></a>
-								</li>
-								<li>
-									<a href="#" title=""><i class="fab fa-instagram"></i></a>
-								</li>
-							</ul><!--social_links end-->
-						</div>
-						<div class="team-details">
-							<div class="team-info">
-								<h3><a href="team-details.html" title="">James Williams</a></h3>
-								<span>Marketing Manager</span>
-							</div>
-						</div>
-					</div><!--team-col end-->
-				</div>
-				<div class="col-lg-4 col-md-6 col-sm-6 col-12">
-					<div class="team-col">
-						<div class="team-img">
-							<img src="https://via.placeholder.com/319x378" alt="">
-							<a href="team-details.html" title="" class="ext-link"></a>
-							<ul class="social_links">
-								<li>
-									<a href="#" title=""><i class="fab fa-facebook-f"></i></a>
-								</li>
-								<li>
-									<a href="#" title=""><i class="fab fa-skype"></i></a>
-								</li>
-								<li>
-									<a href="#" title=""><i class="fab fa-twitter"></i></a>
-								</li>
-								<li>
-									<a href="#" title=""><i class="fab fa-instagram"></i></a>
-								</li>
-							</ul><!--social_links end-->
-						</div>
-						<div class="team-details">
-							<div class="team-info">
-								<h3><a href="team-details.html" title="">Richard Mellissa</a></h3>
-								<span>Camera Fixer</span>
-							</div>
-						</div>
-					</div><!--team-col end-->
-				</div>
-				<div class="col-lg-4 col-md-6 col-sm-6 col-12">
-					<div class="team-col">
-						<div class="team-img">
-							<img src="https://via.placeholder.com/319x378" alt="">
-							<a href="team-details.html" title="" class="ext-link"></a>
-							<ul class="social_links">
-								<li>
-									<a href="#" title=""><i class="fab fa-facebook-f"></i></a>
-								</li>
-								<li>
-									<a href="#" title=""><i class="fab fa-skype"></i></a>
-								</li>
-								<li>
-									<a href="#" title=""><i class="fab fa-twitter"></i></a>
-								</li>
-								<li>
-									<a href="#" title=""><i class="fab fa-instagram"></i></a>
-								</li>
-							</ul><!--social_links end-->
-						</div>
-						<div class="team-details">
-							<div class="team-info">
-								<h3><a href="team-details.html" title="">Matthew Smith</a></h3>
-								<span>Sale Manager</span>
-							</div>
-						</div>
-					</div><!--team-col end-->
-				</div>
-			</div>
-		</div><!--team-row end-->
-	</div>
-</section><!--team-section end-->
+<br />
+<br />
+<br />
+<br />
 
 <section class="sbs-section">
-	<div class="container">
-		<div class="sbs-content">
-			<div class="sbs-max">
-				<span>Have any ideas in your mind?</span>
-				<h2>We Provide Leading Security Systems</h2>
-				<a href="#" title="" class="lnk-default">Request A Quote</a>
-			</div>
-		</div><!--sbs-content end-->
-	</div>
+    <div class="container">
+        <div class="sbs-content">
+            <div class="sbs-max">
+                <span>Kışa Hazırlık Kampanyamızı Kaçırmayın</span>
+                <h2>Ürün ve Hizmetlerimiz İçin Bizimle İletişime Geçin</h2>
+                <a href="#" title="" class="lnk-default">Hemen Teklif Al</a>
+            </div>
+        </div><!--sbs-content end-->
+    </div>
 </section><!--sbs-section end-->
 
-<section class="sys-system-section">
-	<div class="container">
-		<div class="sys-row">
-			<div class="sec-title white">
-				<span>Get a Free Risk</span>
-				<h2>Inquiry For Security System</h2>
-			</div><!--sec-title end-->
-			<form class="js-ajax-form">
-				<div class="row">
-					<div class="col-lg-6 col-md-push-6">
-						<div class="features-list">
-							<h3>Features :</h3>
-							<ul class="radi-values">
-								<li>
-									<label>
-										<input name="val" type="checkbox" value="Video Monitoring"> <span>Video Monitoring</span>
-										<small class="checkcircle"></small>
-									</label>
-								</li>
-								<li>
-									<label>
-										<input name="val" type="checkbox" value="Cloud Access"> <span>Cloud Access</span>
-										<small class="checkcircle"></small>
-									</label>
-								</li>
-								<li>
-									<label>
-										<input name="val" type="checkbox" value="Retail Video Analytics"> <span>Retail Video Analytics</span>
-										<small class="checkcircle"></small>
-									</label>
-								</li>
-								<li>
-									<label>
-										<input name="val" type="checkbox" value="GSM Battery Alarm"> <span>GSM Battery Alarm</span>
-										<small class="checkcircle"></small>
-									</label>
-								</li>
-								<li>
-									<label>
-										<input name="val" type="checkbox" value="GSM Battery Alarm"> <span>GSM Battery Alarm</span>
-										<small class="checkcircle"></small>
-									</label>
-								</li>
-								<li>
-									<label>
-										<input name="val" type="checkbox" value="IP Video"> <span>IP Video</span>
-										<small class="checkcircle"></small>
-									</label>
-								</li>
-								<li>
-									<label>
-										<input name="val" type="checkbox" value="Fingerprint Door Sensor"> <span>Fingerprint Door Sensor</span>
-										<small class="checkcircle"></small>
-									</label>
-								</li>
-								<li>
-									<label>
-										<input name="val" type="checkbox" value="Fingerprint Door Sensor"> <span>Fingerprint Door Sensor</span>
-										<small class="checkcircle"></small>
-									</label>
-								</li>
-								<li>
-									<label>
-										<input name="val" type="checkbox" value="Smart Phone Sceurity"> <span>Smart Phone Sceurity</span>
-										<small class="checkcircle"></small>
-									</label>
-								</li>
-								<li>
-									<label>
-										<input name="val" type="checkbox" value="Recard Movements"> <span>Recard Movements</span>
-										<small class="checkcircle"></small>
-									</label>
-								</li>
-							</ul>
-							<div class="clearfix"></div>
-						</div><!---features-list end-->
-						<div class="clearfix"></div>
-					</div>
-					<div class="col-lg-6">
-						<div class="contact-form">
-							<div class="form-group no-pt">
-								<div class="missing-message">
-									Populate Missing Fields
-								</div>
-								<div class="success-message">
-									<i class="fa fa-check text-primary"></i> Thank you!. Your message is successfully sent...
-								</div>
-								<div class="error-message">Populate Missing Fields</div>
-							</div><!--form-group end-->
-							<div class="row">
-								<div class="col-lg-6 col-md-6 col-sm-6 col-12">
-									<div class="form-field">
-										<input type="text" name="name" placeholder="Name" id="name">
-									</div><!--form-field end-->
-								</div>
-								<div class="col-lg-6 col-md-6 col-sm-6 col-12">
-									<div class="form-field">
-										<input type="email" name="email" placeholder="Email" id="email">
-									</div><!--form-field end-->
-								</div>
-								<div class="col-lg-6 col-md-6 col-sm-6 col-12">
-									<div class="form-field">
-										<input type="text" name="phone" placeholder="Phone">
-									</div><!--form-field end-->
-								</div>
-								<div class="col-lg-6 col-md-6 col-sm-6 col-12">
-									<div class="form-field">
-										<input type="text" name="address" placeholder="Address">
-									</div><!--form-field end-->
-								</div>
-								<div class="col-lg-6 col-md-6 col-sm-6 col-12">
-									<div class="form-field">
-										<input type="text" name="cameras" placeholder="No. of Camera">
-									</div><!--form-field end-->
-								</div>
-								<div class="col-lg-6 col-md-6 col-sm-6 col-12">
-									<div class="form-field">
-										<input type="text" name="size" placeholder="House and Land size">
-									</div><!--form-field end-->
-								</div>
-								<div class="col-lg-12">
-									<div class="form-field">
-										<textarea name="message" placeholder="Your Text Massage"></textarea>
-									</div><!--form-field end-->
-								</div>
-							</div>
-						</div><!--contact-form end-->
-					</div>
-				</div>
-				<div class="row sbmt">
-					<div class="form-submission">
-						<div class="form-submit">
-							<button type="submit" name="submit" class="lnk-default submit">Send Now</button>
-						</div>
-					</div>
-				</div>
-			</form>
-		</div>
-	</div>
-</section><!--sys-system-section end-->
+<br />
+<br />
+<br />
+<br />
+
+<br />
+<br />
+<br />
+<br />
 
 <section class="testimonial-sec">
-	<div class="container">
-		<div class="sec-title">
-			<span>What people say about us</span>
-			<h2>People Review For Us</h2>
-		</div><!--sec-title end-->
-		<div class="testimonial-section">
-			<div class="row testi-carousel">
-				<div class="col-lg-6">
-					<div class="testimonial-slide">
-						<div class="auth-img">
-							<img src="https://via.placeholder.com/130x130" alt="">
-						</div>
-						<h3>Raisa Moni</h3>
-						<span>UX & Product Designer</span>
-						<ul class="rating">
-							<li><i class="fa fa-star"></i></li>
-							<li><i class="fa fa-star"></i></li>
-							<li><i class="fa fa-star"></i></li>
-							<li><i class="fa fa-star"></i></li>
-							<li><i class="fa fa-star"></i></li>
-						</ul>
-						<p>We’re on a mission to start a conversation with your customers in this fast connected world. Let’s discover, build and grow your digital business. </p>
-					</div><!--testimonial-slide end-->
-				</div>
-				<div class="col-lg-6">
-					<div class="testimonial-slide">
-						<div class="auth-img">
-							<img src="https://via.placeholder.com/130x130" alt="">
-						</div>
-						<h3>Charles Sarah</h3>
-						<span>UX & Product Develper</span>
-						<ul class="rating">
-							<li><i class="fa fa-star"></i></li>
-							<li><i class="fa fa-star"></i></li>
-							<li><i class="fa fa-star"></i></li>
-							<li><i class="fa fa-star"></i></li>
-							<li><i class="fa fa-star"></i></li>
-						</ul>
-						<p>We’re on a mission to start a conversation with your customers in this fast connected world. Let’s discover, build and grow your digital business. </p>
-					</div><!--testimonial-slide end-->
-				</div>
-				<div class="col-lg-6">
-					<div class="testimonial-slide">
-						<div class="auth-img">
-							<img src="https://via.placeholder.com/130x130" alt="">
-						</div>
-						<h3>Raisa Moni</h3>
-						<span>UX & Product Designer</span>
-						<ul class="rating">
-							<li><i class="fa fa-star"></i></li>
-							<li><i class="fa fa-star"></i></li>
-							<li><i class="fa fa-star"></i></li>
-							<li><i class="fa fa-star"></i></li>
-							<li><i class="fa fa-star"></i></li>
-						</ul>
-						<p>We’re on a mission to start a conversation with your customers in this fast connected world. Let’s discover, build and grow your digital business. </p>
-					</div><!--testimonial-slide end-->
-				</div>
-				<div class="col-lg-6">
-					<div class="testimonial-slide">
-						<div class="auth-img">
-							<img src="https://via.placeholder.com/130x130" alt="">
-						</div>
-						<h3>Charles Sarah</h3>
-						<span>UX & Product Develper</span>
-						<ul class="rating">
-							<li><i class="fa fa-star"></i></li>
-							<li><i class="fa fa-star"></i></li>
-							<li><i class="fa fa-star"></i></li>
-							<li><i class="fa fa-star"></i></li>
-							<li><i class="fa fa-star"></i></li>
-						</ul>
-						<p>We’re on a mission to start a conversation with your customers in this fast connected world. Let’s discover, build and grow your digital business. </p>
-					</div><!--testimonial-slide end-->
-				</div>
-			</div>
-		</div><!--testimonial-section end-->
-	</div>
+    <div class="container">
+        <div class="sec-title">
+            <span>Şirketimiz hakkında ne düşünüyorsunuz ?</span>
+            <h2 style="color:cornflowerblue">Müşteri Yorumları</h2>
+        </div><!--sec-title end-->
+        <div class="testimonial-section">
+            <div class="row testi-carousel">
+                <div class="col-lg-6">
+                    <div class="testimonial-slide">
+                        <div class="auth-img">
+                            <img src="~/Theme//HomePage2/Yorumlar Profil Fotoğrafı 1.jpg" alt="">
+                        </div>
+                        <h3>Burak Aras</h3>
+                        <ul class="rating">
+                            <li><i class="fa fa-star"></i></li>
+                            <li><i class="fa fa-star"></i></li>
+                            <li><i class="fa fa-star"></i></li>
+                            <li><i class="fa fa-star"></i></li>
+                            <li><i class="fa fa-star"></i></li>
+                        </ul>
+                        <p style="word-wrap: break-word;">Çok ilgililer gerçekten güler yüz hizmet anlayışı için Doğuşer beye teşekkür ederim. </p>
+                    </div><!--testimonial-slide end-->
+                </div>
+                <div class="col-lg-6">
+                    <div class="testimonial-slide">
+                        <div class="auth-img">
+                            <img src="~/Theme//HomePage2/Yorumlar Profil Fotoğrafı 2.jpg" alt="">
+                        </div>
+                        <h3>Emin Levent</h3>
+                        <ul class="rating">
+                            <li><i class="fa fa-star"></i></li>
+                            <li><i class="fa fa-star"></i></li>
+                            <li><i class="fa fa-star"></i></li>
+                            <li><i class="fa fa-star"></i></li>
+                            <li><i class="fa fa-star"></i></li>
+                        </ul>
+                        <p style="word-wrap: break-word;">Cafemize taktırdığımız alarm ve kamera sisteminden çok memnunum Doğuşer bey söylediği tarihte sistem takıldı çok memnun kaldım. </p>
+                    </div><!--testimonial-slide end-->
+                </div>
+                <div class="col-lg-6">
+                    <div class="testimonial-slide">
+                        <div class="auth-img">
+                            <img src="~/Theme//HomePage2/Yorumlar Profil Fotoğrafı 3.jpg" alt="">
+                        </div>
+                        <h3>Sami Çayırlı</h3>
+                        <ul class="rating">
+                            <li><i class="fa fa-star"></i></li>
+                            <li><i class="fa fa-star"></i></li>
+                            <li><i class="fa fa-star"></i></li>
+                            <li><i class="fa fa-star"></i></li>
+                            <li><i class="fa fa-star"></i></li>
+                        </ul>
+                        <p style="word-wrap: break-word;">kamera sistemi çok net ve güzel açlışıyor montaj da  çok hızlıydı işimizi sabahtan hallettiler. </p>
+                    </div><!--testimonial-slide end-->
+                </div>
+
+            </div>
+        </div><!--testimonial-section end-->
+    </div>
 </section><!--testimonial-sec end-->
 
 <section class="blog-section">
-	<div class="container">
-		<div class="sec-title-style2">
-			<div class="sec-title">
-				<span>Our News & Artical</span>
-				<h2>Our Latest Media</h2>
-			</div>
-			<a href="#" title="" class="lnk-default">All News</a>
-			<div class="clearfix"></div>
-		</div><!--sec-title-style2 end-->
-		<div class="blog-items-sec">
-			<div class="row blog-carousel">
-				<div class="col-lg-4">
-					<div class="blog-post">
-						<div class="blog-thumbnail">
-							<img src="https://via.placeholder.com/370x250" alt="">
-							<span class="category-name">CCTV</span>
-							<a href="blog-single.html" title="" class="ext-link"></a>
-						</div>
-						<div class="blog-info">
-							<h2><a href="blog-single.html" title="">Install CCTV Camera for your Home</a></h2>
-							<p>The basic premise of search reputation way management in to use the greate work</p>
-							<div class="posted-by-row">
-								<img src="https://via.placeholder.com/40x40" alt="">
-								<h4>Villal Pando,     <span>November 21, 2019</span></h4>
-								<a href="#" title=""><i class="fa fa-share-alt"></i></a>
-							</div><!--posted-by-row end-->
-						</div>
-					</div><!--blog-post end-->
-				</div>
-				<div class="col-lg-4">
-					<div class="blog-post">
-						<div class="blog-thumbnail">
-							<img src="https://via.placeholder.com/370x250" alt="">
-							<span class="category-name">CCTV</span>
-							<a href="blog-single.html" title="" class="ext-link"></a>
-						</div>
-						<div class="blog-info">
-							<h2><a href="blog-single.html" title="">Set The Security view for your Demand</a></h2>
-							<p>The basic premise of search reputation way management in to use the greate work</p>
-							<div class="posted-by-row">
-								<img src="https://via.placeholder.com/40x40" alt="">
-								<h4>Villal Pando,     <span>November 21, 2019</span></h4>
-								<a href="#" title=""><i class="fa fa-share-alt"></i></a>
-							</div><!--posted-by-row end-->
-						</div>
-					</div><!--blog-post end-->
-				</div>
-				<div class="col-lg-4">
-					<div class="blog-post">
-						<div class="blog-thumbnail">
-							<img src="https://via.placeholder.com/370x250" alt="">
-							<span class="category-name">sTV</span>
-							<a href="blog-single.html" title="" class="ext-link"></a>
-						</div>
-						<div class="blog-info">
-							<h2><a href="blog-single.html" title="">Check The Device to bilt Good View</a></h2>
-							<p>The basic premise of search reputation way management in to use the greate work</p>
-							<div class="posted-by-row">
-								<img src="https://via.placeholder.com/40x40" alt="">
-								<h4>Villal Pando,     <span>November 21, 2019</span></h4>
-								<a href="#" title=""><i class="fa fa-share-alt"></i></a>
-							</div><!--posted-by-row end-->
-						</div>
-					</div><!--blog-post end-->
-				</div>
-				<div class="col-lg-4">
-					<div class="blog-post">
-						<div class="blog-thumbnail">
-							<img src="https://via.placeholder.com/370x250" alt="">
-							<span class="category-name">CCTV</span>
-							<a href="blog-single.html" title="" class="ext-link"></a>
-						</div>
-						<div class="blog-info">
-							<h2><a href="blog-single.html" title="">Install CCTV Camera for your Home</a></h2>
-							<p>The basic premise of search reputation way management in to use the greate work</p>
-							<div class="posted-by-row">
-								<img src="https://via.placeholder.com/40x40" alt="">
-								<h4>Villal Pando,     <span>November 21, 2019</span></h4>
-								<a href="#" title=""><i class="fa fa-share-alt"></i></a>
-							</div><!--posted-by-row end-->
-						</div>
-					</div><!--blog-post end-->
-				</div>
-				<div class="col-lg-4">
-					<div class="blog-post">
-						<div class="blog-thumbnail">
-							<img src="https://via.placeholder.com/370x250" alt="">
-							<span class="category-name">CCTV</span>
-							<a href="blog-single.html" title="" class="ext-link"></a>
-						</div>
-						<div class="blog-info">
-							<h2><a href="blog-single.html" title="">Set The Security view for your Demand</a></h2>
-							<p>The basic premise of search reputation way management in to use the greate work</p>
-							<div class="posted-by-row">
-								<img src="https://via.placeholder.com/40x40" alt="">
-								<h4>Villal Pando,     <span>November 21, 2019</span></h4>
-								<a href="#" title=""><i class="fa fa-share-alt"></i></a>
-							</div><!--posted-by-row end-->
-						</div>
-					</div><!--blog-post end-->
-				</div>
-				<div class="col-lg-4">
-					<div class="blog-post">
-						<div class="blog-thumbnail">
-							<img src="https://via.placeholder.com/370x250" alt="">
-							<span class="category-name">sTV</span>
-							<a href="blog-single.html" title="" class="ext-link"></a>
-						</div>
-						<div class="blog-info">
-							<h2><a href="blog-single.html" title="">Check The Device to bilt Good View</a></h2>
-							<p>The basic premise of search reputation way management in to use the greate work</p>
-							<div class="posted-by-row">
-								<img src="https://via.placeholder.com/40x40" alt="">
-								<h4>Villal Pando,     <span>November 21, 2019</span></h4>
-								<a href="#" title=""><i class="fa fa-share-alt"></i></a>
-							</div><!--posted-by-row end-->
-						</div>
-					</div><!--blog-post end-->
-				</div>
-			</div>
-		</div><!--blog-items-sec end-->
-	</div>
+    <div class="container">
+        <div class="sec-title-style2">
+            <div class="sec-title">
+                <span>Bloglarımız</span>
+                <h2>Güvenlik Sistemleri Hakkında Her Şey</h2>
+            </div>
+            <a href="#" title="" class="lnk-default">All News</a>
+            <div class="clearfix"></div>
+        </div><!--sec-title-style2 end-->
+        <div class="blog-items-sec">
+            <div class="row blog-carousel">
+                @foreach (var item in Model.Articles)
+                {
+                    
+                    <div class="col-lg-4">
+                        <div class="blog-post">
+                            <div class="blog-thumbnail">
+                                <img src="~/images/@item.Image.FileName" alt="">
+                                <span class="category-name">@item.Category.Name</span>
+                                <a asp-controller="Home" asp-action="BlogSingle" asp-route-articleId="@item.Id"></a>
+                            </div>
+                            <div class="blog-info">
+                                <h2><a asp-controller="Home" asp-action="BlogSingle" asp-route-articleId="@item.Id">@item.Title</a></h2>
+                                <p class="truncated-content">@item.Content</p>
+                                <div class="posted-by-row">
+                                    <img src="@item.Image.Users" alt="">
+                                    <h4>@item.User.FirstName @item.User.LastName     <span>@item.CreatedDate.ToString("dd/MM/yyyy")</span></h4>
+                                    <a href="#" title=""><i class="fa fa-share-alt"></i></a>
+                                </div><!--posted-by-row end-->
+                            </div>
+                        </div><!--blog-post end-->
+                    </div>
+                }
+
+
+
+            </div>
+        </div><!--blog-items-sec end-->
+    </div>
 </section><!--blog-section end-->
-
-<section class="partner-section">
-	<div class="container">
-		<ul class="pt-carousel">
-			<li><img src="https://via.placeholder.com/108x100" alt=""></li>
-			<li><img src="https://via.placeholder.com/108x100" alt=""></li>
-			<li><img src="https://via.placeholder.com/108x100" alt=""></li>
-			<li><img src="https://via.placeholder.com/108x100" alt=""></li>
-			<li><img src="https://via.placeholder.com/108x100" alt=""></li>
-			<li><img src="https://via.placeholder.com/108x100" alt=""></li>
-			<li><img src="https://via.placeholder.com/108x100" alt=""></li>
-			<li><img src="https://via.placeholder.com/108x100" alt=""></li>
-		</ul><!--pt-carousel end-->
-	</div>
-</section><!--partner-section end-->
-
-<section id="map-container" class="fullwidth-home-map">
-	<div id="map"></div>
-</section>

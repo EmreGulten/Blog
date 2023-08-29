@@ -1,13 +1,15 @@
 ﻿@model ArticleListDto
 
+<style>
+    .truncated-content {
+        word-wrap: break-word;
+    }
+</style>
 
-<section class="pager-sec overlay-dark">
+<section class="pager-sec-blog overlay-dark">
     <div class="container">
         <div class="pager-sec-details">
-            <h2>Latest Blog</h2>
             <ul class="breadcrumb">
-                <li><a href="#" title="">Home</a></li>
-                <li><span>Latest Blog</span></li>
             </ul>
         </div><!--pager-sec-details end-->
     </div>
@@ -21,16 +23,17 @@
                 @{
                     foreach (var item in Model.Articles)
                     {
+                       
                         <div class="col-lg-4 col-md-6 col-sm-6 col-12">
                             <div class="blog-post">
                                 <div class="blog-thumbnail">
-                                    <img src="@item.Image.FileName" alt="">
+                                    <img src="~/images/@item.Image.FileName" alt="">
                                     <span class="category-name">@item.Category.Name</span>
-                                    <a href="blog-single.html" title="" class="ext-link"></a>
+                                    <a asp-controller="Home" asp-action="BlogSingle" asp-route-articleId="@item.Id"></a>
                                 </div>
                                 <div class="blog-info">
-                                    <h2><a href="blog-single.html" title="">@item.Title</a></h2>
-                                    <p>@item.Content</p>
+                                    <h2><a asp-controller="Home" asp-action="BlogSingle" asp-route-articleId="@item.Id">@item.Title</a></h2>
+                                    <p class="truncated-content">@Html.Raw(@item.Content)</p>
                                     <div class="posted-by-row">
                                         <img src="@item.Image.Users" alt="">
                                         <h4>@item.User.FirstName @item.User.LastName     <span>@item.CreatedDate.ToString("dd/MM/yyyy")</span></h4>
@@ -73,18 +76,3 @@
         </div>
     </div>
 </section><!--page-content end-->
-
-<section class="partner-section">
-    <div class="container">
-        <ul class="pt-carousel">
-            <li><img src="https://via.placeholder.com/108x100" alt=""></li>
-            <li><img src="https://via.placeholder.com/108x100" alt=""></li>
-            <li><img src="https://via.placeholder.com/108x100" alt=""></li>
-            <li><img src="https://via.placeholder.com/108x100" alt=""></li>
-            <li><img src="https://via.placeholder.com/108x100" alt=""></li>
-            <li><img src="https://via.placeholder.com/108x100" alt=""></li>
-            <li><img src="https://via.placeholder.com/108x100" alt=""></li>
-            <li><img src="https://via.placeholder.com/108x100" alt=""></li>
-        </ul><!--pt-carousel end-->
-    </div>
-</section><!--partner-section end-->

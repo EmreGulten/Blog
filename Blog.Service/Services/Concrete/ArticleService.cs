@@ -62,7 +62,17 @@ namespace Blog.Service.Services.Concrete
             Image image = new(imageUpload.FullName, articleAddDto.Photo.ContentType, userEmail);
             await unitOfWork.GetRepository<Image>().AddAsync(image);
 
-            var article = mapper.Map<Article>(articleAddDto);
+            var article = new Article
+            {
+                Title = articleAddDto.Title,
+                Content = articleAddDto.Content,
+                Author = articleAddDto.Author,
+                UserId = userId,
+                CreatedBy = userEmail,
+                CategoryId = articleAddDto.CategoryId,
+                ImageId = image.Id
+
+            };
 
             await unitOfWork.GetRepository<Article>().AddAsync(article);
             await unitOfWork.SaveAsync();
@@ -101,7 +111,7 @@ namespace Blog.Service.Services.Concrete
 
             }
 
-            mapper.Map(articleUpdateDto, article);
+            //mapper.Map(articleUpdateDto, article);
             //article.Title = articleUpdateDto.Title;
             //article.Content = articleUpdateDto.Content;
             //article.CategoryId = articleUpdateDto.CategoryId;

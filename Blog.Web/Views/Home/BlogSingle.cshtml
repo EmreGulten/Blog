@@ -1,0 +1,243 @@
+﻿@model ArticleDto
+
+
+
+
+<section class="pager-sec-blog overlay-dark">
+    <div class="container">
+        <div class="pager-sec-details">
+            <ul class="breadcrumb">
+                
+            </ul>
+        </div><!--pager-sec-details end-->
+    </div>
+</section><!--pager-sec end-->
+
+		<section class="page-content">
+			<div class="container">
+				<div class="blog-style2">
+					<div class="row">
+						<div class="col-lg-8">
+							<div class="blog-items-sec">
+
+								<div class="blog-post single">
+									<div class="blog-thumbnail">
+								<img src="~/images/@Model.Image.FileName" alt="">
+										<span class="category-name">@Model.Category.Name</span>
+									</div>
+									<div class="blog-info">
+										<h2>@Model.Title</h2>
+										<ul class="meta">
+											<li>
+												<i class="fa fa-user"></i>
+												<a href="#" title="">@Model.User.FirstName @Model.User.LastName</a>
+											</li>
+											<li>
+												<i class="fa fa-clock"></i>
+										<span>@Model.CreatedDate.ToString("dd/MM/yyyy")</span>
+											</li>
+										</ul><!--meta end-->
+										<p>@Html.Raw(@Model.Content)</p>
+									
+										<div class="post-tgrow">
+										@*	<div class="post_tags">
+												<i class="fa fa-tags"></i>
+												<ul>
+													<li><a href="#" title="">Fire Alarm</a></li>
+													<li><a href="#" title="">Automation</a></li>
+													<li><a href="#" title="">Burgular</a></li>
+												</ul>
+											</div><!--post_tags end-->*@
+									@*		<ul class="socio-links">
+												<li><a href="#" title=""><i class="fab fa-facebook-f"></i></a></li>
+												<li><a href="#" title=""><i class="fab fa-linkedin-in"></i></a></li>
+												<li><a href="#" title=""><i class="fab fa-twitter"></i></a></li>
+												<li><a href="#" title=""><i class="fab fa-instagram"></i></a></li>
+											</ul>*@
+											<div class="clearfix"></div>
+										</div><!--post-tgrow end-->
+									</div>
+								</div><!--blog-post end-->
+
+								@*<div class="post-navigation">
+									<div class="pp-post">
+										<div class="pst-thumb">
+											<img src="https://via.placeholder.com/100x100" alt="">
+										</div>
+										<div class="pst-info">
+											<h3><a href="#" title="">Cameras Mounted on Top of a Lamp Post</a></h3>
+											<a href="#" title="">Previous</a>
+										</div>
+									</div>
+									<div class="pp-post">
+										<div class="pst-info">
+											<h3><a href="#" title="">Hazy, Unclear Pictures Defeats the Purpose</a></h3>
+											<a href="#" title="">Next</a>
+										</div>
+										<div class="pst-thumb">
+											<img src="https://via.placeholder.com/100x100" alt="">
+										</div>
+									</div>
+								</div><!--post-navigation end-->*@
+								<div class="clearfix"></div>
+								@*<div class="pingbacks">
+									<h3 class="sc-title"> Pingbacks And Trackbacks”</h3>
+									<ul>
+										<li>
+											<h4>Pingback: </h4>
+											<a href="#" title=""><strong>Ping 1 «</strong> Cameras Mounted on Top?</a>
+										</li>
+										<li>
+											<h4>Pingback: </h4>
+											<a href="#" title=""><strong>Ping 2 «</strong> Finger Mounted on Door?</a>
+										</li>
+										<li>
+											<h4>Pingback: </h4>
+											<a href="#" title=""><strong>Ping 3 «</strong> How do I install a wireless security camera?</a>
+										</li>
+										<li>
+											<h4>Pingback: </h4>
+											<a href="#" title=""><strong>Ping 4 «</strong> Where do you put security cameras?</a>
+										</li>
+									</ul>
+								</div><!--pingbacks end-->*@
+								@*<div class="comments-section">
+									<h3 class="sc-title">03 Comments</h3>
+									<ul class="comments-list">
+										<li>
+											<div class="comment">
+												<div class="comment-img">
+													<img src="https://via.placeholder.com/120x120" alt="">
+												</div>
+												<div class="comment-info">
+													<h3>Paul Jones    <span>August 29, 2019</span></h3>
+													<p>Happy and Free these days you wanna be where everybody knows your name fish do not fry in the kitchen and beans do not burn on the grill.</p>
+													<a href="#" title="">Reply</a>
+												</div>
+											</div><!--comment end-->
+											<ul>
+												<li>
+													<div class="comment">
+														<div class="comment-img">
+															<img src="https://via.placeholder.com/120x120" alt="">
+														</div>
+														<div class="comment-info">
+															<h3>Catherine Brown <span>August 29, 2019</span></h3>
+															<p>Happy and Free these days you wanna be where everybody knows your name fish do not fry in the kitchen and beans do not burn on the grill.</p>
+															<a href="#" title="">Reply</a>
+														</div>
+													</div><!--comment end-->
+												</li>
+											</ul>
+										</li>
+										<li>
+											<div class="comment">
+												<div class="comment-img">
+													<img src="https://via.placeholder.com/120x120" alt="">
+												</div>
+												<div class="comment-info">
+													<h3>Jackab Morns <span>August 29, 2019</span></h3>
+													<p>There are all Happy and Free these days you wanna be where everybody knows your name fish do not fry in the kitchen and beans do not burn on the grill.</p>
+													<a href="#" title="">Reply</a>
+												</div>
+											</div><!--comment end-->
+										</li>
+									</ul>
+								</div><!--comments-section end-->*@
+							@*	<div class="reply-section">
+									<h3 class="sc-title">Leave Reply</h3>
+									<form class="js-ajax-form">
+										<div class="form-group no-pt">
+											<div class="missing-message">
+												Populate Missing Fields
+											</div>
+											<div class="success-message">
+												<i class="fa fa-check text-primary"></i> Thank you!. Your message is successfully sent...
+											</div>
+											<div class="error-message">Populate Missing Fields</div>
+										</div><!--form-group end-->
+										<div class="row">
+											<div class="col-lg-6">
+												<div class="input-field">
+													<input type="text" name="name" placeholder="Name" id="name">
+												</div>
+											</div>
+											<div class="col-lg-6">
+												<div class="input-field">
+													<input type="email" name="email" placeholder="Email" id="email">
+												</div>
+											</div>
+											<div class="col-lg-12">
+												<div class="input-field">
+													<textarea name="message" placeholder="Massage"></textarea>
+												</div>
+											</div>
+											<div class="col-lg-12">
+												<div class="input-submit">
+													<button type="submit" name="submit" class="lnk-default submit">Post Comments</button>
+												</div>
+											</div>
+										</div>
+									</form>
+								</div><!--reply-section end-->*@
+							</div><!--blog-items-sec end-->
+						</div>
+						<div class="col-lg-4">
+							<div class="sidebar blog-sidebar">
+								<div class="widget widget-search">
+							<form id="search_form" asp-controller="Home" asp-action="Search" method="GET">
+								<input type="text" name="keyword" class="searchText" placeholder="Arama yapınız..." autocomplete="on">
+								<button type="submit"><i class="fa fa-search"></i></button>
+							</form>
+								</div><!--widget-search end-->
+								<div class="widget widget-categories">
+									<h3 class="widget-title">Kategori</h3>
+									<ul>
+										<li>
+											<a asp-controller="Home" asp-action="BlogTwo" asp-route-categoryId="@Model.Category.Id"><i class="fa fa-video"></i>@Model.Category.Name</a>
+										</li>
+										
+									</ul>
+									<div class="clearfix"></div>
+								</div><!--widget-categories end-->
+							@*	<div class="widget widget-tags">
+									<h3 class="widget-title">Popular Tags</h3>
+									<ul>
+										<li><a href="#" title="">Fire Alarm</a></li>
+										<li><a href="#" title="">Automation</a></li>
+										<li><a href="#" title="">Burgular</a></li>
+										<li><a href="#" title="">CCTV Equipments</a></li>
+										<li><a href="#" title="">Intruder Alarm</a></li>
+										<li><a href="#" title="">Access Control</a></li>
+										<li><a href="#" title="">Video Door Phone</a></li>
+									</ul>
+								</div><!--widget-tags end-->*@
+								@*<div class="widget widget-meta">
+									<h3 class="widget-title">Meta</h3>
+									<ul>
+										<li>
+											<a href="#" title="">Login</a>
+										</li>
+										<li>
+											<a href="#" title="">Registration</a>
+										</li>
+										<li>
+											<a href="#" title="">Entries</a>
+										</li>
+										<li>
+											<a href="#" title="">Comments</a>
+										</li>
+										<li>
+											<a href="#" title="">WordPress.org</a>
+										</li>
+									</ul>
+									<div class="clearfix"></div>
+								</div><!--widget-categories end-->*@
+							</div><!--sidebar end-->
+						</div>
+					</div>
+				</div><!--blog-style2 end-->
+
+			</div>
+		</section><!--page-content end-->
+

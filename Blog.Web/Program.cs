@@ -4,6 +4,7 @@ using Blog.Data.Extensions;
 using Blog.Entity.Entities;
 using Blog.Service.Describers;
 using Blog.Service.Extensions;
+using Blog.Web.Extensions;
 using Blog.Web.Filters.ArticleVisitors;
 using Microsoft.AspNetCore.Identity;
 using NToastNotify;
@@ -27,6 +28,9 @@ builder.Services.AddControllersWithViews(opt =>
 
 builder.Services.Configure<SmtpSettings>(builder.Configuration.GetSection("SmtpSettings"));
 builder.Services.ConfigureWritable<SmtpSettings>(builder.Configuration.GetSection("SmtpSettings"));
+
+builder.Services.AddSingleton<RouteValueTransformer>();
+builder.Services.AddSingleton<TranslationDatabase>();
 
 builder.Services.AddIdentity<AppUser, AppRole>(opt =>
 {
@@ -84,7 +88,11 @@ app.UseEndpoints(endpoints =>
     areaName: "Admin",
     pattern: "Admin/{controller=Home}/{action=Index}/{id?}"
     );
-    endpoints.MapDefaultControllerRoute();
+    endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
+    //endpoints.MapDefaultControllerRoute();
+    endpoints.MapDynamicControllerRoute<RouteValueTransformer>("{**url}");
 });
 
 app.Run();

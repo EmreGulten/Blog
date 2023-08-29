@@ -18,7 +18,6 @@ namespace Blog.Service.FluentValidations
                 .NotEmpty()
                 .NotNull()
                 .MinimumLength(3)
-                .MaximumLength(150)
                 .WithName("İçerik");
         }
     }

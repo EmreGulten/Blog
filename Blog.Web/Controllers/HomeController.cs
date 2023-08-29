@@ -1,5 +1,4 @@
 ﻿using Blog.Data.UnitOfWorks;
-using Blog.Entity.DTOs.Articles;
 using Blog.Entity.DTOs.Email;
 using Blog.Entity.Entities;
 using Blog.Service.Services.Abstractions;
@@ -15,18 +14,21 @@ namespace Blog.Web.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly IArticleService articleService;
+        private readonly ICategoryService categoryService;
         private readonly IMailService mailService;
         private readonly IToastNotification _toastNotification;
         private readonly IHttpContextAccessor httpContextAccessor;
         private readonly IUnitOfWork unitOfWork;
 
-        public HomeController(ILogger<HomeController> logger, IArticleService articleService, IHttpContextAccessor httpContextAccessor, IUnitOfWork unitOfWork,IMailService mailService)
+        public HomeController(ILogger<HomeController> logger, IArticleService articleService, IHttpContextAccessor httpContextAccessor, IUnitOfWork unitOfWork,IMailService mailService, ICategoryService categoryService, IToastNotification toastNotification)
         {
             _logger = logger;
             this.articleService = articleService;
             this.httpContextAccessor = httpContextAccessor;
             this.unitOfWork = unitOfWork;
             this.mailService = mailService;
+            this.categoryService = categoryService;
+            _toastNotification= toastNotification;
         }
         [HttpGet]
         public async Task<IActionResult> Index(Guid? categoryId, int currentPage = 1, int pageSize = 3, bool isAscending = false)
@@ -34,6 +36,7 @@ namespace Blog.Web.Controllers
             var articles = await articleService.GetAllByPagingAsync(categoryId, currentPage, pageSize, isAscending);
             return View(articles);
         }
+
         [HttpGet]
         public async Task<IActionResult> Search(string keyword, int currentPage = 1, int pageSize = 3, bool isAscending = false)
         {
@@ -90,14 +93,29 @@ namespace Blog.Web.Controllers
             return View();
         }
 
+        [HttpGet]
+        public async Task<IActionResult> Category(Guid id)
+        {
+            var category = await categoryService.GetCategoryByGuid(id);
+            return View(category);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> BlogSingle(Guid articleId)
+        {
+            var article = await articleService.GetArticleWithCategoryNonDeletedAsync(articleId);
+            return View(article);
+        }
+
+
         [HttpPost]
         public async Task<IActionResult> Contact(EmailSendDto emailSendDto)
         {
             if (ModelState.IsValid)
             {
                 var result = await mailService.SendContactEmail(emailSendDto);
-                _toastNotification.AddSuccessToastMessage(Messages.Mail.Send(emailSendDto.Email), new ToastrOptions { Title = "İşlem Başarılı" });
-                return View();
+                _toastNotification.AddSuccessToastMessage(Messages.Article.Add(emailSendDto.Email), new ToastrOptions { Title = "İşlem Başarılı" });
+                return RedirectToAction("Contact", "Home");
             }
 
             return View(emailSendDto);
@@ -114,6 +132,12 @@ namespace Blog.Web.Controllers
 		public async Task<IActionResult> BlogTwo(Guid? categoryId, int currentPage = 1, int pageSize = 3, bool isAscending = false)
         {
             var articles = await articleService.GetAllByPagingAsync(categoryId, currentPage, pageSize, isAscending);
+            if (categoryId == null)
+            {
+                var category = await categoryService.GetAllCategoriesNonDeletedTake24();
+                articles.Categories = category;
+            }
+           
             return View(articles);
         }
     }

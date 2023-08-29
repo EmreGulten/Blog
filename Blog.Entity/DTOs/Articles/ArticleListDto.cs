@@ -1,4 +1,5 @@
-﻿using Blog.Entity.Entities;
+﻿using Blog.Entity.DTOs.Categories;
+using Blog.Entity.Entities;
 
 namespace Blog.Entity.DTOs.Articles
 {
@@ -6,6 +7,7 @@ namespace Blog.Entity.DTOs.Articles
     {
         public IList<Article> Articles { get; set; }
         public Guid? CategoryId { get; set; }
+        public List<CategoryDto> Categories { get; set; }
         public virtual int CurrentPage { get; set; } = 1;
         public virtual int PageSize { get; set; } = 3;
         public virtual int TotalCount { get; set; }
