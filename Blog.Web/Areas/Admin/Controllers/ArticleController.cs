@@ -17,17 +17,19 @@ namespace Blog.Web.Areas.Admin.Controllers
     {
         private readonly IArticleService articleService;
         private readonly ICategoryService categoryService;
+        private readonly ITagService tagService;
         private readonly IMapper mapper;
         private readonly IValidator<Article> validator;
         private readonly IToastNotification toast;
 
-        public ArticleController(IArticleService articleService, ICategoryService categoryService, IMapper mapper, IValidator<Article> validator, IToastNotification toast)
+        public ArticleController(IArticleService articleService, ICategoryService categoryService, IMapper mapper, IValidator<Article> validator, IToastNotification toast, ITagService tagService)
         {
             this.articleService = articleService;
             this.categoryService = categoryService;
             this.mapper = mapper;
             this.validator = validator;
             this.toast = toast;
+            this.tagService = tagService;
         }
         [HttpGet]
         [Authorize(Roles = $"{RoleConsts.Superadmin}, {RoleConsts.Admin}, {RoleConsts.User}")]
@@ -69,7 +71,8 @@ namespace Blog.Web.Areas.Admin.Controllers
             }
 
             var categories = await categoryService.GetAllCategoriesNonDeleted();
-            return View(new ArticleAddDto { Categories = categories });
+            var tags = await tagService.GetAllTagsNonDeleted();
+            return View(new ArticleAddDto { Categories = categories,Tags = tags });
 
 
         }
@@ -79,10 +82,11 @@ namespace Blog.Web.Areas.Admin.Controllers
         {
             var article = await articleService.GetArticleWithCategoryNonDeletedAsync(articleId);
             var categories = await categoryService.GetAllCategoriesNonDeleted();
+            var tags = await tagService.GetAllTagsNonDeleted();
 
             var articleUpdateDto = mapper.Map<ArticleUpdateDto>(article);
             articleUpdateDto.Categories = categories;
-
+            articleUpdateDto.Tags = tags;
             return View(articleUpdateDto);
         }
         [HttpPost]

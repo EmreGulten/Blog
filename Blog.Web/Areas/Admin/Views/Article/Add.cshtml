@@ -32,15 +32,23 @@
                         </div>
 
                         <div class="form-group">
-                            <label asp-for="Tag" id="defaultFormControlInput" class="form-label">Tag</label>
-                            <input asp-for="Tag" type="text" class="form-control mb-3" id="defaultFormControlInput" placeholder="Lütfen Tag giriniz." aria-describedby="defaultFormControlHelp">
-                            <span asp-validation-for="Tag" class="text-danger"></span>
+                            <label asp-for="TagId">Tags</label>
+                            <select id="tagsList" class="form-control" asp-for="TagId" asp-items="@(Model.Tags != null ? new SelectList(Model.Tags, "Id", "Tags") : new SelectList(new List<Tag>(), "Id", "Tags"))"></select>
+
+                            <span asp-validation-for="TagId" class="text-danger"></span>
+
                         </div>
 
                         <div class="form-group">
                             <label asp-for="Author" id="defaultFormControlInput" class="form-label">Author</label>
                             <input asp-for="Author" type="text" class="form-control mb-3" id="defaultFormControlInput" placeholder="Lütfen Author giriniz." aria-describedby="defaultFormControlHelp">
                             <span asp-validation-for="Author" class="text-danger"></span>
+                        </div>
+
+                         <div class="form-group">
+                            <label asp-for="Slug" id="defaultFormControlInput" class="form-label">Slug</label>
+                            <input asp-for="Slug" type="text" class="form-control mb-3" id="defaultFormControlInput" placeholder="Lütfen Slug giriniz." aria-describedby="defaultFormControlHelp">
+                            <span asp-validation-for="Slug" class="text-danger"></span>
                         </div>
 
                         <div class="form-group">

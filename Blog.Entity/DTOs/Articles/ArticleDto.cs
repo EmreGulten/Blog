@@ -9,6 +9,7 @@ namespace Blog.Entity.DTOs.Articles
         public string Title { get; set; }
         public string Content { get; set; }
         public string Author { get; set; }
+        public string Slug { get; set; }
         public int TagId { get; set; }
         public List<Tag> Tags { get; set; }
         public CategoryDto Category { get; set; }

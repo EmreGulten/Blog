@@ -26,6 +26,8 @@ namespace Blog.Service.Extensions
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddScoped<IProductService, ProductService>();
             services.AddScoped<IMailService, MailService>();
+            services.AddScoped<ITagService, TagService>();
+
 
             services.AddAutoMapper(assembly);
 

@@ -67,7 +67,9 @@ namespace Blog.Service.Services.Concrete
                 Title = articleAddDto.Title,
                 Content = articleAddDto.Content,
                 Author = articleAddDto.Author,
+                TagId= articleAddDto.TagId,
                 UserId = userId,
+                Slug= articleAddDto.Slug,
                 CreatedBy = userEmail,
                 CategoryId = articleAddDto.CategoryId,
                 ImageId = image.Id
@@ -111,10 +113,12 @@ namespace Blog.Service.Services.Concrete
 
             }
 
-            //mapper.Map(articleUpdateDto, article);
-            //article.Title = articleUpdateDto.Title;
-            //article.Content = articleUpdateDto.Content;
-            //article.CategoryId = articleUpdateDto.CategoryId;
+            article.Title = articleUpdateDto.Title;
+            article.Content = articleUpdateDto.Content;
+            article.CategoryId = articleUpdateDto.CategoryId;
+            article.Tags = articleUpdateDto.Tags;
+            article.Author = articleUpdateDto.Author;
+            article.Slug = articleUpdateDto.Slug;
             article.ModifiedDate = DateTime.Now;
             article.ModifiedBy = userEmail;
 
@@ -122,7 +126,6 @@ namespace Blog.Service.Services.Concrete
             await unitOfWork.SaveAsync();
 
             return article.Title;
-
         }
         public async Task<string> SafeDeleteArticleAsync(Guid articleId)
         {

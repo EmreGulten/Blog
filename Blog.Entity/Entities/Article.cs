@@ -28,6 +28,8 @@ namespace Blog.Entity.Entities
         public List<Tag> Tags { get; set; }
         public int Views { get; set; }
 
+        public string Slug { get; set; }
+
         public Guid? CommentId { get; set; }
         public List<Comment> Comments { get; set; }
         public Guid CategoryId { get; set; }
@@ -43,9 +45,9 @@ namespace Blog.Entity.Entities
 
         public ICollection<ArticleVisitor> ArticleVisitors { get; set; }
 
-        public string Slug
+        public string SlugGet
         {
-            get { return GenerateSlug(Title); }
+            get { return GenerateSlug(Slug); }
         }
 
         public string MetaTitle
@@ -152,7 +154,7 @@ namespace Blog.Entity.Entities
         }
     }
 
-    public class Tag
+    public class Tag : IEntityBase
     {
         public int Id { get; set; }
         public string Tags { get; set; }
@@ -161,7 +163,7 @@ namespace Blog.Entity.Entities
         public Article Article { get; set; }
     }
 
-    public class Keyword
+    public class Keyword : IEntityBase
     {
         public int Id { get; set; }
         public string Keywords { get; set; }
@@ -170,7 +172,7 @@ namespace Blog.Entity.Entities
         public Article Article { get; set; }
     }
 
-    public class AlternateUrl
+    public class AlternateUrl : IEntityBase
     {
         public int Id { get; set; }
         public string AlternateUrls { get; set; }
@@ -179,7 +181,7 @@ namespace Blog.Entity.Entities
         public Article Article { get; set; }
     }
 
-    public class RelatedPost
+    public class RelatedPost : IEntityBase
     {
         public int Id { get; set; }
         public string RelatedPosts { get; set; }

@@ -11,8 +11,11 @@ namespace Blog.Entity.DTOs.Articles
         public string Content { get; set; }
         public string MetaTitle { get; set; }
         public string MetaDescription { get; set; }
-        public string Tag { get; set; }
+
+        public int TagId { get; set; }
+        public List<Tag> Tags { get; set; }
         public string Author { get; set; }
+        public string Slug { get; set; }
         public Guid CategoryId { get; set; }
 
         public Image Image { get; set; }
