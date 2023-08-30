@@ -569,7 +569,7 @@ nav ul ul li.has-childs:before {
 	right: 25px;
 }
 .banner-slide {
-	background-image: url(https://via.placeholder.com/1920x800);
+	background-image: url(https://fakeimg.pl/1920x800);
 	background-repeat: no-repeat;
 	background-size: cover;
 	padding: 240px 0 253px;
@@ -1041,7 +1041,7 @@ a {
 
 
 .case-study-sec {
-	background-image: url('/Theme/HomePage2/isDisiplini4.jpg');
+	background-image: url(/Theme/HomePage2/backgroundTemp04.jpg);
 	background-repeat: no-repeat;
 	background-position: right;
 	padding: 100px 0 87px;
@@ -1365,7 +1365,7 @@ a {
 
 
 .sys-system-section {
-	background-image: url(https://via.placeholder.com/1920x867);
+	background-image: url(https://fakeimg.pl/1920x867);
 	background-repeat: no-repeat;
 	background-size: cover;
 	padding: 39px 0 100px;
@@ -1552,10 +1552,11 @@ input:checked ~ .checkcircle:before {
 
 
 .testimonial-sec {
-	background-image: url('/Theme/HomePage2/YorumlarKismiArkaPlani.jpg');
+	background-image: url(/Theme/HomePage2/musteriYorumlariArkaPlan.jpg);
 	background-repeat: no-repeat;
 	background-size: cover;
 	padding: 100px 0;
+	opacity: 0.8;
 }
 
 .testimonial-slide {
@@ -1833,7 +1834,7 @@ input:checked ~ .checkcircle:before {
 
 .main-footer {
 	padding: 100px 0;
-	background-image: url('/Theme/iletisim/iletisimBanner.jpg');
+	background-image: url(/Theme/HomePage2/FollowUsImage.png);
 	background-repeat: no-repeat;
 	background-position: bottom right;
 }
@@ -1965,21 +1966,7 @@ input:checked ~ .checkcircle:before {
 /* ===================== PAGER SECTION =================== */
 
 .pager-sec {
-	background-image: url('/Theme/Hakkimizda/HakkimizdaBanner.jpg');
-	background-repeat: no-repeat;
-	background-size: cover;
-	padding: 130px 0 127px;
-}
-
-.pager-sec-blog {
-	background-image: url('/Theme/Blog/BlogBanner.jpg');
-	background-repeat: no-repeat;
-	background-size: cover;
-	padding: 130px 0 127px;
-}
-
-.pager-sec-contact {
-	background-image: url('/Theme/iletisim/iletisimBanner.jpg');
+	background-image: url(https://fakeimg.pl/1920x400);
 	background-repeat: no-repeat;
 	background-size: cover;
 	padding: 130px 0 127px;
@@ -2446,7 +2433,7 @@ input:checked ~ .checkcircle:before {
 /* =================== APPOINTMENT SECTION ================== */
 
 .appointment-section {
-	background-image: url(https://via.placeholder.com/1920x557);
+	background-image: url(https://fakeimg.pl/1920x557);
 	background-repeat: no-repeat;
 	background-size: cover;
 	padding: 100px 0;
@@ -2873,7 +2860,7 @@ input:checked ~ .checkcircle:before {
 /* WIDGET QUICK CONTACT */
 
 .widget-quick-contact {
-	background-image: url(https://via.placeholder.com/365x293);
+	background-image: url(https://fakeimg.pl/365x293);
 	background-repeat: no-repeat;
 	background-size: cover;
 	padding: 40px 50px;
@@ -3260,24 +3247,21 @@ input:checked ~ .checkcircle:before {
 .post-tgrow .socio-links {
 	float: right;
 }
-
 .socio-links li {
 	margin-right: 21px;
 }
-
-	.socio-links li a {
-		width: auto;
-		height: auto;
-		line-height: inherit;
-		border: 0;
-		color: #777777;
-		background-color:lightblue; /* Arka plan rengi */
-		transition: background-color 0.3s ease; /* Daha yumuþak bir geçiþ için geçiþ efekti ekle */
-	}
-
-/* Özel stil için */
-.post-tgrow .socio-links li a {
-	background-color: cyan; /* Özel arka plan rengi */
+.socio-links li a {
+	width: auto;
+	height: auto;
+	line-height: inherit;
+	border:0;
+	color: #777777;
+}
+.socio-links li a:hover {
+	background-color: unset;
+}
+.post-tgrow .socio-links li a:hover {
+	background-color: inherit;
 }
 .post-navigation {
 	float: left;
@@ -3957,7 +3941,7 @@ select::-ms-expand {
 
 
 .cct-jb {
-	background-image: url(https://via.placeholder.com/370x300);
+	background-image: url(https://fakeimg.pl/370x300);
 	background-repeat: no-repeat;
 	background-size: cover;
 	height: 100%;
@@ -4390,7 +4374,7 @@ header.style2 .cart-dv {
 	text-align: center;
 }
 .banner-section.style2 .overlay-dark:before {
-	opacity: 0.80;
+	opacity: 0.60;
 }
 .top_header {
 	padding: 8px 0 2px 0;

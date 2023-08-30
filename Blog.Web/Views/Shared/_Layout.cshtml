@@ -40,17 +40,15 @@
 					</ul>
 					<!--  Social Links -->
 					<ul class="social-links">
-					@*	<li>
+					
+						<li>
+							<a ><i class="fa fa-phone"> +90 535 982 07 74</i> </a>
+						</li>
+						<li>
 							<a href="#" title=""><i class="fab fa-facebook-f"></i></a>
 						</li>
 						<li>
 							<a href="#" title=""><i class="fab fa-linkedin-in"></i></a>
-						</li>
-						<li>
-							<a href="#" title=""><i class="fab fa-twitter"></i></a>
-						</li>*@
-						<li>
-							<a><i class="fa fa-phone"></i> 0535 982 07 74</a>
 						</li>
 						<li>
 							<a href="https://www.instagram.com/sancaktarguv.sist/" title="" target="_blank"><i class="fab fa-instagram"></i></a>
@@ -74,10 +72,7 @@
 									<a asp-area="" asp-controller="Home" asp-action="Index">Ana Sayfa</a>
 									
 								</li>
-								<li>
-									<a asp-area="" asp-controller="Home" asp-action="About">Hakkımızda</a>
-									
-								</li>
+								
 							
 								<li>
 									<a href="#" title="">Blog</a>
@@ -91,12 +86,16 @@
 									</ul>
 								</li>
 								<li>
+									<a asp-area="" asp-controller="Home" asp-action="About">Hakkımızda</a>
+
+								</li>
+								<li>
 									<a asp-area="" asp-controller="Home" asp-action="Contact">İletişim</a>
 									</li>
 							</ul>
 						</nav><!--navigation end-->
-						<a href="contact.html" title="" class="quote-btn">Get A Quote</a>
-						<div class="cart-dv">
+						<a href="contact.html" title="" class="quote-btn">Teklif Al</a>
+						@*<div class="cart-dv">
 							<a href="shop.html" title="" class="cart-btn">
 								<img src="~/Theme/assets/images/cart2.png" alt="">
 							</a>
@@ -105,7 +104,7 @@
 							<a href="#" title="" class="search-btn">
 								<i class="fa fa-search"></i>
 							</a>
-						</div><!--search-frm end-->
+						</div><!--search-frm end-->*@
 						<div class="clearfix"></div>
 					</div><!--header-content end-->
 				</div><!--bottom_header end-->
@@ -242,7 +241,8 @@
 							<div class="widget widget-social">
 								<h3 class="widget-title" style="color:cornflowerblue">Bize Ulaşın</h3>
 								<ul class="socio-links">
-									
+									<li><a href="#" title=""><i class="fab fa-facebook-f"></i></a></li>
+									<li><a href="#" title=""><i class="fab fa-linkedin-in"></i></a></li>
 									<li><a href="https://wa.me/05359820774" title="" target="_blank"><i class="fab fa-whatsapp"></i></a></li>
 									<li><a href="https://www.instagram.com/sancaktarguv.sist/" title="" target="_blank"><i class="fab fa-instagram"></i></a></li>
 								</ul>
@@ -278,9 +278,6 @@
 	<script src="~/Theme/assets/js/plugin/html5lightbox.js"></script>
 	<script src="~/Theme/assets/js/script.js"></script>
 
-	<!-- Maps -->
-	<script src="~/Theme/assets/js/map2.js"></script>
-	<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"></script>
 
 </body>
 
